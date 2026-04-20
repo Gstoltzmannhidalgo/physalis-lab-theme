@@ -226,3 +226,212 @@ hr,
 .cart-drawer__warnings {
   background-color: var(--physalis-cream);
 }
+
+/* =====================================================================
+   Home editorial — Phase 4
+   ===================================================================== */
+
+/* Hero (image-banner) — refinamiento editorial */
+.banner__heading {
+  letter-spacing: -0.02rem;
+  line-height: 1.05;
+}
+
+.banner__text.subtitle {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-block: 1.6rem 2.4rem;
+}
+
+.banner__buttons {
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.banner__box {
+  padding-inline: 0;
+  background: transparent;
+}
+
+.banner__box .banner__heading {
+  margin-block: 1.2rem 0;
+}
+
+/* Manifiesto (rich-text) — display generoso */
+.rich-text__heading {
+  letter-spacing: -0.02rem;
+  line-height: 1.05;
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.rich-text__text {
+  font-size: 1.7rem;
+  line-height: 1.6;
+  max-width: 56ch;
+  margin-inline: auto;
+  margin-top: 2.4rem;
+  opacity: 0.9;
+}
+
+/* Section headings globales (h2 con caption mono) */
+.title-wrapper-with-link .title,
+.collection__title .title,
+.section-header .title {
+  font-family: var(--font-heading-family);
+  letter-spacing: -0.01rem;
+}
+
+/* Caption uppercase mono — para "Edición destacada", "Diseñador del mes" */
+.caption,
+.caption-with-letter-spacing,
+.subtitle {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+/* Image-with-text (Diseñador del mes) — composición editorial */
+.image-with-text__heading {
+  letter-spacing: -0.02rem;
+  line-height: 1.1;
+  margin-block: 0.6rem 1.6rem;
+}
+
+.image-with-text__caption {
+  color: var(--physalis-mostaza);
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.image-with-text__text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  max-width: 48ch;
+}
+
+.image-with-text__media {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Multicolumn (proceso 01/02/03) — números editoriales */
+.multicolumn-card__info .multicolumn-card__title {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  font-weight: 500;
+  letter-spacing: -0.01rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.1;
+  position: relative;
+}
+
+.multicolumn-card__info .rte {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-width: 36ch;
+}
+
+.multicolumn .title-wrapper-with-link .title,
+.multicolumn-list__heading {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+  opacity: 0.65;
+}
+
+/* Collection list cards — hover sutil */
+.collection-list .card-wrapper,
+.card-wrapper {
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+
+.collection-list .card-wrapper:hover,
+.card-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+.card__heading,
+.card-information__text {
+  font-family: var(--font-heading-family);
+  letter-spacing: -0.005rem;
+}
+
+.card-information .price {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.2rem;
+  letter-spacing: 0.08rem;
+}
+
+/* Vendor (autor / diseñador) en mono uppercase */
+.caption-with-letter-spacing,
+.product .vendor,
+.card-information .vendor,
+.card__information .caption-with-letter-spacing {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.05rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Featured collection — title editorial + caption */
+.featured-collection .title-wrapper-with-link .title,
+.collection .title-wrapper-with-link .title {
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  letter-spacing: -0.02rem;
+  margin-bottom: 0;
+}
+
+.title-wrapper-with-link .link {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.2rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.title-wrapper-with-link .link:hover {
+  color: var(--physalis-terracota);
+  opacity: 1;
+}
+
+/* Email signup banner (newsletter) — mostaza inmersivo */
+.email-signup-banner__heading {
+  letter-spacing: -0.02rem;
+  line-height: 1.1;
+}
+
+.email-signup-banner__subtext {
+  font-size: 1.5rem;
+  max-width: 48ch;
+  margin-inline: auto;
+  opacity: 0.85;
+}
+
+.email-signup-banner__box .field__input {
+  background: transparent;
+  border-color: var(--physalis-cacao);
+}
+
+/* ---------- Espaciado entre secciones (ritmo editorial) ---------- */
+.shopify-section + .shopify-section {
+  margin-top: 0;
+}
+
+.section-template--main {
+  padding-block: clamp(4rem, 6vw, 8rem);
+}
+
