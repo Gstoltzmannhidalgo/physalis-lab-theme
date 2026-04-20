@@ -131,7 +131,7 @@
       {
         "type": "font_picker",
         "id": "type_body_font",
-        "default": "assistant_n4",
+        "default": "manrope_n4",
         "label": "t:settings_schema.typography.settings.type_body_font.label"
       },
       {
@@ -143,6 +143,97 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
+      },
+      {
+        "type": "header",
+        "content": "Tipografía monoespaciada (Physalis)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Usada para metadatos, labels técnicos, precios en captions y micro-texto en caps. Recomendada: IBM Plex Mono."
+      },
+      {
+        "type": "font_picker",
+        "id": "type_mono_font",
+        "default": "ibm_plex_mono_n4",
+        "label": "Fuente mono"
+      }
+    ]
+  },
+  {
+    "name": "Colores Physalis (ornamentales)",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Paleta oficial de Physalis Lab. Los tres acentos protagonistas (terracota, mostaza, cacao) se configuran en los esquemas de color de arriba. Aquí defines los ornamentales y los tonos de apoyo."
+      },
+      {
+        "type": "header",
+        "content": "Ornamentales (fondos vitral)"
+      },
+      {
+        "type": "color",
+        "id": "physalis_salvia",
+        "label": "Salvia",
+        "default": "#7BA88A"
+      },
+      {
+        "type": "color",
+        "id": "physalis_celeste",
+        "label": "Celeste",
+        "default": "#6FA3B0"
+      },
+      {
+        "type": "color",
+        "id": "physalis_lila",
+        "label": "Lila",
+        "default": "#B89BC4"
+      },
+      {
+        "type": "header",
+        "content": "Tonos de apoyo"
+      },
+      {
+        "type": "color",
+        "id": "physalis_cream",
+        "label": "Cream (fondo base)",
+        "default": "#F3E5BC"
+      },
+      {
+        "type": "color",
+        "id": "physalis_cream_light",
+        "label": "Cream light (paneles de respiro)",
+        "default": "#FAF0CF"
+      },
+      {
+        "type": "color",
+        "id": "physalis_cacao",
+        "label": "Cacao (tinta principal)",
+        "default": "#3E2418"
+      },
+      {
+        "type": "color",
+        "id": "physalis_cacao_light",
+        "label": "Cacao light (texto secundario)",
+        "default": "#805A44"
+      },
+      {
+        "type": "color",
+        "id": "physalis_terracota",
+        "label": "Terracota (acento primario)",
+        "default": "#D96E3B"
+      },
+      {
+        "type": "color",
+        "id": "physalis_mostaza",
+        "label": "Mostaza (acento cálido)",
+        "default": "#E0A94A"
+      },
+      {
+        "type": "color",
+        "id": "physalis_hairline",
+        "label": "Hairline (bordes sutiles)",
+        "default": "#C9B58A"
       }
     ]
   },

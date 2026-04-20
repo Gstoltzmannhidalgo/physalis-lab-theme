@@ -3595,3 +3595,64 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* =====================================================================
+   Physalis Lab — tokens y utilidades editoriales
+   Aplicación global de la paleta oficial y la tipografía mono.
+   ===================================================================== */
+
+body {
+  font-feature-settings: 'ss01', 'ss02', 'kern';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h0,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+  font-feature-settings: 'ss01', 'kern', 'liga';
+}
+
+.text-mono,
+.physalis-mono,
+.product__text.caption-with-letter-spacing,
+.price--mono {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-style: var(--font-mono-style, normal);
+  font-weight: var(--font-mono-weight, 400);
+  letter-spacing: 0.04rem;
+}
+
+hr,
+.hairline {
+  border: 0;
+  border-top: 1px solid var(--physalis-hairline);
+  opacity: 1;
+}
+
+.physalis-bg-cream { background-color: var(--physalis-cream); }
+.physalis-bg-cream-light { background-color: var(--physalis-cream-light); }
+.physalis-bg-cacao { background-color: var(--physalis-cacao); color: var(--physalis-cream-light); }
+.physalis-bg-terracota { background-color: var(--physalis-terracota); color: var(--physalis-cream-light); }
+.physalis-bg-mostaza { background-color: var(--physalis-mostaza); color: var(--physalis-cacao); }
+.physalis-bg-salvia { background-color: var(--physalis-salvia); color: var(--physalis-cacao); }
+.physalis-bg-celeste { background-color: var(--physalis-celeste); color: var(--physalis-cacao); }
+.physalis-bg-lila { background-color: var(--physalis-lila); color: var(--physalis-cacao); }
+
+.physalis-text-cacao { color: var(--physalis-cacao); }
+.physalis-text-cream-light { color: var(--physalis-cream-light); }
+.physalis-text-terracota { color: var(--physalis-terracota); }
+.physalis-text-mostaza { color: var(--physalis-mostaza); }
+
+::selection {
+  background-color: var(--physalis-mostaza);
+  color: var(--physalis-cacao);
+}

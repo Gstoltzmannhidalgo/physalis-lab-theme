@@ -47,12 +47,23 @@
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
 
+    {%- liquid
+      assign header_font_italic = settings.type_header_font | font_modify: 'style', 'italic'
+      assign header_font_semibold = settings.type_header_font | font_modify: 'weight', 'semibold'
+      assign mono_font = settings.type_mono_font
+    -%}
+
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
       {{ body_font_bold | font_face: font_display: 'swap' }}
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+      {{ header_font_italic | font_face: font_display: 'swap' }}
+      {{ header_font_semibold | font_face: font_display: 'swap' }}
+      {%- if mono_font != blank -%}
+        {{ mono_font | font_face: font_display: 'swap' }}
+      {%- endif -%}
 
       {% for scheme in settings.color_schemes -%}
         {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
@@ -109,8 +120,25 @@
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
+        {%- if settings.type_mono_font != blank -%}
+        --font-mono-family: {{ settings.type_mono_font.family }}, {{ settings.type_mono_font.fallback_families }};
+        --font-mono-style: {{ settings.type_mono_font.style }};
+        --font-mono-weight: {{ settings.type_mono_font.weight }};
+        {%- endif -%}
+
         --font-body-scale: {{ settings.body_scale | divided_by: 100.0 }};
         --font-heading-scale: {{ settings.heading_scale | times: 1.0 | divided_by: settings.body_scale }};
+
+        --physalis-cream: {{ settings.physalis_cream }};
+        --physalis-cream-light: {{ settings.physalis_cream_light }};
+        --physalis-terracota: {{ settings.physalis_terracota }};
+        --physalis-mostaza: {{ settings.physalis_mostaza }};
+        --physalis-cacao: {{ settings.physalis_cacao }};
+        --physalis-cacao-light: {{ settings.physalis_cacao_light }};
+        --physalis-salvia: {{ settings.physalis_salvia }};
+        --physalis-celeste: {{ settings.physalis_celeste }};
+        --physalis-lila: {{ settings.physalis_lila }};
+        --physalis-hairline: {{ settings.physalis_hairline }};
 
         --media-padding: {{ settings.media_padding }}px;
         --media-border-opacity: {{ settings.media_border_opacity | divided_by: 100.0 }};
