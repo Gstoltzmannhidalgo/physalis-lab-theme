@@ -36,52 +36,52 @@
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "show_gift_card_recipient": false
           }
         },
         "description": {
           "type": "description"
         },
-        "collapsible-row-0": {
+        "collapsible-materiales": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Materials",
+            "heading": "Materiales",
             "icon": "leather",
-            "content": "",
+            "content": "<p>Filamento PLA biodegradable de origen vegetal · Producido en Chile bajo pedido.</p>",
             "page": ""
           }
         },
-        "collapsible-row-1": {
+        "collapsible-dimensiones": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
+            "heading": "Dimensiones",
             "icon": "ruler",
             "content": "",
             "page": ""
           }
         },
-        "collapsible-row-3": {
+        "collapsible-envio": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Care Instructions",
+            "heading": "Envío y devoluciones",
+            "icon": "truck",
+            "content": "<p>Despacho a todo Chile vía Starken o Chilexpress · 5 a 8 días hábiles desde la confirmación del pago.</p>",
+            "page": ""
+          }
+        },
+        "collapsible-cuidados": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Cuidados",
             "icon": "heart",
-            "content": "",
+            "content": "<p>Limpieza con paño húmedo · Evitar fuentes de calor superiores a 60°C.</p>",
             "page": ""
           }
         },
         "share": {
           "type": "share",
           "settings": {
-            "share_label": "Share"
+            "share_label": "Compartir"
           }
         }
       },
@@ -94,91 +94,94 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
+        "collapsible-materiales",
+        "collapsible-dimensiones",
+        "collapsible-envio",
+        "collapsible-cuidados",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail",
         "media_size": "large",
         "constrain_to_viewport": true,
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 48,
+        "padding_bottom": 16
       }
     },
-    "image-with-text": {
-      "type": "image-with-text",
+    "tagline": {
+      "type": "rich-text",
       "blocks": {
-        "image-with-text-0": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Physalis Lab",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
-            "heading_size": "h1"
+            "heading": "Diseño de autor en tu hogar",
+            "heading_size": "h0"
           }
         },
-        "image-with-text-1": {
+        "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
+            "text": "<p>Cada pieza nace de la mano de una diseñadora o un diseñador, y se imprime sólo cuando la pedís. Sin stock, sin desperdicio, sin intermediarios.</p>"
           }
         }
       },
-      "block_order": [
-        "image-with-text-0",
-        "image-with-text-1"
-      ],
+      "block_order": ["caption", "heading", "text"],
       "settings": {
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
-    "multicolumn": {
+    "destacados": {
       "type": "multicolumn",
       "blocks": {
-        "column-0": {
+        "destacado-1": {
           "type": "column",
           "settings": {
-            "title": "Free Shipping",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Autoría firmada",
+            "text": "<p>Cada pieza viene con la firma del diseñador y el sello Physalis.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "column-1": {
+        "destacado-2": {
           "type": "column",
           "settings": {
-            "title": "Hassle-Free Exchanges",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Impreso en Chile",
+            "text": "<p>Producción local bajo pedido en filamentos seleccionados.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "destacado-3": {
+          "type": "column",
+          "settings": {
+            "title": "Cero stock",
+            "text": "<p>No producimos lo que no se pide. Menos desperdicio, más intención.</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
-      "block_order": [
-        "column-0",
-        "column-1"
-      ],
+      "block_order": ["destacado-1", "destacado-2", "destacado-3"],
       "settings": {
         "title": "",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "image_width": "full",
         "image_ratio": "adapt",
-        "columns_desktop": 2,
+        "columns_desktop": 3,
         "column_alignment": "left",
         "background_style": "none",
         "button_label": "",
@@ -186,31 +189,32 @@
         "swipe_on_mobile": false,
         "color_scheme": "scheme-1",
         "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 56,
+        "padding_bottom": 56
       }
     },
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "También te puede interesar",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "show_secondary_image": true,
-        "show_vendor": false,
+        "show_vendor": true,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 48,
+        "padding_bottom": 64
       }
     }
   },
   "order": [
     "main",
-    "image-with-text",
-    "multicolumn",
+    "tagline",
+    "destacados",
     "related-products"
   ]
 }
