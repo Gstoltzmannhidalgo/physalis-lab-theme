@@ -860,3 +860,87 @@ hr,
   opacity: 0.8;
   margin: 0;
 }
+
+/* ============================================================
+   PHASE 8 — Accesibilidad + reduced motion + perf
+   ============================================================ */
+
+/* ---------- Skip-link visible y editorial ---------- */
+.skip-to-content-link:focus {
+  background: var(--physalis-cacao, #3E2418);
+  color: var(--physalis-cream, #F3E5BC);
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1.1rem;
+  padding: 1.2rem 1.6rem;
+  border-radius: 0;
+  z-index: 9999;
+}
+
+/* ---------- Focus visible global más nítido ---------- */
+*:focus-visible {
+  outline: 2px solid var(--physalis-mostaza, #E0A94A);
+  outline-offset: 3px;
+  border-radius: 0;
+}
+button:focus-visible,
+.button:focus-visible,
+.shopify-payment-button__button:focus-visible {
+  outline-color: var(--physalis-mostaza, #E0A94A);
+  outline-offset: 4px;
+}
+
+/* ---------- Mejor contraste de texto secundario ---------- */
+.subtitle,
+.caption,
+.caption-with-letter-spacing {
+  color: inherit;
+}
+
+/* ---------- Reduced motion: respetar prefer ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .disenador-card__link:hover .disenador-card__image img {
+    transform: none;
+  }
+}
+
+/* ---------- Hit targets >= 44px (WCAG 2.5.5) ---------- */
+.header__icon,
+.header__menu-item,
+.list-menu__item--link,
+.facets-vertical__filter button {
+  min-height: 4.4rem;
+}
+
+/* ---------- High contrast mode (Windows) ---------- */
+@media (forced-colors: active) {
+  .button,
+  .product-form__submit,
+  .shopify-payment-button__button {
+    border: 1px solid CanvasText;
+  }
+}
+
+/* ---------- print-friendly editorial ---------- */
+@media print {
+  .header,
+  .footer,
+  .announcement-bar,
+  .product-form,
+  .share-button {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

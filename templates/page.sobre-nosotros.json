@@ -109,10 +109,10 @@
           }
         },
         "buttons": {
-          "type": "buttons",
+          "type": "button",
           "settings": {
-            "button_label_1": "Conocer diseñadores",
-            "button_link_1": "shopify://pages/disenadores",
+            "button_label": "Conocer diseñadores",
+            "button_link": "shopify://pages/disenadores",
             "button_label_2": "Explorar catálogo",
             "button_link_2": "shopify://collections/all",
             "button_style_secondary_2": true
