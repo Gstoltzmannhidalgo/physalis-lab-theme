@@ -1,0 +1,228 @@
+/* =====================================================================
+   Physalis Lab — Hoja de estilo editorial
+   Sobreescribe Dawn con el lenguaje visual Physalis: hairlines finos,
+   navegación en mono uppercase, jerarquías editoriales y ritmo japandi.
+   ===================================================================== */
+
+/* ---------- Header / sticky-header ---------- */
+
+.header-wrapper {
+  border-bottom: 1px solid var(--physalis-hairline) !important;
+  background-color: rgb(var(--color-background));
+}
+
+.header {
+  padding-block: 1.6rem;
+  letter-spacing: 0.04rem;
+}
+
+.header__heading-link,
+.header__heading {
+  letter-spacing: 0.02rem;
+}
+
+/* Logo wordmark fallback (sin imagen subida) */
+.header__heading-logo--text,
+.header__heading-link .h2 {
+  font-family: var(--font-heading-family);
+  font-weight: 500;
+  letter-spacing: 0.01rem;
+}
+
+/* Navegación principal — mono uppercase tracking */
+.header__menu-item,
+.header__active-menu-item,
+.list-menu__item--link,
+.header__inline-menu .list-menu__item {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.header__menu-item:hover,
+.list-menu__item--link:hover {
+  color: var(--physalis-terracota);
+}
+
+.header__active-menu-item {
+  border-bottom: 1px solid var(--physalis-terracota);
+}
+
+/* Iconos del header (cart, account, search) */
+.header__icon {
+  color: rgb(var(--color-foreground));
+}
+
+.header__icon:hover {
+  color: var(--physalis-terracota);
+}
+
+/* Cart count bubble en mostaza */
+.cart-count-bubble {
+  background-color: var(--physalis-terracota);
+  color: var(--physalis-cream-light);
+}
+
+/* Announcement bar — refinado tipográfico */
+.announcement-bar__message {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.2rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 1.4rem 0;
+}
+
+/* ---------- Mega menu / dropdowns ---------- */
+
+.header__submenu {
+  border: 1px solid var(--physalis-hairline);
+  border-radius: 0;
+}
+
+.mega-menu__list .mega-menu__link {
+  font-family: var(--font-body-family);
+  letter-spacing: 0.02rem;
+}
+
+.mega-menu__link--level-2:hover,
+.mega-menu__link:hover {
+  color: var(--physalis-terracota);
+}
+
+/* ---------- Drawer (menú móvil) ---------- */
+
+.menu-drawer {
+  border-right: 1px solid var(--physalis-hairline);
+}
+
+.menu-drawer__menu-item {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.menu-drawer__menu-item:hover {
+  background-color: var(--physalis-cream-light);
+  color: var(--physalis-terracota);
+}
+
+/* ---------- Footer editorial ---------- */
+
+.footer {
+  border-top: 1px solid var(--physalis-hairline);
+  padding-block: 6rem 3rem;
+}
+
+.footer-block__heading,
+.footer__content-top .footer-block__heading {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 1.6rem;
+  opacity: 0.75;
+}
+
+.footer-block__details-content > .list-menu__item--link {
+  font-family: var(--font-body-family);
+  font-size: 1.4rem;
+  letter-spacing: 0.02rem;
+  padding-block: 0.6rem;
+}
+
+.footer-block__details-content > .list-menu__item--link:hover {
+  color: var(--physalis-mostaza);
+}
+
+.footer__copyright,
+.copyright__content {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  font-size: 1.1rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.footer__content-bottom {
+  border-top: 1px solid rgba(var(--color-foreground), 0.15);
+  padding-top: 2.4rem;
+  margin-top: 3.2rem;
+}
+
+.footer__list-social .list-social__item .icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.footer__list-social .list-social__link:hover {
+  color: var(--physalis-mostaza);
+}
+
+/* Newsletter en footer */
+.footer-block__newsletter .footer-block__heading {
+  margin-bottom: 0.8rem;
+}
+
+.footer-block__newsletter .field__input {
+  border-color: rgba(var(--color-foreground), 0.4);
+  background: transparent;
+}
+
+/* ---------- Botones globales — refinamiento Physalis ---------- */
+
+.button,
+.shopify-payment-button__button--unbranded {
+  font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.16rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-inline: 2.4rem;
+  min-height: 4.6rem;
+}
+
+.button:not([disabled]):hover {
+  transform: translateY(-1px);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+/* ---------- Layout / ritmo editorial ---------- */
+
+.page-width {
+  padding-inline: 2.4rem;
+}
+
+@media screen and (min-width: 750px) {
+  .page-width {
+    padding-inline: 4rem;
+  }
+}
+
+/* Refinar líneas decorativas <hr> */
+hr,
+.hairline {
+  border-top: 1px solid var(--physalis-hairline);
+  opacity: 1;
+  margin-block: 0;
+}
+
+/* ---------- Foco accesible Physalis ---------- */
+
+*:focus-visible {
+  outline: 2px solid var(--physalis-terracota);
+  outline-offset: 0.3rem;
+  box-shadow: none;
+}
+
+/* ---------- Quitar el scheme-2 default de cards en header drawer cart ---------- */
+
+.cart-drawer .drawer__inner-empty,
+.cart-drawer__warnings {
+  background-color: var(--physalis-cream);
+}
