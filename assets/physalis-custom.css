@@ -652,3 +652,211 @@ hr,
 }
 
 
+
+/* ============================================================
+   PHASE 6 — Diseñadores (metaobjects)
+   ============================================================ */
+
+/* ---------- Index grid de diseñadores ---------- */
+.disenadores-grid {
+  display: grid;
+  gap: 4rem 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 750px) {
+  .disenadores-grid {
+    grid-template-columns: repeat(var(--columns, 3), minmax(0, 1fr));
+  }
+}
+.disenadores-grid-section .grid--3-col-desktop { --columns: 3; }
+.disenadores-grid-section .grid--2-col-desktop { --columns: 2; }
+.disenadores-grid-section .grid--4-col-desktop { --columns: 4; }
+
+.disenador-card { list-style: none; }
+.disenador-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+.disenador-card__link:hover { opacity: 0.85; }
+
+.disenador-card__image {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--physalis-cream-light, #FAF0CF);
+  border: 1px solid var(--physalis-hairline, #C9B58A);
+}
+.disenador-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.disenador-card__link:hover .disenador-card__image img {
+  transform: scale(1.03);
+}
+
+.disenador-card__body { display: grid; gap: 0.6rem; }
+
+.disenador-card__location {
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1.1rem;
+  color: var(--physalis-terracota, #D96E3B);
+  margin: 0;
+}
+.disenador-card__name {
+  font-family: var(--font-heading-family);
+  font-size: clamp(2rem, 2.4vw, 2.4rem);
+  margin: 0;
+  letter-spacing: -0.005rem;
+}
+.disenador-card__bio {
+  font-size: 1.4rem;
+  line-height: 1.55;
+  opacity: 0.85;
+  margin: 0;
+}
+.disenador-card__cta {
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1.1rem;
+  color: var(--physalis-mostaza, #E0A94A);
+  margin-top: 0.6rem;
+}
+
+/* ---------- Perfil individual de diseñador ---------- */
+.disenador-profile__layout {
+  display: grid;
+  gap: 4rem;
+  align-items: start;
+}
+@media (min-width: 990px) {
+  .disenador-profile__layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 6rem;
+  }
+}
+
+.disenador-profile__media img,
+.disenador-profile__placeholder {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--physalis-hairline, #C9B58A);
+}
+
+.disenador-profile__eyebrow {
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.22rem;
+  font-size: 1.2rem;
+  color: var(--physalis-terracota, #D96E3B);
+  margin: 0 0 1.6rem;
+}
+
+.disenador-profile__name {
+  font-family: var(--font-heading-family);
+  font-size: clamp(4rem, 6vw, 6.4rem);
+  line-height: 1;
+  letter-spacing: -0.02rem;
+  margin: 0 0 1.2rem;
+}
+
+.disenador-profile__location {
+  font-style: italic;
+  font-size: 1.6rem;
+  opacity: 0.85;
+  margin: 0 0 2.4rem;
+}
+
+.disenador-profile__bio {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  margin-bottom: 3.2rem;
+  max-width: 60ch;
+}
+
+.disenador-profile__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.4rem;
+}
+.disenador-profile__links a {
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: var(--physalis-cacao, #3E2418);
+  border-bottom: 1px solid var(--physalis-hairline, #C9B58A);
+  padding-bottom: 0.4rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.disenador-profile__links a:hover {
+  color: var(--physalis-terracota, #D96E3B);
+  border-color: var(--physalis-terracota, #D96E3B);
+}
+
+.disenador-profile__products {
+  margin-top: 8rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--physalis-hairline, #C9B58A);
+}
+.disenador-profile__products h2 {
+  font-family: var(--font-heading-family);
+  margin: 0 0 3.2rem;
+}
+
+/* ---------- Bloque diseñador en página de producto ---------- */
+.product__designer {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--physalis-hairline, #C9B58A);
+  border-bottom: 1px solid var(--physalis-hairline, #C9B58A);
+  margin: 1.6rem 0;
+}
+.product__designer-label {
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1rem;
+  opacity: 0.7;
+  margin: 0;
+}
+.product__designer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  font-family: var(--font-heading-family);
+  font-size: 1.8rem;
+  transition: color 0.2s ease;
+}
+.product__designer-link:hover {
+  color: var(--physalis-terracota, #D96E3B);
+}
+.product__designer-avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--physalis-hairline, #C9B58A);
+}
+.product__designer-bio {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  opacity: 0.8;
+  margin: 0;
+}

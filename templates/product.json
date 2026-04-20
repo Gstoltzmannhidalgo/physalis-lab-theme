@@ -42,6 +42,15 @@
         "description": {
           "type": "description"
         },
+        "designer": {
+          "type": "designer",
+          "settings": {
+            "label": "Diseño de",
+            "namespace": "custom",
+            "key": "designer",
+            "show_bio": false
+          }
+        },
         "collapsible-materiales": {
           "type": "collapsible_tab",
           "settings": {
@@ -94,6 +103,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "designer",
         "collapsible-materiales",
         "collapsible-dimensiones",
         "collapsible-envio",

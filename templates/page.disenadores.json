@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "banner": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Physalis Lab",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Las manos detrás de cada pieza",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cada objeto Physalis nace de una autora o autor independiente. Conocé a quienes diseñan las piezas que después se imprimen — bajo pedido — para tu hogar.</p>"
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 48
+      }
+    },
+    "grid": {
+      "type": "disenadores-grid",
+      "settings": {
+        "title": "Diseñadores",
+        "heading_size": "h1",
+        "metaobject_type": "designer",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["banner", "grid"]
+}

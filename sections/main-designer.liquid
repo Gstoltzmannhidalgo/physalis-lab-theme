@@ -1,0 +1,167 @@
+{%- assign designer = metaobject -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate disenador-profile">
+  <div class="page-width section-{{ section.id }}-padding">
+    <div class="disenador-profile__layout">
+      <aside class="disenador-profile__media">
+        {%- if designer.portrait != blank -%}
+          {{
+            designer.portrait
+            | image_url: width: 1200
+            | image_tag: loading: 'eager', widths: '400, 800, 1200', sizes: '(min-width: 990px) 40vw, 100vw'
+          }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg disenador-profile__placeholder' }}
+        {%- endif -%}
+      </aside>
+
+      <div class="disenador-profile__body">
+        <p class="disenador-profile__eyebrow caption-with-letter-spacing">Diseñador Physalis Lab</p>
+        <h1 class="disenador-profile__name h0">
+          {{- designer.name | default: designer.system.handle -}}
+        </h1>
+        {%- if designer.location != blank -%}
+          <p class="disenador-profile__location subtitle">{{ designer.location }}</p>
+        {%- endif -%}
+
+        {%- if designer.bio != blank -%}
+          <div class="disenador-profile__bio rte">{{ designer.bio | newline_to_br }}</div>
+        {%- endif -%}
+
+        <ul class="disenador-profile__links" role="list">
+          {%- if designer.instagram != blank -%}
+            <li>
+              <a
+                href="https://instagram.com/{{ designer.instagram | replace: '@', '' }}"
+                rel="noopener"
+                target="_blank"
+                class="caption-with-letter-spacing"
+              >
+                Instagram → @{{ designer.instagram | replace: '@', '' }}
+              </a>
+            </li>
+          {%- endif -%}
+          {%- if designer.website != blank -%}
+            <li>
+              <a
+                href="{{ designer.website }}"
+                rel="noopener"
+                target="_blank"
+                class="caption-with-letter-spacing"
+              >
+                Sitio personal →
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </div>
+    </div>
+
+    {%- if section.settings.show_products -%}
+      {%- assign related = collections.all.products
+        | where: 'metafields.custom.designer', designer
+      -%}
+      {%- if related.size == 0 and designer.products != blank -%}
+        {%- assign related = designer.products.value -%}
+      {%- endif -%}
+
+      {%- if related.size > 0 -%}
+        <div class="disenador-profile__products">
+          <h2 class="h2">{{ section.settings.products_heading | default: 'Sus piezas' }}</h2>
+          <ul
+            class="grid grid--3-col-desktop grid--2-col-tablet-down product-grid"
+            role="list"
+          >
+            {%- for product in related limit: section.settings.products_limit -%}
+              <li class="grid__item">
+                {% render 'card-product',
+                  card_product: product,
+                  media_aspect_ratio: 'portrait',
+                  show_secondary_image: true,
+                  show_vendor: false
+                %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Perfil de diseñador",
+  "tag": "section",
+  "class": "section main-designer-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-3"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_products",
+      "label": "Mostrar productos del diseñador",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "products_heading",
+      "label": "Encabezado de productos",
+      "default": "Sus piezas"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "Cantidad de productos"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 80
+    }
+  ],
+  "enabled_on": {
+    "templates": ["metaobject"]
+  }
+}
+{% endschema %}

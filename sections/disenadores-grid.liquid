@@ -1,0 +1,181 @@
+{{ 'section-multicolumn.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.title != blank -%}
+      <div class="title-wrapper-with-link title-wrapper--no-top-margin">
+        <h2 class="title {{ section.settings.heading_size }}">
+          {{- section.settings.title | escape -}}
+        </h2>
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.subtitle != blank -%}
+      <div class="rte" style="max-width: 56ch; margin-bottom: 3rem;">
+        {{ section.settings.subtitle }}
+      </div>
+    {%- endif -%}
+
+    {%- assign designers = shop.metaobjects[section.settings.metaobject_type].values -%}
+
+    {%- if designers.size > 0 -%}
+      <ul
+        class="disenadores-grid grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+        role="list"
+      >
+        {%- for designer in designers -%}
+          <li class="grid__item disenador-card">
+            <a
+              href="{{ designer.system.url }}"
+              class="disenador-card__link"
+              aria-label="{{ designer.name | default: designer.system.handle | escape }}"
+            >
+              {%- if designer.portrait != blank -%}
+                <div class="disenador-card__image">
+                  {{
+                    designer.portrait
+                    | image_url: width: 800
+                    | image_tag: loading: 'lazy', widths: '300, 600, 900', sizes: '(min-width: 750px) 33vw, 100vw'
+                  }}
+                </div>
+              {%- else -%}
+                <div class="disenador-card__image disenador-card__image--placeholder">
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                </div>
+              {%- endif -%}
+              <div class="disenador-card__body">
+                {%- if designer.location != blank -%}
+                  <p class="disenador-card__location caption-with-letter-spacing">
+                    {{- designer.location -}}
+                  </p>
+                {%- endif -%}
+                <h3 class="disenador-card__name h3">
+                  {{- designer.name | default: designer.system.handle -}}
+                </h3>
+                {%- if designer.bio != blank -%}
+                  <p class="disenador-card__bio">
+                    {{- designer.bio | strip_html | truncate: 140 -}}
+                  </p>
+                {%- endif -%}
+                <span class="disenador-card__cta caption-with-letter-spacing">
+                  {{- 'Ver perfil' -}}
+                </span>
+              </div>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
+      <p class="rte" style="opacity:.7;">
+        Aún no hay diseñadores publicados. Creá entradas en
+        <code>{{ section.settings.metaobject_type }}</code> desde el admin de Shopify.
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grilla diseñadores",
+  "tag": "section",
+  "class": "section disenadores-grid-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Nuestros diseñadores"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Tamaño del título",
+      "options": [
+        { "value": "h2", "label": "Mediano" },
+        { "value": "h1", "label": "Grande" },
+        { "value": "h0", "label": "Display" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Bajada"
+    },
+    {
+      "type": "text",
+      "id": "metaobject_type",
+      "label": "Tipo de metaobjeto",
+      "default": "designer",
+      "info": "Debe coincidir con el handle del metaobject definido en Configuración > Metaobjetos."
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3,
+      "label": "Columnas en desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        { "value": "1", "label": "1" },
+        { "value": "2", "label": "2" }
+      ],
+      "default": "1",
+      "label": "Columnas en mobile"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de color",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grilla diseñadores"
+    }
+  ]
+}
+{% endschema %}

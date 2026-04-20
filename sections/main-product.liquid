@@ -191,6 +191,36 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
+              {%- when 'designer' -%}
+                {%- assign designer = product.metafields[block.settings.namespace][block.settings.key].value -%}
+                {%- if designer != blank -%}
+                  <div class="product__designer" {{ block.shopify_attributes }}>
+                    {%- if block.settings.label != blank -%}
+                      <p class="product__designer-label caption-with-letter-spacing">
+                        {{- block.settings.label -}}
+                      </p>
+                    {%- endif -%}
+                    <a href="{{ designer.system.url }}" class="product__designer-link">
+                      {%- if designer.portrait != blank -%}
+                        {{
+                          designer.portrait
+                          | image_url: width: 120
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '60, 120',
+                            class: 'product__designer-avatar',
+                            alt: designer.name
+                        }}
+                      {%- endif -%}
+                      <span class="product__designer-name">
+                        {{- designer.name | default: designer.system.handle -}}
+                      </span>
+                    </a>
+                    {%- if block.settings.show_bio and designer.bio != blank -%}
+                      <p class="product__designer-bio">{{ designer.bio | strip_html | truncate: 180 }}</p>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -932,6 +962,38 @@
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
       "limit": 1
+    },
+    {
+      "type": "designer",
+      "name": "Diseñador (metaobject)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Etiqueta",
+          "default": "Diseño de"
+        },
+        {
+          "type": "text",
+          "id": "namespace",
+          "label": "Metafield namespace",
+          "default": "custom"
+        },
+        {
+          "type": "text",
+          "id": "key",
+          "label": "Metafield key",
+          "default": "designer",
+          "info": "Crear en Admin > Configuración > Metafields personalizados > Productos. Tipo: Metaobjeto > designer."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_bio",
+          "label": "Mostrar bio resumida",
+          "default": false
+        }
+      ]
     },
     {
       "type": "share",
