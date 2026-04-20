@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physalis Lab — Paleta Esencial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F3E5BC;
+    --cream-light: #FAF0CF;
+    --terracota: #D96E3B;
+    --mostaza: #E0A94A;
+    --salvia: #7BA88A;
+    --celeste: #6FA3B0;
+    --lila: #B89BC4;
+    --cacao: #3E2418;
+    --cacao-light: #805A44;
+    --hairline: #C9B58A;
+
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Manrope', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--cacao);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none;
+    z-index: 1; opacity: 0.35;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.29 0 0 0 0 0.18 0 0 0 0 0.12 0 0 0 0.05 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: multiply;
+  }
+
+  .sheet {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ HEADER ============ */
+  .header {
+    border: 2.5px solid var(--cacao);
+    background: var(--cream-light);
+    margin-bottom: 2.5rem;
+    box-shadow: 8px 8px 0 var(--cacao);
+  }
+  .header__band {
+    display: flex; height: 14px;
+    border-bottom: 2px solid var(--cacao);
+  }
+  .header__band > div { flex: 1; border-right: 1.5px solid var(--cacao); }
+  .header__band > div:last-child { border-right: 0; }
+  .header__inner {
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .header__logo { width: 70px; height: 75px; flex-shrink: 0; }
+  .header__title { flex: 1; }
+  .header__title h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 2.5rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 30;
+  }
+  .header__title h1 em {
+    font-style: normal; font-weight: 500;
+    font-size: 1rem; letter-spacing: 0.22em;
+    color: var(--terracota); margin-left: 0.4rem;
+    vertical-align: 0.6em;
+  }
+  .header__title p {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cacao-light);
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+  .header__meta {
+    background: var(--cacao);
+    color: var(--cream-light);
+    padding: 0.75rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .header__meta strong {
+    color: #F0BB5E;
+    display: block;
+    font-weight: 600;
+  }
+
+  /* ============ INTRO ============ */
+  .intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+  .intro__label {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-light);
+    background: var(--cacao);
+    padding: 0.4rem 0.7rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  .intro__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    color: var(--cacao);
+    max-width: 720px;
+    margin: 0 auto;
+    font-variation-settings: "opsz" 144, "SOFT" 60;
+  }
+  .intro__title em {
+    font-style: italic;
+    color: var(--terracota);
+    font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+  .intro__sub {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--cacao-light);
+    margin-top: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ PROTAGONISTAS (3) ============ */
+  .protagonists {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 2.5px solid var(--cacao);
+    box-shadow: 10px 10px 0 var(--cacao);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .swatch-p {
+    padding: 2.5rem 2rem;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2.5px solid var(--cacao);
+    position: relative;
+  }
+  .swatch-p:last-child { border-right: 0; }
+
+  .swatch-p--terracota { background: var(--terracota); color: var(--cream-light); }
+  .swatch-p--mostaza { background: var(--mostaza); color: var(--cacao); }
+  .swatch-p--cacao { background: var(--cacao); color: var(--cream-light); }
+
+  .swatch-p__role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-bottom: 0.3rem;
+  }
+  .swatch-p__use {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.3;
+    opacity: 0.95;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+  .swatch-p__name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+  .swatch-p__hex {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .swatch-p__var {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    background: rgba(0,0,0,0.18);
+    padding: 0.3rem 0.5rem;
+    font-weight: 500;
+  }
+  .swatch-p--mostaza .swatch-p__var {
+    background: rgba(62, 36, 24, 0.18);
+  }
+
+  /* ============ ORNAMENTALES (3) ============ */
+  .ornamentals {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 2.5px solid var(--cacao);
+    box-shadow: 10px 10px 0 var(--cacao);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .swatch-o {
+    padding: 2rem 1.75rem;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 2.5px solid var(--cacao);
+    position: relative;
+    color: var(--cacao);
+  }
+  .swatch-o:last-child { border-right: 0; }
+  .swatch-o--salvia { background: var(--salvia); }
+  .swatch-o--celeste { background: var(--celeste); }
+  .swatch-o--lila { background: var(--lila); }
+
+  .swatch-o__role {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.8;
+    margin-bottom: 0.3rem;
+  }
+  .swatch-o__use {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    opacity: 0.95;
+  }
+  .swatch-o__name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 2.25rem;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .swatch-o__hex {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+  .swatch-o__var {
+    position: absolute;
+    top: 0.85rem; right: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    background: rgba(62, 36, 24, 0.18);
+    padding: 0.25rem 0.45rem;
+    font-weight: 500;
+  }
+
+  /* ============ FONDO BASE ============ */
+  .base {
+    border: 2.5px solid var(--cacao);
+    box-shadow: 10px 10px 0 var(--cacao);
+    margin-bottom: 2.5rem;
+    background: var(--cream);
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .base__var {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    background: rgba(62, 36, 24, 0.15);
+    padding: 0.3rem 0.5rem;
+    font-weight: 500;
+    color: var(--cacao);
+  }
+  .base__left { display: flex; flex-direction: column; gap: 0.4rem; }
+  .base__role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--cacao);
+    opacity: 0.7;
+  }
+  .base__name {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2.5rem;
+    color: var(--cacao);
+    line-height: 1;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+  .base__hex {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--cacao);
+    font-weight: 500;
+    margin-top: 0.3rem;
+  }
+  .base__use {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.15rem;
+    color: var(--cacao);
+    max-width: 24rem;
+    text-align: right;
+  }
+
+  /* ============ MAPA DE USO ============ */
+  .usage {
+    background: var(--cream-light);
+    border: 2.5px solid var(--cacao);
+    box-shadow: 10px 10px 0 var(--cacao);
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .usage__head {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream-light);
+    background: var(--cacao);
+    padding: 0.4rem 0.65rem;
+    display: inline-block;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  .usage__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--cacao);
+    margin-bottom: 1.5rem;
+    font-variation-settings: "opsz" 144, "SOFT" 80;
+  }
+
+  .usage__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2rem;
+  }
+  .usage__item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.85rem;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid var(--hairline);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--cacao);
+  }
+  .usage__chip {
+    width: 14px; height: 14px;
+    flex-shrink: 0;
+    border: 1.5px solid var(--cacao);
+    transform: translateY(2px);
+  }
+  .usage__item strong {
+    font-weight: 700;
+    margin-right: 0.25rem;
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    border-top: 2px solid var(--cacao);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cacao-light);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer strong { color: var(--terracota); font-weight: 600; }
+
+  @media (max-width: 800px) {
+    body { padding: 1.5rem 1rem; }
+    .protagonists, .ornamentals { grid-template-columns: 1fr; }
+    .swatch-p, .swatch-o { border-right: 0; border-bottom: 2.5px solid var(--cacao); }
+    .swatch-p:last-child, .swatch-o:last-child { border-bottom: 0; }
+    .header__inner { flex-direction: column; align-items: flex-start; }
+    .usage__grid { grid-template-columns: 1fr; }
+    .base { flex-direction: column; align-items: flex-start; }
+    .base__use { text-align: left; }
+  }
+
+  @media print {
+    body { padding: 1rem; }
+    body::before { display: none; }
+    .header, .protagonists, .ornamentals, .base, .usage {
+      box-shadow: none !important;
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="physalis-mark" viewBox="0 0 100 110">
+      <g fill="none" stroke="#3E2418" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M 10 105 L 10 50 Q 10 10 50 10 Q 90 10 90 50 L 90 105 Z" fill="#FAF0CF"/>
+        <path d="M 10 55 L 90 55" stroke-width="1.5"/>
+        <path d="M 30 55 L 30 105" stroke-width="1.5"/>
+        <path d="M 70 55 L 70 105" stroke-width="1.5"/>
+        <rect x="10" y="80" width="20" height="25" fill="#E0A94A" stroke="none"/>
+        <rect x="70" y="80" width="20" height="25" fill="#F3E5BC" stroke="none"/>
+        <path d="M 50 32 Q 46 22 40 18" stroke-width="2"/>
+        <path d="M 40 18 Q 38 13 42 10 Q 46 14 44 19 Z" fill="#E0A94A" stroke-width="1.8"/>
+        <path d="M 50 32 L 35 50 Q 35 75 50 85 Q 65 75 65 50 Z" fill="#FAF0CF"/>
+        <path d="M 50 32 L 50 85" stroke-width="1.5"/>
+        <path d="M 50 42 L 37 52" stroke-width="1.2"/>
+        <path d="M 50 42 L 63 52" stroke-width="1.2"/>
+        <circle cx="50" cy="58" r="8" fill="#D96E3B" stroke-width="1.8"/>
+        <path d="M 10 105 L 10 50 Q 10 10 50 10 Q 90 10 90 50 L 90 105" fill="none" stroke-width="2.5"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sheet">
+
+<header class="header">
+  <div class="header__band">
+    <div style="background: var(--terracota);"></div>
+    <div style="background: var(--mostaza); flex: 2;"></div>
+    <div style="background: var(--cream-light);"></div>
+    <div style="background: var(--salvia);"></div>
+    <div style="background: var(--lila); flex: 1.5;"></div>
+    <div style="background: var(--celeste);"></div>
+    <div style="background: var(--mostaza);"></div>
+    <div style="background: var(--terracota); flex: 2;"></div>
+    <div style="background: var(--salvia);"></div>
+  </div>
+  <div class="header__inner">
+    <svg class="header__logo" aria-hidden="true"><use href="#physalis-mark"/></svg>
+    <div class="header__title">
+      <h1>Physalis <em>LAB</em></h1>
+      <p>Paleta esencial · Sistema visual</p>
+    </div>
+    <div class="header__meta">
+      Documento <strong>BS-02</strong>
+      Versión 1.0 · 2026
+    </div>
+  </div>
+</header>
+
+<div class="intro">
+  <span class="intro__label">— Esencia cromática</span>
+  <h2 class="intro__title">
+    Siete colores. <em>Una sola voz.</em>
+  </h2>
+  <p class="intro__sub">3 protagonistas · 3 ornamentales · 1 fondo base</p>
+</div>
+
+<!-- ===== PROTAGONISTAS ===== -->
+<section class="protagonists">
+
+  <div class="swatch-p swatch-p--terracota">
+    <div>
+      <div class="swatch-p__role">01 · Acento primario</div>
+      <div class="swatch-p__use">CTAs, hover, énfasis, el fruto.</div>
+      <span class="swatch-p__var">--terracota</span>
+    </div>
+    <div>
+      <div class="swatch-p__name">Terracota</div>
+      <div class="swatch-p__hex">#D96E3B</div>
+    </div>
+  </div>
+
+  <div class="swatch-p swatch-p--mostaza">
+    <div>
+      <div class="swatch-p__role">02 · Acento cálido</div>
+      <div class="swatch-p__use">Pills, fondos de sección, highlights.</div>
+      <span class="swatch-p__var">--mostaza</span>
+    </div>
+    <div>
+      <div class="swatch-p__name">Mostaza</div>
+      <div class="swatch-p__hex">#E0A94A</div>
+    </div>
+  </div>
+
+  <div class="swatch-p swatch-p--cacao">
+    <div>
+      <div class="swatch-p__role">03 · Tinta principal</div>
+      <div class="swatch-p__use">Texto, contornos, bordes, sombras.</div>
+      <span class="swatch-p__var">--cacao</span>
+    </div>
+    <div>
+      <div class="swatch-p__name">Cacao</div>
+      <div class="swatch-p__hex">#3E2418</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== ORNAMENTALES ===== -->
+<section class="ornamentals">
+
+  <div class="swatch-o swatch-o--salvia">
+    <div>
+      <div class="swatch-o__role">04 · Vegetal</div>
+      <div class="swatch-o__use">Fondo de tarjeta · vitral.</div>
+      <span class="swatch-o__var">--salvia</span>
+    </div>
+    <div>
+      <div class="swatch-o__name">Salvia</div>
+      <div class="swatch-o__hex">#7BA88A</div>
+    </div>
+  </div>
+
+  <div class="swatch-o swatch-o--celeste">
+    <div>
+      <div class="swatch-o__role">05 · Frío contenido</div>
+      <div class="swatch-o__use">Fondo de tarjeta · vitral.</div>
+      <span class="swatch-o__var">--celeste</span>
+    </div>
+    <div>
+      <div class="swatch-o__name">Celeste</div>
+      <div class="swatch-o__hex">#6FA3B0</div>
+    </div>
+  </div>
+
+  <div class="swatch-o swatch-o--lila">
+    <div>
+      <div class="swatch-o__role">06 · Ornamental</div>
+      <div class="swatch-o__use">Fondo de tarjeta · vitral.</div>
+      <span class="swatch-o__var">--lila</span>
+    </div>
+    <div>
+      <div class="swatch-o__name">Lila</div>
+      <div class="swatch-o__hex">#B89BC4</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===== FONDO BASE ===== -->
+<section class="base">
+  <span class="base__var">--cream</span>
+  <div class="base__left">
+    <div class="base__role">07 · Fondo base</div>
+    <div class="base__name">Cream</div>
+    <div class="base__hex">#F3E5BC</div>
+  </div>
+  <div class="base__use">
+    El terreno donde todo respira. Reemplaza al blanco.
+  </div>
+</section>
+
+<!-- ===== MAPA DE USO ===== -->
+<section class="usage">
+  <span class="usage__head">— Mapa de uso</span>
+  <h3 class="usage__title">Una sola pregunta: <em>¿qué color uso para qué?</em></h3>
+
+  <div class="usage__grid">
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--terracota);"></span>
+      <div><strong>Terracota</strong> — botón principal, italic de "Lab", precio destacado, acento del logo</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--mostaza);"></span>
+      <div><strong>Mostaza</strong> — fondo de manifiesto, pills decorativos, botón secundario</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--cacao);"></span>
+      <div><strong>Cacao</strong> — todo texto, todo borde, todas las sombras duras</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--cream);"></span>
+      <div><strong>Cream</strong> — fondo del sitio, captions, paneles de respiro</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--salvia);"></span>
+      <div><strong>Salvia</strong> — fondo vitral en tarjetas y bandas ornamentales</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--celeste);"></span>
+      <div><strong>Celeste</strong> — fondo vitral en tarjetas y bandas ornamentales</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: var(--lila);"></span>
+      <div><strong>Lila</strong> — fondo vitral en tarjetas y bandas ornamentales</div>
+    </div>
+
+    <div class="usage__item">
+      <span class="usage__chip" style="background: linear-gradient(45deg, #000 49%, var(--terracota) 49%, var(--terracota) 51%, #000 51%);"></span>
+      <div><strong>Negro y blanco</strong> — jamás. Nunca <code style="font-family: var(--font-mono); font-size: 0.85rem;">#000</code> ni <code style="font-family: var(--font-mono); font-size: 0.85rem;">#fff</code></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="footer">
+  <span>© 2026 Physalis Lab · Santiago, Chile</span>
+  <span><strong>Paleta Esencial</strong> · BS-02 · v1.0</span>
+  <span>Para uso interno y referencia técnica</span>
+</div>
+
+</div>
+
+</body>
+</html>

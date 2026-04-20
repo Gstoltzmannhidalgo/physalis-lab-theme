@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Physalis Lab · Blueprint Web</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #1A1A18;
+    --gold: #C8A96E;
+    --gold-lt: #F5EDD6;
+    --stone: #EDEAE4;
+    --mist: #F9F7F4;
+    --mid: #8C8C84;
+    --white: #FFFFFF;
+    --green: #3D7A5A;
+    --red: #8C3A2C;
+    --blue: #2C4A7A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--mist);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .header {
+    background: var(--ink);
+    padding: 48px 60px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 300px; height: 100%;
+    background: linear-gradient(135deg, transparent 60%, rgba(200,169,110,0.08) 100%);
+  }
+  .header-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 42px;
+    color: var(--white);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 1px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(200,169,110,0.15);
+    border: 1px solid rgba(200,169,110,0.3);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-top: 20px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px;
+  }
+
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(200,169,110,0.3);
+  }
+  .section-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    color: var(--gold);
+    font-weight: 400;
+    line-height: 1;
+    min-width: 32px;
+  }
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* STACK CARDS */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .stack-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    padding: 16px 18px;
+    border-radius: 4px;
+    border-left: 3px solid var(--gold);
+  }
+  .stack-card-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .stack-card-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .stack-card-desc {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.4;
+  }
+
+  /* FLOW DIAGRAM */
+  .flow {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .flow-step {
+    flex: 1;
+    padding: 16px 14px;
+    position: relative;
+    border-right: 1px solid var(--stone);
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-step::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 16px;
+    z-index: 2;
+    background: var(--white);
+    padding: 0 2px;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-num {
+    font-family: 'EB Garamond', serif;
+    font-size: 24px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .flow-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .flow-desc {
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.4;
+  }
+
+  /* ROUTES TABLE */
+  .routes-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .routes-table th {
+    background: var(--ink);
+    color: var(--white);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .routes-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--stone);
+    font-size: 13px;
+    vertical-align: top;
+  }
+  .routes-table tr:last-child td { border-bottom: none; }
+  .routes-table tr:nth-child(even) td { background: var(--mist); }
+  .route-path {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--blue);
+    background: rgba(44,74,122,0.07);
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  /* ENV TABLE */
+  .env-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border: 1px solid var(--stone);
+    overflow: hidden;
+  }
+  .env-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--stone);
+    font-size: 13px;
+  }
+  .env-table tr:last-child td { border-bottom: none; }
+  .env-key {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 500;
+    white-space: nowrap;
+    width: 260px;
+  }
+  .env-desc { color: var(--mid); }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: #1E1E1E;
+    border-radius: 4px;
+    padding: 20px 24px;
+    overflow-x: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: #D4D4D4;
+  }
+  .code-comment { color: #6A9955; }
+  .code-keyword { color: #569CD6; }
+  .code-string { color: #CE9178; }
+  .code-func { color: #DCDCAA; }
+  .code-var { color: #9CDCFE; }
+  .code-num { color: #B5CEA8; }
+
+  /* MP FLOW */
+  .mp-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .mp-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--stone);
+    position: relative;
+  }
+  .mp-step:last-child { border-bottom: none; }
+  .mp-step-num {
+    min-width: 28px;
+    height: 28px;
+    background: var(--ink);
+    color: var(--gold);
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .mp-step-content {}
+  .mp-step-title { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+  .mp-step-desc { font-size: 12px; color: var(--mid); }
+  .mp-code { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--blue); background: rgba(44,74,122,0.07); padding: 1px 5px; border-radius: 2px; }
+
+  /* CI/CD */
+  .cicd-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .cicd-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .cicd-header {
+    background: var(--ink);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cicd-icon {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  .cicd-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); font-weight: 500; }
+  .cicd-body { padding: 14px; }
+  .cicd-step {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  .cicd-step:last-child { margin-bottom: 0; }
+  .cicd-step-n {
+    min-width: 20px; height: 20px;
+    background: var(--gold-lt);
+    color: var(--ink);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .cicd-step-text { color: var(--mid); line-height: 1.4; padding-top: 1px; }
+  .cicd-step-text strong { color: var(--ink); }
+
+  /* DB TABLES */
+  .db-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .db-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .db-header {
+    background: #2C3E50;
+    padding: 8px 14px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .db-field {
+    padding: 6px 14px;
+    border-bottom: 1px solid var(--stone);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .db-field:last-child { border-bottom: none; }
+  .db-fname { font-family: 'DM Mono', monospace; color: #2C4A7A; }
+  .db-ftype { font-size: 10px; color: var(--mid); background: var(--stone); padding: 1px 6px; border-radius: 2px; }
+  .db-pk { color: var(--gold); }
+
+  /* QUOTE BOX */
+  .quote-box {
+    background: var(--ink);
+    border-left: 4px solid var(--gold);
+    padding: 20px 24px;
+    border-radius: 0 4px 4px 0;
+    margin: 20px 0;
+  }
+  .quote-box p {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--white);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ALERT */
+  .alert {
+    background: rgba(200,169,110,0.1);
+    border: 1px solid rgba(200,169,110,0.4);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: #6B5A2C;
+    margin-bottom: 16px;
+  }
+  .alert strong { color: var(--ink); }
+
+  footer {
+    background: var(--ink);
+    text-align: center;
+    padding: 24px;
+    margin-top: 60px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+  }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 768px) {
+    .stack-grid { grid-template-columns: 1fr; }
+    .flow { flex-direction: column; }
+    .flow-step::after { display: none; }
+    .cicd-grid, .db-grid { grid-template-columns: 1fr; }
+    .container { padding: 24px 20px; }
+    .header { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-label">Blueprint Técnico · Versión 1.0</div>
+  <div class="header-title">Physalis Lab<br>Web eCommerce</div>
+  <div class="header-sub">Next.js · GitHub · Vercel · Mercado Pago</div>
+  <div class="header-badge">Documento Técnico de Implementación</div>
+</div>
+
+<div class="container">
+
+  <!-- 1. STACK -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Stack Tecnológico Seleccionado</div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-card-label">Framework</div>
+        <div class="stack-card-name">Next.js 14+</div>
+        <div class="stack-card-desc">App Router, SSR/SSG. SEO óptimo para catálogos. React base.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Lenguaje</div>
+        <div class="stack-card-name">TypeScript</div>
+        <div class="stack-card-desc">Tipado fuerte. Menos errores en producción. IDE support.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Estilos</div>
+        <div class="stack-card-name">Tailwind CSS</div>
+        <div class="stack-card-desc">Utilidades rápidas con sistema de diseño personalizable.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Base de Datos</div>
+        <div class="stack-card-name">Supabase</div>
+        <div class="stack-card-desc">PostgreSQL + Auth + Storage. Dashboard visual. Free tier generoso.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">CMS (opcional)</div>
+        <div class="stack-card-name">Sanity.io</div>
+        <div class="stack-card-desc">Gestión de colecciones y diseñadores sin tocar código.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Pagos</div>
+        <div class="stack-card-name">Mercado Pago Chile</div>
+        <div class="stack-card-desc">Checkout Pro. Tarjetas, transferencias, cuotas. SDK oficial.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Email</div>
+        <div class="stack-card-name">Resend</div>
+        <div class="stack-card-desc">Emails transaccionales. API simple. Templates React.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Repositorio</div>
+        <div class="stack-card-name">GitHub</div>
+        <div class="stack-card-desc">Control de versiones. Trigger de deploy automático.</div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-label">Deploy & Hosting</div>
+        <div class="stack-card-name">Vercel</div>
+        <div class="stack-card-desc">Integración nativa Next.js. Preview URLs. Dominio custom.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. RUTAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Estructura de Rutas (App Router)</div>
+    </div>
+    <table class="routes-table">
+      <thead>
+        <tr>
+          <th style="width:220px">Ruta</th>
+          <th>Propósito y Contenido</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="route-path">/</span></td><td>Home editorial. Hero de colección activa + diseñadores destacados + últimas piezas.</td></tr>
+        <tr><td><span class="route-path">/designers</span></td><td>Galería de todos los diseñadores. Filtros por origen, estilo, especialidad.</td></tr>
+        <tr><td><span class="route-path">/designers/[slug]</span></td><td>Perfil completo del diseñador + biografía + catálogo de piezas disponibles.</td></tr>
+        <tr><td><span class="route-path">/shop</span></td><td>Catálogo general. Filtros por tipo (lámpara, macetero, etc.), material, precio, diseñador.</td></tr>
+        <tr><td><span class="route-path">/shop/[slug]</span></td><td>Ficha de producto: galería de fotos, historia, materiales, stock limitado visible, add-to-cart.</td></tr>
+        <tr><td><span class="route-path">/cart</span></td><td>Carrito. Resumen de items, subtotal, acceso a checkout.</td></tr>
+        <tr><td><span class="route-path">/checkout</span></td><td>Datos de envío + integración Mercado Pago → redirect a pago seguro MP.</td></tr>
+        <tr><td><span class="route-path">/orders/[id]</span></td><td>Confirmación de pedido con número de seguimiento y estado actualizado.</td></tr>
+        <tr><td><span class="route-path">/collections/[slug]</span></td><td>Colecciones especiales / ediciones limitadas con contador de unidades.</td></tr>
+        <tr><td><span class="route-path">/admin</span></td><td>Panel de administración protegido. Gestión de productos, pedidos, diseñadores.</td></tr>
+        <tr><td><span class="route-path">/api/mp/create-preference</span></td><td>Endpoint POST: crea preferencia de pago en Mercado Pago. Retorna init_point.</td></tr>
+        <tr><td><span class="route-path">/api/mp/webhook</span></td><td>Endpoint POST: recibe notificaciones de MP (pago aprobado/rechazado). Actualiza BD.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 3. FLUJO DE PAGO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Flujo de Pago con Mercado Pago (Checkout Pro)</div>
+    </div>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-title">Cliente</div>
+        <div class="flow-desc">Llena carrito y confirma datos de envío en la web.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-title">API Interna</div>
+        <div class="flow-desc">POST a <span style="font-family:monospace;font-size:10px;color:#2C4A7A">/api/mp/create-preference</span> con items y total.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-title">Mercado Pago</div>
+        <div class="flow-desc">MP crea preferencia y retorna <code style="font-size:10px">init_point</code> (URL de pago).</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-title">Redirect</div>
+        <div class="flow-desc">Cliente es redirigido a página segura de MP para pagar.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-title">Webhook</div>
+        <div class="flow-desc">MP notifica a <code style="font-size:10px">/api/mp/webhook</code> con resultado del pago.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">6</div>
+        <div class="flow-title">Producción</div>
+        <div class="flow-desc">BD actualizada. Email de confirmación enviado. Pedido entra a producción.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+      <div class="mp-flow">
+        <div class="mp-step">
+          <div class="mp-step-num">1</div>
+          <div class="mp-step-content">
+            <div class="mp-step-title">Crear cuenta Mercado Pago Chile</div>
+            <div class="mp-step-desc">Ir a <strong>mercadopago.cl</strong> → Crear cuenta → Verificar identidad como empresa.</div>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">2</div>
+          <div class="mp-step-content">
+            <div class="mp-step-title">Obtener credenciales</div>
+            <div class="mp-step-desc">Panel MP → Tus integraciones → Credenciales → Obtener <span class="mp-code">ACCESS_TOKEN</span> y <span class="mp-code">PUBLIC_KEY</span> (producción y sandbox).</div>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">3</div>
+          <div class="mp-step-content">
+            <div class="mp-step-title">Configurar en Vercel</div>
+            <div class="mp-step-desc">Vercel Dashboard → Settings → Environment Variables → Agregar todas las variables de entorno listadas abajo.</div>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">4</div>
+          <div class="mp-step-content">
+            <div class="mp-step-title">Configurar webhook en MP</div>
+            <div class="mp-step-desc">Panel MP → Notificaciones → URL: <span class="mp-code">https://physalislab.cl/api/mp/webhook</span> → Activar eventos de pago.</div>
+          </div>
+        </div>
+        <div class="mp-step">
+          <div class="mp-step-num">5</div>
+          <div class="mp-step-content">
+            <div class="mp-step-title">Instalar SDK en proyecto</div>
+            <div class="mp-step-desc"><span class="mp-code">npm install mercadopago</span> → Importar y configurar con ACCESS_TOKEN en la ruta API.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div class="code-block">
+<span class="code-comment">// /app/api/mp/create-preference/route.ts</span>
+<span class="code-keyword">import</span> { MercadoPagoConfig, Preference } <span class="code-keyword">from</span> <span class="code-string">'mercadopago'</span>;
+
+<span class="code-keyword">const</span> <span class="code-var">client</span> = <span class="code-keyword">new</span> <span class="code-func">MercadoPagoConfig</span>({
+  <span class="code-var">accessToken</span>: process.env.<span class="code-var">MP_ACCESS_TOKEN</span>!,
+});
+
+<span class="code-keyword">export async function</span> <span class="code-func">POST</span>(req: Request) {
+  <span class="code-keyword">const</span> { items, payer } = <span class="code-keyword">await</span> req.<span class="code-func">json</span>();
+  
+  <span class="code-keyword">const</span> <span class="code-var">preference</span> = <span class="code-keyword">new</span> <span class="code-func">Preference</span>(client);
+  <span class="code-keyword">const</span> <span class="code-var">result</span> = <span class="code-keyword">await</span> preference.<span class="code-func">create</span>({
+    body: {
+      items,   <span class="code-comment">// [{ title, quantity, unit_price, currency_id: 'CLP' }]</span>
+      payer,
+      back_urls: {
+        success: <span class="code-string">`${process.env.NEXT_PUBLIC_SITE_URL}/orders/success`</span>,
+        failure: <span class="code-string">`${process.env.NEXT_PUBLIC_SITE_URL}/checkout?error=1`</span>,
+      },
+      auto_return: <span class="code-string">'approved'</span>,
+      notification_url: <span class="code-string">`${process.env.NEXT_PUBLIC_SITE_URL}/api/mp/webhook`</span>,
+    }
+  });
+  
+  <span class="code-keyword">return</span> Response.<span class="code-func">json</span>({ init_point: result.init_point });
+}</div>
+    </div>
+  </div>
+
+  <!-- 4. CI/CD -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Pipeline GitHub → Vercel (CI/CD)</div>
+    </div>
+    <div class="cicd-grid">
+      <div class="cicd-card">
+        <div class="cicd-header">
+          <div class="cicd-icon" style="background:#24292e;">⎇</div>
+          <div class="cicd-label">Configuración GitHub</div>
+        </div>
+        <div class="cicd-body">
+          <div class="cicd-step"><div class="cicd-step-n">1</div><div class="cicd-step-text">Crear repositorio <strong>physalis-lab-web</strong> (privado) en GitHub.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">2</div><div class="cicd-step-text">Ramas: <strong>main</strong> = producción · <strong>dev</strong> = staging/testing.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">3</div><div class="cicd-step-text">Proteger rama <strong>main</strong>: requerir PR + review antes de merge.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">4</div><div class="cicd-step-text">Agregar <strong>.env.local</strong> al .gitignore. Nunca subir credenciales al repo.</div></div>
+        </div>
+      </div>
+      <div class="cicd-card">
+        <div class="cicd-header">
+          <div class="cicd-icon" style="background:#000;">▲</div>
+          <div class="cicd-label">Configuración Vercel</div>
+        </div>
+        <div class="cicd-body">
+          <div class="cicd-step"><div class="cicd-step-n">1</div><div class="cicd-step-text">Vercel → <strong>New Project</strong> → Import desde GitHub → Seleccionar repo.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">2</div><div class="cicd-step-text">Framework: <strong>Next.js</strong> (auto-detectado). Build command default.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">3</div><div class="cicd-step-text">Settings → <strong>Environment Variables</strong> → Agregar todas las variables.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">4</div><div class="cicd-step-text">Settings → <strong>Domains</strong> → Agregar <strong>physalislab.cl</strong> y configurar DNS.</div></div>
+        </div>
+      </div>
+      <div class="cicd-card">
+        <div class="cicd-header">
+          <div class="cicd-icon" style="background:#2DA44E;">↑</div>
+          <div class="cicd-label">Flujo de Deploy</div>
+        </div>
+        <div class="cicd-body">
+          <div class="cicd-step"><div class="cicd-step-n">1</div><div class="cicd-step-text">Desarrollas en rama <strong>feature/nueva-coleccion</strong> localmente.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">2</div><div class="cicd-step-text">Push a rama <strong>dev</strong> → Vercel genera automáticamente una <strong>Preview URL</strong>.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">3</div><div class="cicd-step-text">Revisas en Preview URL → si todo OK, merge a <strong>main</strong>.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">4</div><div class="cicd-step-text">Push a main → Vercel despliega a <strong>producción automáticamente</strong> en ~30 seg.</div></div>
+        </div>
+      </div>
+      <div class="cicd-card">
+        <div class="cicd-header">
+          <div class="cicd-icon" style="background:#C8A96E;">⚙</div>
+          <div class="cicd-label">Setup Inicial Local</div>
+        </div>
+        <div class="cicd-body">
+          <div class="cicd-step"><div class="cicd-step-n">1</div><div class="cicd-step-text"><strong>npx create-next-app@latest physalis-lab --typescript --tailwind --app</strong></div></div>
+          <div class="cicd-step"><div class="cicd-step-n">2</div><div class="cicd-step-text"><strong>npm install mercadopago @supabase/supabase-js resend</strong></div></div>
+          <div class="cicd-step"><div class="cicd-step-n">3</div><div class="cicd-step-text">Crear <strong>.env.local</strong> con todas las variables. Nunca al repo.</div></div>
+          <div class="cicd-step"><div class="cicd-step-n">4</div><div class="cicd-step-text"><strong>git init → git remote add origin [url GitHub] → git push</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ENV VARS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Variables de Entorno</div>
+    </div>
+    <div class="alert">
+      <strong>⚠ Regla crítica:</strong> Nunca subir estas variables al repositorio GitHub. Configurarlas únicamente en el panel de Vercel (Settings → Environment Variables) y en tu archivo <code>.env.local</code> local (en .gitignore).
+    </div>
+    <table class="env-table">
+      <tr><td class="env-key">MP_ACCESS_TOKEN</td><td class="env-desc">Token de acceso Mercado Pago — producción. Obtenido en panel de desarrolladores MP.</td></tr>
+      <tr><td class="env-key">MP_PUBLIC_KEY</td><td class="env-desc">Clave pública MP. Usada en el frontend para inicializar MP si se usa Checkout API.</td></tr>
+      <tr><td class="env-key">MP_WEBHOOK_SECRET</td><td class="env-desc">Secreto para verificar autenticidad de notificaciones del webhook de MP.</td></tr>
+      <tr><td class="env-key">NEXT_PUBLIC_SITE_URL</td><td class="env-desc">URL pública del sitio: <code>https://physalislab.cl</code>. Usada en back_urls de MP.</td></tr>
+      <tr><td class="env-key">DATABASE_URL</td><td class="env-desc">String de conexión a Supabase PostgreSQL. Obtenido en Settings → Database → Connection string.</td></tr>
+      <tr><td class="env-key">SUPABASE_URL</td><td class="env-desc">URL del proyecto Supabase. Formato: <code>https://[id].supabase.co</code></td></tr>
+      <tr><td class="env-key">SUPABASE_ANON_KEY</td><td class="env-desc">Clave anónima pública de Supabase. Para operaciones de cliente.</td></tr>
+      <tr><td class="env-key">SUPABASE_SERVICE_KEY</td><td class="env-desc">Clave de servicio Supabase (solo backend/server). Nunca al cliente.</td></tr>
+      <tr><td class="env-key">NEXTAUTH_SECRET</td><td class="env-desc">Secreto aleatorio para NextAuth. Generado con: <code>openssl rand -base64 32</code></td></tr>
+      <tr><td class="env-key">RESEND_API_KEY</td><td class="env-desc">API Key de Resend para envío de emails transaccionales (confirmación de pedido, etc.).</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. DB -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Esquema de Base de Datos</div>
+    </div>
+    <div class="db-grid">
+      <div class="db-card">
+        <div class="db-header">designers</div>
+        <div class="db-field"><span class="db-fname db-pk">id</span><span class="db-ftype">uuid PK</span></div>
+        <div class="db-field"><span class="db-fname">name</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">slug</span><span class="db-ftype">text UNIQUE</span></div>
+        <div class="db-field"><span class="db-fname">bio</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">origin_country</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">style_tags</span><span class="db-ftype">text[]</span></div>
+        <div class="db-field"><span class="db-fname">photo_url</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">active</span><span class="db-ftype">boolean</span></div>
+        <div class="db-field"><span class="db-fname">created_at</span><span class="db-ftype">timestamptz</span></div>
+      </div>
+      <div class="db-card">
+        <div class="db-header">products</div>
+        <div class="db-field"><span class="db-fname db-pk">id</span><span class="db-ftype">uuid PK</span></div>
+        <div class="db-field"><span class="db-fname">slug</span><span class="db-ftype">text UNIQUE</span></div>
+        <div class="db-field"><span class="db-fname">name</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">designer_id</span><span class="db-ftype">uuid FK</span></div>
+        <div class="db-field"><span class="db-fname">description</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">price_clp</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">material</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">images</span><span class="db-ftype">text[]</span></div>
+        <div class="db-field"><span class="db-fname">stock</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">limited_edition</span><span class="db-ftype">boolean</span></div>
+        <div class="db-field"><span class="db-fname">active</span><span class="db-ftype">boolean</span></div>
+      </div>
+      <div class="db-card">
+        <div class="db-header">orders</div>
+        <div class="db-field"><span class="db-fname db-pk">id</span><span class="db-ftype">uuid PK</span></div>
+        <div class="db-field"><span class="db-fname">customer_email</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">customer_name</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">shipping_address</span><span class="db-ftype">jsonb</span></div>
+        <div class="db-field"><span class="db-fname">status</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">total_clp</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">mp_preference_id</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">mp_payment_id</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">created_at</span><span class="db-ftype">timestamptz</span></div>
+      </div>
+      <div class="db-card">
+        <div class="db-header">order_items</div>
+        <div class="db-field"><span class="db-fname db-pk">id</span><span class="db-ftype">uuid PK</span></div>
+        <div class="db-field"><span class="db-fname">order_id</span><span class="db-ftype">uuid FK</span></div>
+        <div class="db-field"><span class="db-fname">product_id</span><span class="db-ftype">uuid FK</span></div>
+        <div class="db-field"><span class="db-fname">quantity</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">unit_price_clp</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">product_snapshot</span><span class="db-ftype">jsonb</span></div>
+      </div>
+      <div class="db-card">
+        <div class="db-header">licenses</div>
+        <div class="db-field"><span class="db-fname db-pk">id</span><span class="db-ftype">uuid PK</span></div>
+        <div class="db-field"><span class="db-fname">designer_id</span><span class="db-ftype">uuid FK</span></div>
+        <div class="db-field"><span class="db-fname">agreement_type</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">royalty_pct</span><span class="db-ftype">numeric</span></div>
+        <div class="db-field"><span class="db-fname">territory</span><span class="db-ftype">text</span></div>
+        <div class="db-field"><span class="db-fname">start_date</span><span class="db-ftype">date</span></div>
+        <div class="db-field"><span class="db-fname">end_date</span><span class="db-ftype">date</span></div>
+        <div class="db-field"><span class="db-fname">notes</span><span class="db-ftype">text</span></div>
+      </div>
+      <div class="db-card">
+        <div class="db-header">royalty_payments</div>
+        <div class="db-field"><span class="db-fname db-pk">id</span><span class="db-ftype">uuid PK</span></div>
+        <div class="db-field"><span class="db-fname">license_id</span><span class="db-ftype">uuid FK</span></div>
+        <div class="db-field"><span class="db-fname">period_start</span><span class="db-ftype">date</span></div>
+        <div class="db-field"><span class="db-fname">period_end</span><span class="db-ftype">date</span></div>
+        <div class="db-field"><span class="db-fname">units_sold</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">amount_clp</span><span class="db-ftype">integer</span></div>
+        <div class="db-field"><span class="db-fname">paid_at</span><span class="db-ftype">timestamptz</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CHECKLIST -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Checklist de Lanzamiento</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:var(--white);border:1px solid var(--stone);border-radius:4px;padding:18px 20px;">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);font-weight:600;margin-bottom:12px;">Infraestructura</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;">
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Dominio physalislab.cl adquirido</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Cuenta Mercado Pago Chile verificada</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Credenciales MP obtenidas (prod + sandbox)</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Proyecto Supabase creado</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Repo GitHub creado (privado)</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Proyecto Vercel conectado a GitHub</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Variables de entorno configuradas en Vercel</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Dominio custom apuntado en Vercel</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> SSL activo (automático en Vercel)</label>
+        </div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--stone);border-radius:4px;padding:18px 20px;">
+        <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);font-weight:600;margin-bottom:12px;">Producto y Contenido</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:13px;">
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Mínimo 3 diseñadores con perfil completo</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Mínimo 8–12 productos cargados con fotos</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Contratos de licencia firmados</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Fotografía de producto en ambiente lista</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Textos de diseñadores redactados</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Emails transaccionales configurados</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Flujo de pago testeado en sandbox MP</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Webhook MP funcionando correctamente</label>
+          <label style="display:flex;gap:8px;align-items:flex-start;cursor:pointer;"><input type="checkbox"> Política de envío y devolución publicada</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <p>"El primer año de Physalis Lab es de construcción de identidad y confianza. El activo más valioso que saldrá de esos 12 meses no será el inventario: será la reputación de la marca."</p>
+  </div>
+
+</div>
+
+<footer>
+  PHYSALIS LAB · Blueprint Técnico v1.0 · <span>Gerardo Stoltzmann</span> · Confidencial
+</footer>
+
+</body>
+</html>
