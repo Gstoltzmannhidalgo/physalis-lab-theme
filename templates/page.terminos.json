@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "banner": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Legal",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Términos y condiciones",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": ["caption", "heading"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 32
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 32,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["banner", "main"]
+}

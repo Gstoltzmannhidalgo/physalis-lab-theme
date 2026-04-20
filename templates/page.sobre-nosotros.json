@@ -1,0 +1,132 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Physalis Lab",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Diseño de autor en tu hogar",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Somos una editorial de objetos: trabajamos con diseñadoras y diseñadores chilenos para producir piezas de impresión 3D bajo pedido — sin stock, sin desperdicio, sin intermediarios.</p>"
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 64
+      }
+    },
+    "manifiesto": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Por qué existe Physalis Lab",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Creemos que el diseño chileno tiene una voz que no necesita escala industrial para encontrar a su público. Cada pieza Physalis nace de la mano de una autora o autor independiente, se imprime en Chile sólo cuando alguien la pide, y llega firmada a su nuevo hogar. Es una forma distinta de habitar la mesa, la pared o el rincón íntimo: con intención, con autoría, sin desperdicio.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 64
+      }
+    },
+    "valores": {
+      "type": "multicolumn",
+      "blocks": {
+        "v-1": {
+          "type": "column",
+          "settings": {
+            "title": "Autoría firmada",
+            "text": "<p>Cada pieza viene con la firma de su diseñador y el sello Physalis.</p>"
+          }
+        },
+        "v-2": {
+          "type": "column",
+          "settings": {
+            "title": "Producción local",
+            "text": "<p>Imprimimos en Chile, bajo pedido, en filamentos seleccionados por su origen y durabilidad.</p>"
+          }
+        },
+        "v-3": {
+          "type": "column",
+          "settings": {
+            "title": "Cero stock",
+            "text": "<p>No producimos lo que no se pide. Menos desperdicio, más cuidado en cada paso.</p>"
+          }
+        }
+      },
+      "block_order": ["v-1", "v-2", "v-3"],
+      "settings": {
+        "title": "Nuestros principios",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "none",
+        "swipe_on_mobile": false,
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "cierre": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Diseño chileno, hecho a pedido.",
+            "heading_size": "h0"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Conocer diseñadores",
+            "button_link_1": "shopify://pages/disenadores",
+            "button_label_2": "Explorar catálogo",
+            "button_link_2": "shopify://collections/all",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["heading", "buttons"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": ["hero", "manifiesto", "valores", "cierre"]
+}
