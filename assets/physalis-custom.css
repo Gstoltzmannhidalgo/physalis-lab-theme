@@ -1509,691 +1509,269 @@ main#MainContent > .shopify-section + .shopify-section::before {
 }
 
 /* =====================================================================
-   V2 KUSAMA — Capa estética retro-moderna japonesa
-   Paleta: negro puro, blanco, rojo Kusama, amarillo sol, azul cobalto,
-   magenta. Tipografías gigantes, puntos polka, bordes gruesos, brutalismo
-   editorial japonés. Mantiene la estructura original Physalis.
+   V2 · POST-INTERNET EDITORIAL ZINE
+   Paleta: bone #EFEAE0, midnight #0E1B2E, coral #FF4E2A, lime #CCFF33,
+   periwinkle #B8B9FF, plum #3A1F4E.
+   Lenguaje: revista underground, ficha técnica, tipografía masiva,
+   layouts asimétricos con índice editorial, sin simetría forzada.
    ===================================================================== */
 
 :root {
-  --kusama-red:     #E3120B;
-  --kusama-yellow:  #FFD400;
-  --kusama-blue:    #1E4BD8;
-  --kusama-magenta: #E84A9B;
-  --kusama-green:   #1F6E4A;
-  --kusama-black:   #0A0A0A;
-  --kusama-white:   #FFFFFF;
-  --kusama-dot:     #0A0A0A;
-  --kusama-border:  4px;
+  --zn-bone:    #EFEAE0;
+  --zn-ink:     #0E1B2E;
+  --zn-coral:   #FF4E2A;
+  --zn-lime:    #CCFF33;
+  --zn-peri:    #B8B9FF;
+  --zn-plum:    #3A1F4E;
+  --zn-paper:   #F6F3EB;
 }
 
-/* ---------- Base tipográfica XL ---------- */
-body {
-  background: var(--kusama-white) !important;
-  color: var(--kusama-black) !important;
+html, body {
+  background: var(--zn-bone) !important;
+  color: var(--zn-ink) !important;
+}
+main#MainContent { background: transparent !important; }
+
+/* Reset de los maximalismos anteriores */
+body { cursor: auto !important; }
+.shopify-section + .shopify-section::before { content: none !important; }
+.card-wrapper::before, .product-card-wrapper::before { content: none !important; }
+main h1, main h2, main .h1, main .h2 {
+  text-shadow: none !important;
+  transform: none !important;
 }
 
-h1, .h1 {
-  font-size: clamp(4.8rem, 9vw, 11rem) !important;
-  font-weight: 500 !important;
-  line-height: 0.92 !important;
-  letter-spacing: -0.035em !important;
-  text-transform: none;
-}
-h2, .h2 {
-  font-size: clamp(3.4rem, 6vw, 7.2rem) !important;
-  font-weight: 500 !important;
-  line-height: 0.95 !important;
-  letter-spacing: -0.03em !important;
-}
-h3, .h3 { font-size: clamp(2.4rem, 3.4vw, 4.2rem) !important; letter-spacing: -0.02em !important; }
-
-/* ---------- Header Kusama — borde negro grueso ---------- */
+/* Header como cintillo de revista */
 .header-wrapper {
-  background: var(--kusama-white) !important;
-  border-bottom: var(--kusama-border) solid var(--kusama-black) !important;
+  background: var(--zn-ink) !important;
+  background-image: none !important;
+  border-bottom: 1px solid var(--zn-ink) !important;
+  color: var(--zn-bone) !important;
 }
-.header__menu-item,
-.list-menu__item--link {
-  color: var(--kusama-black) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.22rem !important;
-}
-.header__menu-item:hover,
-.list-menu__item--link:hover {
-  color: var(--kusama-red) !important;
-  background: var(--kusama-yellow) !important;
-  padding: 0.2rem 0.6rem;
-  transition: none !important;
-}
-.header__active-menu-item {
-  border-bottom: 3px solid var(--kusama-red) !important;
-}
-.cart-count-bubble {
-  background: var(--kusama-red) !important;
-  color: var(--kusama-white) !important;
-  border: 2px solid var(--kusama-black) !important;
-  border-radius: 50% !important;
-}
-
-/* ---------- Announcement bar — amarillo con texto negro ---------- */
-.shopify-section-announcement-bar,
-.announcement-bar,
-.announcement-bar__announcement {
-  background: var(--kusama-yellow) !important;
-  border-bottom: var(--kusama-border) solid var(--kusama-black) !important;
-}
-.announcement-bar *,
-.announcement-bar__message,
-.announcement-bar__link {
-  color: var(--kusama-black) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.24rem !important;
-}
-
-/* ---------- Hero / banner — tipografía gigante + puntos ---------- */
-.banner__content,
-.banner__box {
-  background: transparent !important;
-}
-.banner__heading,
-.slideshow__text h2,
-.banner h1,
-.banner h2 {
-  font-size: clamp(5.6rem, 11vw, 14rem) !important;
-  font-weight: 500 !important;
-  line-height: 0.88 !important;
-  letter-spacing: -0.04em !important;
-  color: var(--kusama-black) !important;
-  mix-blend-mode: normal;
-}
-.banner__heading em,
-.banner h1 em,
-.banner h2 em {
-  font-style: italic;
-  color: var(--kusama-red) !important;
-}
-
-/* Fondo de puntos polka — aplicable a secciones con clase */
-.kusama-dots,
-.section-kusama-dots {
-  background-image: radial-gradient(var(--kusama-dot) 2px, transparent 2.5px);
-  background-size: 28px 28px;
-  background-position: 0 0;
-}
-
-/* ---------- Botones — brutalist block ---------- */
-.button,
-button.button,
-.shopify-payment-button__button,
-.shopify-payment-button__button--unbranded,
-.product-form__submit {
-  background: var(--kusama-black) !important;
-  color: var(--kusama-white) !important;
-  border: var(--kusama-border) solid var(--kusama-black) !important;
-  border-radius: 0 !important;
-  padding: 1.6rem 2.8rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.22rem !important;
-  text-transform: uppercase !important;
-  box-shadow: 6px 6px 0 var(--kusama-red) !important;
-  transition: transform 0.08s, box-shadow 0.08s !important;
-}
-.button:hover,
-button.button:hover,
-.product-form__submit:hover {
-  background: var(--kusama-red) !important;
-  color: var(--kusama-yellow) !important;
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--kusama-black) !important;
-}
-.button--secondary,
-.button.button--secondary {
-  background: var(--kusama-white) !important;
-  color: var(--kusama-black) !important;
-  box-shadow: 6px 6px 0 var(--kusama-blue) !important;
-}
-.button--secondary:hover {
-  background: var(--kusama-yellow) !important;
-  color: var(--kusama-black) !important;
-}
-
-/* ---------- Product cards — marco grueso + hover punchy ---------- */
-.card-wrapper,
-.card,
-.product-card-wrapper {
-  border: var(--kusama-border) solid var(--kusama-black) !important;
-  border-radius: 0 !important;
-  background: var(--kusama-white) !important;
-  transition: transform 0.12s, box-shadow 0.12s !important;
-}
-.card-wrapper:hover,
-.card:hover,
-.product-card-wrapper:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 8px 8px 0 var(--kusama-red);
-}
-.card__heading,
-.card__information .h5,
-.card__information a {
-  color: var(--kusama-black) !important;
-  font-weight: 500 !important;
-  font-size: 2rem !important;
-  letter-spacing: -0.01em !important;
-}
-.price,
-.price__regular,
-.price-item--regular {
-  color: var(--kusama-red) !important;
-  font-weight: 700 !important;
-  font-family: var(--font-mono-family, ui-monospace, monospace) !important;
-}
-
-/* ---------- Collection grid / categorías — color blocking Kusama ---------- */
-.collection-list__item,
-.card.card--media .card__content {
-  position: relative;
-}
-.collection-list__item:nth-child(5n+1) .card,
-.collection-list__item:nth-child(5n+1) { background: var(--kusama-yellow); }
-.collection-list__item:nth-child(5n+2) .card,
-.collection-list__item:nth-child(5n+2) { background: var(--kusama-red); color: var(--kusama-white); }
-.collection-list__item:nth-child(5n+3) .card,
-.collection-list__item:nth-child(5n+3) { background: var(--kusama-blue); color: var(--kusama-white); }
-.collection-list__item:nth-child(5n+4) .card,
-.collection-list__item:nth-child(5n+4) { background: var(--kusama-white); }
-.collection-list__item:nth-child(5n+5) .card,
-.collection-list__item:nth-child(5n+5) { background: var(--kusama-magenta); color: var(--kusama-white); }
-
-/* ---------- Diseñadores grid — polka dots en retratos ---------- */
-.disenadores-grid .designer-card,
-.disenadores-grid [class*="card"] {
-  border: var(--kusama-border) solid var(--kusama-black) !important;
-  background: var(--kusama-white) !important;
-  position: relative;
-}
-.disenadores-grid img {
-  filter: contrast(1.05) saturate(1.1);
-}
-
-/* ---------- Secciones — separadores gruesos ---------- */
-.shopify-section + .shopify-section {
-  border-top: 2px solid var(--kusama-black);
-}
-
-/* ---------- Footer — negro con acentos ---------- */
-.footer {
-  background: var(--kusama-black) !important;
-  color: var(--kusama-white) !important;
-  border-top: var(--kusama-border) solid var(--kusama-red) !important;
-}
-.footer a,
-.footer__content-top a,
-.footer-block__heading,
-.footer-block__details-content a {
-  color: var(--kusama-white) !important;
-}
-.footer a:hover {
-  color: var(--kusama-yellow) !important;
-}
-.footer-block__heading {
-  color: var(--kusama-yellow) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.22rem !important;
-}
-
-/* Newsletter dentro del footer */
-.footer .newsletter,
-.newsletter {
-  background: var(--kusama-red) !important;
-  color: var(--kusama-white) !important;
-  border: var(--kusama-border) solid var(--kusama-black) !important;
-}
-.newsletter .newsletter__heading,
-.newsletter .newsletter__subheading,
-.newsletter .field__label,
-.newsletter h2 {
-  color: var(--kusama-white) !important;
-}
-.newsletter .field {
-  background: var(--kusama-white) !important;
-  border: 2px solid var(--kusama-black) !important;
-}
-.newsletter button[type="submit"],
-.newsletter .newsletter-form__button {
-  color: var(--kusama-yellow) !important;
-}
-
-/* ---------- Rich-text / editorial — tipografía grande ---------- */
-.rich-text__heading,
-.rich-text h1, .rich-text h2 {
-  font-size: clamp(4rem, 7vw, 9rem) !important;
-  letter-spacing: -0.035em !important;
-  color: var(--kusama-black) !important;
-}
-.rich-text__text p,
-.rich-text p {
-  font-size: 1.9rem !important;
-  line-height: 1.5;
-}
-
-/* ---------- Bloques con fondo de color alternativo (Kusama stripes) ---------- */
-.shopify-section:nth-of-type(3n) .color-scheme-2,
-.color-background-2 {
-  background: var(--kusama-yellow) !important;
-}
-.shopify-section:nth-of-type(4n) .color-background-2 {
-  background: var(--kusama-red) !important;
-  color: var(--kusama-white) !important;
-}
-
-/* ---------- Links editoriales ---------- */
-a, .link {
-  text-underline-offset: 4px;
-  text-decoration-thickness: 2px;
-}
-main a:hover {
-  color: var(--kusama-red) !important;
-  background: var(--kusama-yellow);
-}
-
-/* ---------- PDP — títulos masivos ---------- */
-.product__title h1,
-.product__title .h1 {
-  font-size: clamp(4rem, 6vw, 7rem) !important;
-  line-height: 0.95 !important;
-}
-.product__info-wrapper {
-  border-left: var(--kusama-border) solid var(--kusama-black);
-  padding-left: 3rem !important;
-}
-
-/* ---------- Scroll-bar accent (solo WebKit) ---------- */
-::selection {
-  background: var(--kusama-yellow);
-  color: var(--kusama-black);
-}
-
-/* ---------- Forzar overrides sobre schemes de Dawn ---------- */
-.color-scheme-1, .color-background-1 { background: var(--kusama-white) !important; color: var(--kusama-black) !important; }
-.color-scheme-inverse { background: var(--kusama-black) !important; color: var(--kusama-white) !important; }
-
-/* FIN V2 KUSAMA ======================================================= */
-
-/* =====================================================================
-   V2 KUSAMA — MAXIMALISTA (override total del lenguaje visual)
-   Puntos polka de fondo global, layouts oblicuos, stickers flotantes,
-   kana decorativo, sombras apiladas de color, marquee tipográfico.
-   ===================================================================== */
-
-/* --- Fondo global con puntos Kusama visibles SIEMPRE --- */
-html body {
-  background-color: #FFF8E1 !important;
-  background-image:
-    radial-gradient(#0A0A0A 2.5px, transparent 3px),
-    radial-gradient(#E3120B 2px, transparent 2.5px);
-  background-size: 44px 44px, 88px 88px;
-  background-position: 0 0, 22px 22px;
-}
-
-main#MainContent {
-  background: transparent !important;
-}
-
-/* Cada sección alterna un "papel de color" encima de los puntos */
-.shopify-section:nth-of-type(odd) > * {
-  background: rgba(255, 255, 255, 0.92);
-}
-.shopify-section:nth-of-type(even) > * {
-  background: transparent;
-}
-.shopify-section:nth-of-type(5n+3) > * {
-  background: #FFD400;
-}
-.shopify-section:nth-of-type(7n+2) > * {
-  background: #1E4BD8;
-  color: #FFFFFF;
-}
-.shopify-section:nth-of-type(7n+2) h1,
-.shopify-section:nth-of-type(7n+2) h2,
-.shopify-section:nth-of-type(7n+2) h3,
-.shopify-section:nth-of-type(7n+2) p,
-.shopify-section:nth-of-type(7n+2) a { color: #FFFFFF !important; }
-
-/* --- Headings con sombra apilada tipo risograph --- */
-main h1, main .h1,
-.banner__heading,
-.rich-text__heading {
-  font-size: clamp(6rem, 13vw, 18rem) !important;
-  font-weight: 900 !important;
-  line-height: 0.82 !important;
-  letter-spacing: -0.05em !important;
-  color: #0A0A0A !important;
-  text-shadow:
-    6px 6px 0 #FFD400,
-    12px 12px 0 #E3120B,
-    18px 18px 0 #1E4BD8 !important;
-  transform: rotate(-1.5deg);
-  display: inline-block;
-}
-main h2, main .h2 {
-  font-size: clamp(4.4rem, 8vw, 9rem) !important;
-  text-shadow: 4px 4px 0 #E84A9B, 8px 8px 0 #0A0A0A !important;
-  transform: rotate(0.8deg);
-  display: inline-block;
-}
-
-/* Subrayado ondulado estilo japonés retro */
-main h3 {
-  display: inline-block;
-  background: linear-gradient(transparent 70%, #FFD400 70%);
-  padding: 0 0.4rem;
-}
-
-/* --- Announcement bar como marquee infinito --- */
-.announcement-bar__message {
-  animation: kusama-marquee 22s linear infinite !important;
-  white-space: nowrap !important;
-  display: inline-block !important;
-}
-@keyframes kusama-marquee {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(-100%); }
-}
-
-/* --- Product cards rotadas con sticker --- */
-.card-wrapper,
-.product-card-wrapper,
-.card {
-  transform: rotate(-1deg);
-  transition: transform 0.2s !important;
-  background: #FFFFFF !important;
-  border: 4px solid #0A0A0A !important;
-  box-shadow: 10px 10px 0 #E3120B !important;
-  position: relative;
-  overflow: visible !important;
-}
-.card-wrapper:nth-child(even),
-.product-card-wrapper:nth-child(even) {
-  transform: rotate(1.2deg);
-  box-shadow: 10px 10px 0 #1E4BD8 !important;
-}
-.card-wrapper:nth-child(3n),
-.product-card-wrapper:nth-child(3n) {
-  transform: rotate(-0.6deg);
-  box-shadow: 10px 10px 0 #FFD400 !important;
-}
-.card-wrapper:hover,
-.product-card-wrapper:hover {
-  transform: rotate(0deg) scale(1.03) !important;
-  z-index: 5;
-}
-
-/* Sticker circular "NEW / DISEÑO" sobre cada card */
-.card-wrapper::before,
-.product-card-wrapper::before {
-  content: "★ AUTOR";
-  position: absolute;
-  top: -18px;
-  right: -18px;
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #E3120B;
-  color: #FFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 900;
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  border: 3px solid #0A0A0A;
-  transform: rotate(-12deg);
-  z-index: 3;
-  font-family: var(--font-mono-family, ui-monospace, monospace);
-}
-.card-wrapper:nth-child(2n)::before,
-.product-card-wrapper:nth-child(2n)::before {
-  background: #FFD400;
-  color: #0A0A0A;
-  content: "オーサー";
-}
-.card-wrapper:nth-child(3n)::before,
-.product-card-wrapper:nth-child(3n)::before {
-  background: #1E4BD8;
-  content: "OBJETO";
-}
-
-/* --- Botones: sticker brutalist --- */
-.button, button.button, .product-form__submit {
-  background: #0A0A0A !important;
-  color: #FFD400 !important;
-  border: 4px solid #0A0A0A !important;
-  border-radius: 40px 6px 40px 6px !important;
-  padding: 1.8rem 3.4rem !important;
-  font-size: 1.6rem !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.3rem !important;
-  text-transform: uppercase !important;
-  box-shadow: 8px 8px 0 #E3120B !important;
-  transform: rotate(-1.5deg);
-  display: inline-block;
-}
-.button:hover {
-  background: #E3120B !important;
-  color: #FFF !important;
-  transform: rotate(1.5deg) translate(3px,3px);
-  box-shadow: 3px 3px 0 #0A0A0A !important;
-  border-radius: 6px 40px 6px 40px !important;
-}
-
-/* --- Header: linea gruesa y logo flotando --- */
-.header-wrapper {
-  background: #FFD400 !important;
-  border-bottom: 6px solid #0A0A0A !important;
-  background-image: radial-gradient(#0A0A0A 2px, transparent 2.5px) !important;
-  background-size: 22px 22px !important;
-}
-.header__heading-link { transform: rotate(-2deg); display: inline-block; }
+.header-wrapper * { color: var(--zn-bone) !important; }
+.header-wrapper a:hover,
+.header__menu-item:hover { color: var(--zn-lime) !important; background: transparent !important; }
 .header__menu-item, .list-menu__item--link {
-  background: #FFFFFF;
-  padding: 0.4rem 1rem !important;
-  border: 2px solid #0A0A0A;
-  margin: 0 0.3rem;
-}
-.header__menu-item:hover, .list-menu__item--link:hover {
-  background: #E3120B !important;
-  color: #FFF !important;
-  transform: rotate(-3deg);
-}
-
-/* --- Footer: banda negra con kana flotante --- */
-.footer {
-  background: #0A0A0A !important;
-  background-image: radial-gradient(#E3120B 2px, transparent 2.5px) !important;
-  background-size: 36px 36px !important;
-  color: #FFD400 !important;
-  border-top: 8px solid #E3120B !important;
-  position: relative;
-}
-.footer::before {
-  content: "草間 • DISEÑO DE AUTOR • クサマ • PHYSALIS LAB • 家 • ";
-  position: absolute;
-  top: -38px;
-  left: 0;
-  right: 0;
-  background: #E3120B;
-  color: #FFD400;
-  font-weight: 900;
-  font-size: 1.8rem;
-  letter-spacing: 0.4rem;
-  padding: 0.6rem 0;
-  white-space: nowrap;
-  overflow: hidden;
-  border-top: 4px solid #0A0A0A;
-  border-bottom: 4px solid #0A0A0A;
-  animation: kusama-marquee 28s linear infinite;
-}
-
-/* --- Price pill --- */
-.price-item--regular, .price__regular {
-  display: inline-block;
-  background: #0A0A0A;
-  color: #FFD400 !important;
-  padding: 0.4rem 1.2rem;
+  background: transparent !important;
+  border: 0 !important;
   font-family: var(--font-mono-family, monospace) !important;
-  transform: rotate(-2deg);
-  border-radius: 999px;
+  font-size: 1.15rem !important;
+  letter-spacing: 0.25rem !important;
 }
-
-/* --- Collection tiles: bloques de color maximalistas --- */
-.collection-list__item .card,
-[class*="collection"] .card--media {
-  border: 5px solid #0A0A0A !important;
-  border-radius: 0 !important;
-  transform: rotate(-0.8deg);
-  box-shadow: 12px 12px 0 #0A0A0A !important;
-}
-.collection-list__item:nth-child(5n+1) .card { background: #FFD400 !important; }
-.collection-list__item:nth-child(5n+2) .card { background: #E3120B !important; color: #FFF !important; }
-.collection-list__item:nth-child(5n+3) .card { background: #1E4BD8 !important; color: #FFF !important; }
-.collection-list__item:nth-child(5n+4) .card { background: #E84A9B !important; color: #0A0A0A !important; }
-.collection-list__item:nth-child(5n+5) .card { background: #1F6E4A !important; color: #FFD400 !important; }
-
-/* --- Kana decorativo flotante en secciones grandes --- */
-.rich-text, .banner {
-  position: relative;
-}
-.rich-text::after, .banner::after {
-  content: "水玉";
-  position: absolute;
-  top: 12%;
-  right: 4%;
-  font-size: clamp(8rem, 16vw, 22rem);
-  color: rgba(10,10,10,0.08);
-  font-weight: 900;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* --- Diseñadores: polaroids inclinadas --- */
-.disenadores-grid [class*="card"],
-.disenadores-grid .designer-card {
-  background: #FFFFFF !important;
-  border: 3px solid #0A0A0A !important;
-  padding: 1.2rem 1.2rem 3rem !important;
-  box-shadow: 8px 8px 0 #E84A9B !important;
-  transform: rotate(-2deg);
-}
-.disenadores-grid > *:nth-child(2n) [class*="card"] { transform: rotate(1.5deg); box-shadow: 8px 8px 0 #1E4BD8 !important; }
-.disenadores-grid > *:nth-child(3n) [class*="card"] { transform: rotate(-1deg); box-shadow: 8px 8px 0 #FFD400 !important; }
-.disenadores-grid img { filter: grayscale(0.25) contrast(1.15); }
-
-/* --- Newsletter: caja gigante roja con kana --- */
-.newsletter {
-  background: #E3120B !important;
-  background-image: radial-gradient(#FFD400 3px, transparent 3.5px) !important;
-  background-size: 32px 32px !important;
-  border: 6px solid #0A0A0A !important;
-  box-shadow: 14px 14px 0 #0A0A0A !important;
-  padding: 6rem 4rem !important;
-  transform: rotate(-0.5deg);
-  position: relative;
-}
-.newsletter::before {
-  content: "ニュース";
-  position: absolute;
-  top: -40px;
-  left: 24px;
-  background: #FFD400;
-  color: #0A0A0A;
-  padding: 0.6rem 1.4rem;
-  border: 4px solid #0A0A0A;
-  font-weight: 900;
-  letter-spacing: 0.3rem;
-  transform: rotate(-6deg);
-}
-
-/* --- Links subrayado amarillo animado --- */
-main a:not(.button):not(.card-wrapper):not(.card) {
-  background-image: linear-gradient(#FFD400, #FFD400);
-  background-size: 0 40%;
-  background-repeat: no-repeat;
-  background-position: 0 88%;
-  transition: background-size 0.25s ease;
-  padding: 0 0.2rem;
-}
-main a:not(.button):not(.card-wrapper):not(.card):hover {
-  background-size: 100% 40%;
-}
-
-/* --- Cursor custom (círculo Kusama) --- */
-body {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><circle cx='12' cy='12' r='8' fill='%23E3120B' stroke='%230A0A0A' stroke-width='2'/></svg>") 12 12, auto;
-}
-
-/* --- Selection amarillo --- */
-::selection { background: #FFD400; color: #0A0A0A; }
-
-/* --- PDP gallery framing --- */
-.product__media-wrapper {
-  border: 5px solid #0A0A0A;
-  background: #FFFFFF;
-  box-shadow: 16px 16px 0 #E3120B;
-  padding: 2rem;
-}
-.product__info-wrapper {
-  background: #FFD400;
-  padding: 3rem !important;
-  border: 5px solid #0A0A0A;
-  box-shadow: 10px 10px 0 #1E4BD8;
-}
-
-/* --- Separador japonés entre secciones --- */
-.shopify-section + .shopify-section {
-  border-top: 0 !important;
-  position: relative;
-}
-.shopify-section + .shopify-section::before {
-  content: "● ● ● ● ● ● ●";
-  display: block;
-  text-align: center;
-  padding: 2rem 0;
-  color: #0A0A0A;
-  letter-spacing: 1rem;
-  font-size: 1.4rem;
-}
-
-/* FIN V2 KUSAMA MAXIMALISTA ============================================ */
-
-/* --- Wordmark Kusama (reemplaza logo imagen) --- */
-.header__heading-link,
-.header__heading-logo-wrapper {
-  position: relative;
-}
-.header__heading-logo { display: none !important; }
 .header__heading-link::before {
-  content: "PHYSALIS";
-  font-family: var(--font-heading-family), serif;
-  font-weight: 900;
-  font-size: clamp(2.6rem, 3vw, 3.6rem);
-  letter-spacing: -0.03em;
-  color: #0A0A0A;
-  background: #FFFFFF;
-  padding: 0.3rem 0.8rem;
-  border: 3px solid #0A0A0A;
-  box-shadow: 4px 4px 0 #E3120B;
-  display: inline-block;
-  transform: rotate(-2deg);
+  content: "Physalis /" !important;
+  font-family: var(--font-heading-family), serif !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: var(--zn-bone) !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  transform: none !important;
+  padding: 0 !important;
+  font-size: 2.4rem !important;
 }
 .header__heading-link::after {
-  content: "● ● ●";
-  display: inline-block;
-  margin-left: 0.6rem;
-  color: #E3120B;
-  letter-spacing: 0.2rem;
-  font-size: 1.4rem;
-  transform: translateY(-4px);
+  content: "issue nº 02" !important;
+  color: var(--zn-lime) !important;
+  font-family: var(--font-mono-family, monospace) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.2rem !important;
+  margin-left: 1rem !important;
+  transform: none !important;
 }
-.header__heading-link .h2,
-.header__heading-link .header__heading-logo--text { display: none !important; }
+
+/* Announcement bar como cintillo mono */
+.announcement-bar,
+.announcement-bar__announcement {
+  background: var(--zn-lime) !important;
+  border: 0 !important;
+}
+.announcement-bar * {
+  color: var(--zn-ink) !important;
+  font-family: var(--font-mono-family, monospace) !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.24rem !important;
+  animation: none !important;
+}
+
+/* Botones: ficha plana */
+.button, button.button, .product-form__submit {
+  background: var(--zn-ink) !important;
+  color: var(--zn-bone) !important;
+  border: 1px solid var(--zn-ink) !important;
+  border-radius: 0 !important;
+  padding: 1.2rem 2rem !important;
+  font-family: var(--font-mono-family, monospace) !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.22rem !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.button:hover {
+  background: var(--zn-coral) !important;
+  color: var(--zn-ink) !important;
+  border-color: var(--zn-coral) !important;
+  border-radius: 0 !important;
+}
+.button--secondary {
+  background: transparent !important;
+  color: var(--zn-ink) !important;
+}
+
+/* Cards planas con ficha técnica */
+.card-wrapper, .product-card-wrapper, .card {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+  border-radius: 0 !important;
+}
+.card-wrapper:hover { transform: none !important; box-shadow: none !important; }
+.card__media {
+  background: var(--zn-peri);
+  aspect-ratio: 3/4;
+  overflow: hidden;
+}
+.card__heading, .card__information a, .card__information .h5 {
+  font-size: 1.35rem !important;
+  font-weight: 500 !important;
+  color: var(--zn-ink) !important;
+}
+.price-item--regular, .price__regular {
+  background: transparent !important;
+  color: var(--zn-ink) !important;
+  font-family: var(--font-mono-family, monospace) !important;
+  padding: 0 !important;
+  transform: none !important;
+  border-radius: 0 !important;
+}
+
+/* Footer minimal de revista */
+.footer {
+  background: var(--zn-ink) !important;
+  color: var(--zn-bone) !important;
+  background-image: none !important;
+  border: 0 !important;
+}
+.footer::before { content: none !important; }
+.footer * { color: var(--zn-bone) !important; }
+.footer a:hover { color: var(--zn-lime) !important; }
+
+/* Newsletter en línea editorial */
+.newsletter {
+  background: var(--zn-bone) !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  padding: 6rem 2rem !important;
+  color: var(--zn-ink) !important;
+}
+.newsletter::before { content: none !important; }
+.newsletter * { color: var(--zn-ink) !important; }
+
+/* Selection */
+::selection { background: var(--zn-lime); color: var(--zn-ink); }
+
+/* Home zine — componentes custom */
+.zn-section { padding: clamp(6rem, 9vw, 11rem) clamp(2rem, 4vw, 5rem); max-width: 1600px; margin: 0 auto; }
+.zn-rule { border: 0; border-top: 1px solid var(--zn-ink); margin: 0; }
+.zn-mono { font-family: var(--font-mono-family, ui-monospace, monospace); font-size: 0.95rem; letter-spacing: 0.24rem; text-transform: uppercase; }
+.zn-display {
+  font-family: var(--font-heading-family), serif;
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  font-size: clamp(5rem, 13vw, 18rem);
+}
+.zn-italic { font-style: italic; }
+.zn-coral { color: var(--zn-coral); }
+.zn-lime  { color: var(--zn-lime); }
+.zn-peri  { background: var(--zn-peri); }
+.zn-plum-bg { background: var(--zn-plum); color: var(--zn-bone); }
+.zn-ink-bg  { background: var(--zn-ink); color: var(--zn-bone); }
+.zn-coral-bg { background: var(--zn-coral); color: var(--zn-ink); }
+.zn-lime-bg { background: var(--zn-lime); color: var(--zn-ink); }
+
+/* Index / TOC editorial */
+.zn-toc { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+.zn-toc ol { list-style: none; margin: 0; padding: 0; }
+.zn-toc ol li {
+  display: grid;
+  grid-template-columns: 60px 1fr 140px;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--zn-ink);
+  font-family: var(--font-mono-family, monospace);
+  font-size: 1.05rem;
+  letter-spacing: 0.1rem;
+}
+.zn-toc ol li:last-child { border-bottom: 1px solid var(--zn-ink); }
+.zn-toc ol li a:hover { background: var(--zn-lime); }
+
+/* Feature de pieza única */
+.zn-feature { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: end; }
+.zn-feature__img { background: var(--zn-peri); aspect-ratio: 3/4; overflow: hidden; }
+.zn-feature__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.zn-feature__ficha { border-top: 3px solid var(--zn-ink); padding-top: 1.5rem; }
+.zn-feature__ficha dl { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem 2rem; margin: 2rem 0; font-family: var(--font-mono-family, monospace); font-size: 0.95rem; }
+.zn-feature__ficha dt { color: var(--zn-ink); opacity: 0.6; letter-spacing: 0.14rem; text-transform: uppercase; }
+.zn-feature__ficha dd { margin: 0; }
+
+/* Catálogo ticker horizontal */
+.zn-ticker { overflow-x: auto; padding: 0 2rem; scroll-snap-type: x mandatory; }
+.zn-ticker__track { display: flex; gap: 2rem; padding: 0 1rem 2rem; }
+.zn-ticker__card { flex: 0 0 320px; scroll-snap-align: start; }
+.zn-ticker__card .img { aspect-ratio: 3/4; overflow: hidden; background: var(--zn-peri); }
+.zn-ticker__card img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Lab notes grid asimétrico */
+.zn-notes { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(120px, auto); gap: 1.5rem; }
+.zn-note { padding: 2rem; border: 1px solid var(--zn-ink); }
+.zn-note h4 { font-size: 1.6rem; margin: 0 0 1rem; line-height: 1.1; }
+.zn-note p { font-size: 1rem; line-height: 1.5; margin: 0; }
+.zn-note--a { grid-column: span 5; grid-row: span 2; background: var(--zn-coral); color: var(--zn-ink); }
+.zn-note--b { grid-column: span 4; background: var(--zn-lime); }
+.zn-note--c { grid-column: span 3; background: var(--zn-ink); color: var(--zn-bone); }
+.zn-note--d { grid-column: span 4; background: var(--zn-peri); }
+.zn-note--e { grid-column: span 3; background: var(--zn-plum); color: var(--zn-bone); }
+
+/* Dialogo editorial */
+.zn-dialogo { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; font-size: 1.3rem; line-height: 1.5; }
+.zn-dialogo blockquote { margin: 0; border-left: 3px solid var(--zn-coral); padding-left: 1.5rem; }
+.zn-dialogo cite { display: block; margin-top: 1rem; font-style: normal; font-family: var(--font-mono-family, monospace); font-size: 0.85rem; letter-spacing: 0.18rem; text-transform: uppercase; opacity: 0.6; }
+
+/* Colofón */
+.zn-colofon { font-family: var(--font-mono-family, monospace); font-size: 0.9rem; line-height: 1.7; column-count: 3; column-gap: 3rem; }
+
+/* Marquee editorial */
+.zn-marquee {
+  overflow: hidden;
+  background: var(--zn-ink);
+  color: var(--zn-bone);
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--zn-ink);
+  border-bottom: 1px solid var(--zn-ink);
+}
+.zn-marquee__track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: zn-scroll 40s linear infinite;
+  font-size: 1.8rem;
+  font-family: var(--font-heading-family), serif;
+  font-style: italic;
+}
+.zn-marquee__track span { padding: 0 2rem; }
+.zn-marquee__track em { color: var(--zn-lime); font-style: normal; }
+@keyframes zn-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+@media (max-width: 900px) {
+  .zn-toc, .zn-feature, .zn-dialogo { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .zn-notes { grid-template-columns: 1fr !important; }
+  .zn-note { grid-column: span 1 !important; }
+  .zn-colofon { column-count: 1; }
+}
+
+/* Fin capa editorial ================================================== */
