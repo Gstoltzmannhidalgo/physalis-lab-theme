@@ -1507,3 +1507,315 @@ main#MainContent > .shopify-section + .shopify-section::before {
   padding-left: 32px !important;
   padding-right: 32px !important;
 }
+
+/* =====================================================================
+   V2 KUSAMA — Capa estética retro-moderna japonesa
+   Paleta: negro puro, blanco, rojo Kusama, amarillo sol, azul cobalto,
+   magenta. Tipografías gigantes, puntos polka, bordes gruesos, brutalismo
+   editorial japonés. Mantiene la estructura original Physalis.
+   ===================================================================== */
+
+:root {
+  --kusama-red:     #E3120B;
+  --kusama-yellow:  #FFD400;
+  --kusama-blue:    #1E4BD8;
+  --kusama-magenta: #E84A9B;
+  --kusama-green:   #1F6E4A;
+  --kusama-black:   #0A0A0A;
+  --kusama-white:   #FFFFFF;
+  --kusama-dot:     #0A0A0A;
+  --kusama-border:  4px;
+}
+
+/* ---------- Base tipográfica XL ---------- */
+body {
+  background: var(--kusama-white) !important;
+  color: var(--kusama-black) !important;
+}
+
+h1, .h1 {
+  font-size: clamp(4.8rem, 9vw, 11rem) !important;
+  font-weight: 500 !important;
+  line-height: 0.92 !important;
+  letter-spacing: -0.035em !important;
+  text-transform: none;
+}
+h2, .h2 {
+  font-size: clamp(3.4rem, 6vw, 7.2rem) !important;
+  font-weight: 500 !important;
+  line-height: 0.95 !important;
+  letter-spacing: -0.03em !important;
+}
+h3, .h3 { font-size: clamp(2.4rem, 3.4vw, 4.2rem) !important; letter-spacing: -0.02em !important; }
+
+/* ---------- Header Kusama — borde negro grueso ---------- */
+.header-wrapper {
+  background: var(--kusama-white) !important;
+  border-bottom: var(--kusama-border) solid var(--kusama-black) !important;
+}
+.header__menu-item,
+.list-menu__item--link {
+  color: var(--kusama-black) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22rem !important;
+}
+.header__menu-item:hover,
+.list-menu__item--link:hover {
+  color: var(--kusama-red) !important;
+  background: var(--kusama-yellow) !important;
+  padding: 0.2rem 0.6rem;
+  transition: none !important;
+}
+.header__active-menu-item {
+  border-bottom: 3px solid var(--kusama-red) !important;
+}
+.cart-count-bubble {
+  background: var(--kusama-red) !important;
+  color: var(--kusama-white) !important;
+  border: 2px solid var(--kusama-black) !important;
+  border-radius: 50% !important;
+}
+
+/* ---------- Announcement bar — amarillo con texto negro ---------- */
+.shopify-section-announcement-bar,
+.announcement-bar,
+.announcement-bar__announcement {
+  background: var(--kusama-yellow) !important;
+  border-bottom: var(--kusama-border) solid var(--kusama-black) !important;
+}
+.announcement-bar *,
+.announcement-bar__message,
+.announcement-bar__link {
+  color: var(--kusama-black) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.24rem !important;
+}
+
+/* ---------- Hero / banner — tipografía gigante + puntos ---------- */
+.banner__content,
+.banner__box {
+  background: transparent !important;
+}
+.banner__heading,
+.slideshow__text h2,
+.banner h1,
+.banner h2 {
+  font-size: clamp(5.6rem, 11vw, 14rem) !important;
+  font-weight: 500 !important;
+  line-height: 0.88 !important;
+  letter-spacing: -0.04em !important;
+  color: var(--kusama-black) !important;
+  mix-blend-mode: normal;
+}
+.banner__heading em,
+.banner h1 em,
+.banner h2 em {
+  font-style: italic;
+  color: var(--kusama-red) !important;
+}
+
+/* Fondo de puntos polka — aplicable a secciones con clase */
+.kusama-dots,
+.section-kusama-dots {
+  background-image: radial-gradient(var(--kusama-dot) 2px, transparent 2.5px);
+  background-size: 28px 28px;
+  background-position: 0 0;
+}
+
+/* ---------- Botones — brutalist block ---------- */
+.button,
+button.button,
+.shopify-payment-button__button,
+.shopify-payment-button__button--unbranded,
+.product-form__submit {
+  background: var(--kusama-black) !important;
+  color: var(--kusama-white) !important;
+  border: var(--kusama-border) solid var(--kusama-black) !important;
+  border-radius: 0 !important;
+  padding: 1.6rem 2.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22rem !important;
+  text-transform: uppercase !important;
+  box-shadow: 6px 6px 0 var(--kusama-red) !important;
+  transition: transform 0.08s, box-shadow 0.08s !important;
+}
+.button:hover,
+button.button:hover,
+.product-form__submit:hover {
+  background: var(--kusama-red) !important;
+  color: var(--kusama-yellow) !important;
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--kusama-black) !important;
+}
+.button--secondary,
+.button.button--secondary {
+  background: var(--kusama-white) !important;
+  color: var(--kusama-black) !important;
+  box-shadow: 6px 6px 0 var(--kusama-blue) !important;
+}
+.button--secondary:hover {
+  background: var(--kusama-yellow) !important;
+  color: var(--kusama-black) !important;
+}
+
+/* ---------- Product cards — marco grueso + hover punchy ---------- */
+.card-wrapper,
+.card,
+.product-card-wrapper {
+  border: var(--kusama-border) solid var(--kusama-black) !important;
+  border-radius: 0 !important;
+  background: var(--kusama-white) !important;
+  transition: transform 0.12s, box-shadow 0.12s !important;
+}
+.card-wrapper:hover,
+.card:hover,
+.product-card-wrapper:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 8px 8px 0 var(--kusama-red);
+}
+.card__heading,
+.card__information .h5,
+.card__information a {
+  color: var(--kusama-black) !important;
+  font-weight: 500 !important;
+  font-size: 2rem !important;
+  letter-spacing: -0.01em !important;
+}
+.price,
+.price__regular,
+.price-item--regular {
+  color: var(--kusama-red) !important;
+  font-weight: 700 !important;
+  font-family: var(--font-mono-family, ui-monospace, monospace) !important;
+}
+
+/* ---------- Collection grid / categorías — color blocking Kusama ---------- */
+.collection-list__item,
+.card.card--media .card__content {
+  position: relative;
+}
+.collection-list__item:nth-child(5n+1) .card,
+.collection-list__item:nth-child(5n+1) { background: var(--kusama-yellow); }
+.collection-list__item:nth-child(5n+2) .card,
+.collection-list__item:nth-child(5n+2) { background: var(--kusama-red); color: var(--kusama-white); }
+.collection-list__item:nth-child(5n+3) .card,
+.collection-list__item:nth-child(5n+3) { background: var(--kusama-blue); color: var(--kusama-white); }
+.collection-list__item:nth-child(5n+4) .card,
+.collection-list__item:nth-child(5n+4) { background: var(--kusama-white); }
+.collection-list__item:nth-child(5n+5) .card,
+.collection-list__item:nth-child(5n+5) { background: var(--kusama-magenta); color: var(--kusama-white); }
+
+/* ---------- Diseñadores grid — polka dots en retratos ---------- */
+.disenadores-grid .designer-card,
+.disenadores-grid [class*="card"] {
+  border: var(--kusama-border) solid var(--kusama-black) !important;
+  background: var(--kusama-white) !important;
+  position: relative;
+}
+.disenadores-grid img {
+  filter: contrast(1.05) saturate(1.1);
+}
+
+/* ---------- Secciones — separadores gruesos ---------- */
+.shopify-section + .shopify-section {
+  border-top: 2px solid var(--kusama-black);
+}
+
+/* ---------- Footer — negro con acentos ---------- */
+.footer {
+  background: var(--kusama-black) !important;
+  color: var(--kusama-white) !important;
+  border-top: var(--kusama-border) solid var(--kusama-red) !important;
+}
+.footer a,
+.footer__content-top a,
+.footer-block__heading,
+.footer-block__details-content a {
+  color: var(--kusama-white) !important;
+}
+.footer a:hover {
+  color: var(--kusama-yellow) !important;
+}
+.footer-block__heading {
+  color: var(--kusama-yellow) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22rem !important;
+}
+
+/* Newsletter dentro del footer */
+.footer .newsletter,
+.newsletter {
+  background: var(--kusama-red) !important;
+  color: var(--kusama-white) !important;
+  border: var(--kusama-border) solid var(--kusama-black) !important;
+}
+.newsletter .newsletter__heading,
+.newsletter .newsletter__subheading,
+.newsletter .field__label,
+.newsletter h2 {
+  color: var(--kusama-white) !important;
+}
+.newsletter .field {
+  background: var(--kusama-white) !important;
+  border: 2px solid var(--kusama-black) !important;
+}
+.newsletter button[type="submit"],
+.newsletter .newsletter-form__button {
+  color: var(--kusama-yellow) !important;
+}
+
+/* ---------- Rich-text / editorial — tipografía grande ---------- */
+.rich-text__heading,
+.rich-text h1, .rich-text h2 {
+  font-size: clamp(4rem, 7vw, 9rem) !important;
+  letter-spacing: -0.035em !important;
+  color: var(--kusama-black) !important;
+}
+.rich-text__text p,
+.rich-text p {
+  font-size: 1.9rem !important;
+  line-height: 1.5;
+}
+
+/* ---------- Bloques con fondo de color alternativo (Kusama stripes) ---------- */
+.shopify-section:nth-of-type(3n) .color-scheme-2,
+.color-background-2 {
+  background: var(--kusama-yellow) !important;
+}
+.shopify-section:nth-of-type(4n) .color-background-2 {
+  background: var(--kusama-red) !important;
+  color: var(--kusama-white) !important;
+}
+
+/* ---------- Links editoriales ---------- */
+a, .link {
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+main a:hover {
+  color: var(--kusama-red) !important;
+  background: var(--kusama-yellow);
+}
+
+/* ---------- PDP — títulos masivos ---------- */
+.product__title h1,
+.product__title .h1 {
+  font-size: clamp(4rem, 6vw, 7rem) !important;
+  line-height: 0.95 !important;
+}
+.product__info-wrapper {
+  border-left: var(--kusama-border) solid var(--kusama-black);
+  padding-left: 3rem !important;
+}
+
+/* ---------- Scroll-bar accent (solo WebKit) ---------- */
+::selection {
+  background: var(--kusama-yellow);
+  color: var(--kusama-black);
+}
+
+/* ---------- Forzar overrides sobre schemes de Dawn ---------- */
+.color-scheme-1, .color-background-1 { background: var(--kusama-white) !important; color: var(--kusama-black) !important; }
+.color-scheme-inverse { background: var(--kusama-black) !important; color: var(--kusama-white) !important; }
+
+/* FIN V2 KUSAMA ======================================================= */
