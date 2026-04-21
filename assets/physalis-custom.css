@@ -1509,269 +1509,602 @@ main#MainContent > .shopify-section + .shopify-section::before {
 }
 
 /* =====================================================================
-   V2 · POST-INTERNET EDITORIAL ZINE
-   Paleta: bone #EFEAE0, midnight #0E1B2E, coral #FF4E2A, lime #CCFF33,
-   periwinkle #B8B9FF, plum #3A1F4E.
-   Lenguaje: revista underground, ficha técnica, tipografía masiva,
-   layouts asimétricos con índice editorial, sin simetría forzada.
+   V2 · JAPANDI MAXIMALISTA · Poster-era Artemide/Nesso + Kusama
+   Paleta cálida: crema, terracota, ocre, rosa mushroom, negro sumi,
+   marrón profundo. Formas primitivas (arcos/semicírculos/círculos)
+   como lenguaje visual. Retro-italian poster meets Japandi.
    ===================================================================== */
 
 :root {
-  --zn-bone:    #EFEAE0;
-  --zn-ink:     #0E1B2E;
-  --zn-coral:   #FF4E2A;
-  --zn-lime:    #CCFF33;
-  --zn-peri:    #B8B9FF;
-  --zn-plum:    #3A1F4E;
-  --zn-paper:   #F6F3EB;
+  --jm-cream:    #F2ECE0;
+  --jm-cream-hi: #F7F1E3;
+  --jm-terra:    #E85A2B;
+  --jm-terra-d:  #C4401A;
+  --jm-ocre:     #D99736;
+  --jm-rose:     #E8B0A0;
+  --jm-salmon:   #F3B6A3;
+  --jm-sumi:     #1A1814;
+  --jm-maroon:   #7A1F13;
+  --jm-navy:     #1E2952;
 }
 
 html, body {
-  background: var(--zn-bone) !important;
-  color: var(--zn-ink) !important;
+  background: var(--jm-cream) !important;
+  color: var(--jm-sumi) !important;
+  cursor: auto !important;
 }
 main#MainContent { background: transparent !important; }
 
-/* Reset de los maximalismos anteriores */
-body { cursor: auto !important; }
+/* Reset overrides previos */
+body { background-image: none !important; }
 .shopify-section + .shopify-section::before { content: none !important; }
 .card-wrapper::before, .product-card-wrapper::before { content: none !important; }
-main h1, main h2, main .h1, main .h2 {
-  text-shadow: none !important;
-  transform: none !important;
-}
+main h1, main h2, main .h1, main .h2 { text-shadow: none !important; transform: none !important; }
 
-/* Header como cintillo de revista */
+/* Header: crema con borde terracota + wordmark poster */
 .header-wrapper {
-  background: var(--zn-ink) !important;
+  background: var(--jm-cream) !important;
   background-image: none !important;
-  border-bottom: 1px solid var(--zn-ink) !important;
-  color: var(--zn-bone) !important;
+  border-bottom: 3px solid var(--jm-sumi) !important;
+  color: var(--jm-sumi) !important;
 }
-.header-wrapper * { color: var(--zn-bone) !important; }
-.header-wrapper a:hover,
-.header__menu-item:hover { color: var(--zn-lime) !important; background: transparent !important; }
+.header-wrapper * { color: var(--jm-sumi) !important; }
+.header__heading-link::before {
+  content: "PHYSALIS" !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  transform: none !important;
+  font-family: var(--font-heading-family), serif !important;
+  font-weight: 900 !important;
+  font-size: 2.8rem !important;
+  letter-spacing: -0.04em !important;
+  color: var(--jm-sumi) !important;
+  font-style: normal !important;
+}
+.header__heading-link::after {
+  content: "◐" !important;
+  color: var(--jm-terra) !important;
+  font-size: 2.2rem !important;
+  margin-left: 0.6rem !important;
+  letter-spacing: 0 !important;
+  transform: none !important;
+  vertical-align: -4px;
+}
 .header__menu-item, .list-menu__item--link {
   background: transparent !important;
   border: 0 !important;
   font-family: var(--font-mono-family, monospace) !important;
-  font-size: 1.15rem !important;
-  letter-spacing: 0.25rem !important;
-}
-.header__heading-link::before {
-  content: "Physalis /" !important;
-  font-family: var(--font-heading-family), serif !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  color: var(--zn-bone) !important;
-  font-style: italic !important;
-  font-weight: 500 !important;
-  transform: none !important;
+  font-size: 1.05rem !important;
+  letter-spacing: 0.22rem !important;
   padding: 0 !important;
-  font-size: 2.4rem !important;
+  margin: 0 0.6rem !important;
+  transform: none !important;
 }
-.header__heading-link::after {
-  content: "issue nº 02" !important;
-  color: var(--zn-lime) !important;
+.header__menu-item:hover, .list-menu__item--link:hover {
+  color: var(--jm-terra) !important;
+  background: transparent !important;
+  transform: none !important;
+}
+
+/* Announcement */
+.announcement-bar, .announcement-bar__announcement {
+  background: var(--jm-sumi) !important;
+  border: 0 !important;
+}
+.announcement-bar *, .announcement-bar__message {
+  color: var(--jm-cream) !important;
+  font-family: var(--font-mono-family, monospace) !important;
+  font-size: 1rem !important;
+  letter-spacing: 0.24rem !important;
+  animation: none !important;
+  font-weight: 500 !important;
+}
+
+/* Botones: bloque orgánico */
+.button, button.button, .product-form__submit {
+  background: var(--jm-sumi) !important;
+  color: var(--jm-cream) !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 1.3rem 2.6rem !important;
   font-family: var(--font-mono-family, monospace) !important;
   font-size: 1rem !important;
   letter-spacing: 0.2rem !important;
-  margin-left: 1rem !important;
-  transform: none !important;
-}
-
-/* Announcement bar como cintillo mono */
-.announcement-bar,
-.announcement-bar__announcement {
-  background: var(--zn-lime) !important;
-  border: 0 !important;
-}
-.announcement-bar * {
-  color: var(--zn-ink) !important;
-  font-family: var(--font-mono-family, monospace) !important;
-  font-size: 1.1rem !important;
-  letter-spacing: 0.24rem !important;
-  animation: none !important;
-}
-
-/* Botones: ficha plana */
-.button, button.button, .product-form__submit {
-  background: var(--zn-ink) !important;
-  color: var(--zn-bone) !important;
-  border: 1px solid var(--zn-ink) !important;
-  border-radius: 0 !important;
-  padding: 1.2rem 2rem !important;
-  font-family: var(--font-mono-family, monospace) !important;
-  font-size: 1.05rem !important;
-  letter-spacing: 0.22rem !important;
   font-weight: 500 !important;
   box-shadow: none !important;
   transform: none !important;
+  text-transform: uppercase !important;
 }
 .button:hover {
-  background: var(--zn-coral) !important;
-  color: var(--zn-ink) !important;
-  border-color: var(--zn-coral) !important;
-  border-radius: 0 !important;
-}
-.button--secondary {
-  background: transparent !important;
-  color: var(--zn-ink) !important;
+  background: var(--jm-terra) !important;
+  color: var(--jm-cream) !important;
+  border-radius: 999px !important;
+  transform: none !important;
 }
 
-/* Cards planas con ficha técnica */
+/* Cards: poster frame */
 .card-wrapper, .product-card-wrapper, .card {
   border: 0 !important;
-  background: transparent !important;
+  background: var(--jm-cream-hi) !important;
   box-shadow: none !important;
   transform: none !important;
   border-radius: 0 !important;
 }
 .card-wrapper:hover { transform: none !important; box-shadow: none !important; }
-.card__media {
-  background: var(--zn-peri);
-  aspect-ratio: 3/4;
-  overflow: hidden;
-}
-.card__heading, .card__information a, .card__information .h5 {
-  font-size: 1.35rem !important;
+.card__heading, .card__information a {
+  font-family: var(--font-heading-family), serif !important;
+  font-size: 1.5rem !important;
   font-weight: 500 !important;
-  color: var(--zn-ink) !important;
+  color: var(--jm-sumi) !important;
 }
-.price-item--regular, .price__regular {
+.price-item--regular {
   background: transparent !important;
-  color: var(--zn-ink) !important;
+  color: var(--jm-terra) !important;
   font-family: var(--font-mono-family, monospace) !important;
   padding: 0 !important;
   transform: none !important;
   border-radius: 0 !important;
+  font-weight: 600 !important;
 }
 
-/* Footer minimal de revista */
+/* Footer */
 .footer {
-  background: var(--zn-ink) !important;
-  color: var(--zn-bone) !important;
+  background: var(--jm-sumi) !important;
+  color: var(--jm-cream) !important;
   background-image: none !important;
   border: 0 !important;
 }
 .footer::before { content: none !important; }
-.footer * { color: var(--zn-bone) !important; }
-.footer a:hover { color: var(--zn-lime) !important; }
+.footer * { color: var(--jm-cream) !important; }
+.footer a:hover { color: var(--jm-terra) !important; }
 
-/* Newsletter en línea editorial */
+/* Newsletter */
 .newsletter {
-  background: var(--zn-bone) !important;
+  background: var(--jm-terra) !important;
+  color: var(--jm-cream) !important;
   background-image: none !important;
   border: 0 !important;
   box-shadow: none !important;
   transform: none !important;
-  padding: 6rem 2rem !important;
-  color: var(--zn-ink) !important;
 }
 .newsletter::before { content: none !important; }
-.newsletter * { color: var(--zn-ink) !important; }
+.newsletter * { color: var(--jm-cream) !important; }
 
-/* Selection */
-::selection { background: var(--zn-lime); color: var(--zn-ink); }
+::selection { background: var(--jm-terra); color: var(--jm-cream); }
 
-/* Home zine — componentes custom */
-.zn-section { padding: clamp(6rem, 9vw, 11rem) clamp(2rem, 4vw, 5rem); max-width: 1600px; margin: 0 auto; }
-.zn-rule { border: 0; border-top: 1px solid var(--zn-ink); margin: 0; }
-.zn-mono { font-family: var(--font-mono-family, ui-monospace, monospace); font-size: 0.95rem; letter-spacing: 0.24rem; text-transform: uppercase; }
-.zn-display {
+/* ============ Home Japandi Maximalista — componentes custom ============ */
+.jm-section {
+  padding: clamp(5rem, 8vw, 9rem) clamp(2rem, 4vw, 5rem);
+  max-width: 1600px;
+  margin: 0 auto;
+  position: relative;
+}
+.jm-display {
   font-family: var(--font-heading-family), serif;
-  font-weight: 500;
-  line-height: 0.92;
-  letter-spacing: -0.035em;
-  font-size: clamp(5rem, 13vw, 18rem);
+  font-weight: 600;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
 }
-.zn-italic { font-style: italic; }
-.zn-coral { color: var(--zn-coral); }
-.zn-lime  { color: var(--zn-lime); }
-.zn-peri  { background: var(--zn-peri); }
-.zn-plum-bg { background: var(--zn-plum); color: var(--zn-bone); }
-.zn-ink-bg  { background: var(--zn-ink); color: var(--zn-bone); }
-.zn-coral-bg { background: var(--zn-coral); color: var(--zn-ink); }
-.zn-lime-bg { background: var(--zn-lime); color: var(--zn-ink); }
-
-/* Index / TOC editorial */
-.zn-toc { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
-.zn-toc ol { list-style: none; margin: 0; padding: 0; }
-.zn-toc ol li {
-  display: grid;
-  grid-template-columns: 60px 1fr 140px;
-  gap: 1.5rem;
-  padding: 1.4rem 0;
-  border-top: 1px solid var(--zn-ink);
-  font-family: var(--font-mono-family, monospace);
-  font-size: 1.05rem;
-  letter-spacing: 0.1rem;
+.jm-mono {
+  font-family: var(--font-mono-family, ui-monospace, monospace);
+  font-size: 0.9rem;
+  letter-spacing: 0.26rem;
+  text-transform: uppercase;
 }
-.zn-toc ol li:last-child { border-bottom: 1px solid var(--zn-ink); }
-.zn-toc ol li a:hover { background: var(--zn-lime); }
+.jm-serif-it { font-family: var(--font-heading-family), serif; font-style: italic; }
 
-/* Feature de pieza única */
-.zn-feature { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: end; }
-.zn-feature__img { background: var(--zn-peri); aspect-ratio: 3/4; overflow: hidden; }
-.zn-feature__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.zn-feature__ficha { border-top: 3px solid var(--zn-ink); padding-top: 1.5rem; }
-.zn-feature__ficha dl { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem 2rem; margin: 2rem 0; font-family: var(--font-mono-family, monospace); font-size: 0.95rem; }
-.zn-feature__ficha dt { color: var(--zn-ink); opacity: 0.6; letter-spacing: 0.14rem; text-transform: uppercase; }
-.zn-feature__ficha dd { margin: 0; }
+/* Formas primitivas como SVG de fondo */
+.jm-shape-arch,
+.jm-shape-circle,
+.jm-shape-halfmoon,
+.jm-shape-column {
+  position: absolute;
+  pointer-events: none;
+}
 
-/* Catálogo ticker horizontal */
-.zn-ticker { overflow-x: auto; padding: 0 2rem; scroll-snap-type: x mandatory; }
-.zn-ticker__track { display: flex; gap: 2rem; padding: 0 1rem 2rem; }
-.zn-ticker__card { flex: 0 0 320px; scroll-snap-align: start; }
-.zn-ticker__card .img { aspect-ratio: 3/4; overflow: hidden; background: var(--zn-peri); }
-.zn-ticker__card img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Lab notes grid asimétrico */
-.zn-notes { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(120px, auto); gap: 1.5rem; }
-.zn-note { padding: 2rem; border: 1px solid var(--zn-ink); }
-.zn-note h4 { font-size: 1.6rem; margin: 0 0 1rem; line-height: 1.1; }
-.zn-note p { font-size: 1rem; line-height: 1.5; margin: 0; }
-.zn-note--a { grid-column: span 5; grid-row: span 2; background: var(--zn-coral); color: var(--zn-ink); }
-.zn-note--b { grid-column: span 4; background: var(--zn-lime); }
-.zn-note--c { grid-column: span 3; background: var(--zn-ink); color: var(--zn-bone); }
-.zn-note--d { grid-column: span 4; background: var(--zn-peri); }
-.zn-note--e { grid-column: span 3; background: var(--zn-plum); color: var(--zn-bone); }
-
-/* Dialogo editorial */
-.zn-dialogo { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; font-size: 1.3rem; line-height: 1.5; }
-.zn-dialogo blockquote { margin: 0; border-left: 3px solid var(--zn-coral); padding-left: 1.5rem; }
-.zn-dialogo cite { display: block; margin-top: 1rem; font-style: normal; font-family: var(--font-mono-family, monospace); font-size: 0.85rem; letter-spacing: 0.18rem; text-transform: uppercase; opacity: 0.6; }
-
-/* Colofón */
-.zn-colofon { font-family: var(--font-mono-family, monospace); font-size: 0.9rem; line-height: 1.7; column-count: 3; column-gap: 3rem; }
-
-/* Marquee editorial */
-.zn-marquee {
+/* Hero poster */
+.jm-hero {
+  background: var(--jm-terra);
+  color: var(--jm-cream);
+  padding: clamp(6rem, 10vw, 11rem) clamp(2rem, 4vw, 5rem) clamp(5rem, 8vw, 9rem);
+  position: relative;
   overflow: hidden;
-  background: var(--zn-ink);
-  color: var(--zn-bone);
-  padding: 1.4rem 0;
-  border-top: 1px solid var(--zn-ink);
-  border-bottom: 1px solid var(--zn-ink);
 }
-.zn-marquee__track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: zn-scroll 40s linear infinite;
-  font-size: 1.8rem;
+.jm-hero__meta {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--jm-cream);
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  font-family: var(--font-mono-family, monospace);
+  font-size: 0.9rem;
+  letter-spacing: 0.24rem;
+  text-transform: uppercase;
+}
+.jm-hero h1 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(6rem, 14vw, 18rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  margin: 0;
+  font-weight: 700;
+  color: var(--jm-cream);
+  max-width: 12ch;
+}
+.jm-hero h1 em {
+  font-style: italic;
+  color: var(--jm-sumi);
+  font-weight: 500;
+}
+.jm-hero__tag {
+  margin-top: 4rem;
+  max-width: 40ch;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  color: var(--jm-cream);
+}
+.jm-hero__shapes {
+  position: absolute;
+  right: clamp(2rem, 4vw, 5rem);
+  top: 20%;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-end;
+  z-index: 1;
+}
+.jm-hero__shapes > div {
+  width: clamp(90px, 10vw, 150px);
+  height: clamp(130px, 14vw, 210px);
+  background: var(--jm-sumi);
+  position: relative;
+}
+.jm-hero__shapes > .arch    { border-radius: 999px 999px 0 0; background: var(--jm-sumi); }
+.jm-hero__shapes > .half    { height: clamp(70px, 7vw, 105px); border-radius: 999px 999px 0 0; background: var(--jm-cream); }
+.jm-hero__shapes > .circle  { width: clamp(100px, 11vw, 170px); height: clamp(100px, 11vw, 170px); border-radius: 50%; background: var(--jm-cream); }
+.jm-hero__shapes > .quarter { height: clamp(100px, 11vw, 170px); border-radius: 0 999px 0 0; background: var(--jm-sumi); }
+
+/* Poster producto (tipo Nesso/Artemide) */
+.jm-poster {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 0;
+  background: var(--jm-rose);
+  min-height: 70vh;
+}
+.jm-poster__art {
+  background: var(--jm-ocre);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.jm-poster__art::before {
+  content: "";
+  position: absolute;
+  width: 80%;
+  aspect-ratio: 1/1;
+  top: 12%;
+  left: 10%;
+  background: var(--jm-terra);
+  border-radius: 50%;
+}
+.jm-poster__art::after {
+  content: "";
+  position: absolute;
+  width: 28%;
+  height: 55%;
+  bottom: 0;
+  left: 36%;
+  background: var(--jm-sumi);
+  border-radius: 0 0 40% 40% / 0 0 15% 15%;
+}
+.jm-poster__info {
+  padding: clamp(3rem, 6vw, 7rem) clamp(2rem, 4vw, 5rem);
+  background: var(--jm-rose);
+  color: var(--jm-sumi);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.jm-poster__info h2 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(5rem, 11vw, 14rem);
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  margin: 0 0 2rem;
+  font-weight: 700;
+  color: var(--jm-maroon);
+  text-transform: uppercase;
+}
+.jm-poster__info h2 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--jm-sumi);
+}
+.jm-poster__info p { font-size: 1.2rem; line-height: 1.5; margin: 0 0 2rem; max-width: 36ch; }
+.jm-poster__info dl {
+  font-family: var(--font-mono-family, monospace);
+  font-size: 0.92rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.6rem 1.5rem;
+  border-top: 2px solid var(--jm-sumi);
+  padding-top: 1.5rem;
+  margin: 0 0 2rem;
+}
+.jm-poster__info dt { letter-spacing: 0.14rem; text-transform: uppercase; opacity: 0.55; }
+.jm-poster__info dd { margin: 0; }
+
+/* Grid de formas primitivas (como el cuadrado naranja del moodboard) */
+.jm-forms-grid {
+  background: var(--jm-terra);
+  padding: clamp(5rem, 8vw, 9rem) clamp(2rem, 4vw, 5rem);
+  color: var(--jm-cream);
+}
+.jm-forms-grid h2 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0 0 3rem;
+  max-width: 20ch;
+  color: var(--jm-cream);
+}
+.jm-forms-grid h2 em { font-style: italic; color: var(--jm-sumi); font-weight: 500; }
+.jm-forms {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  border: 2px solid var(--jm-cream);
+}
+.jm-form {
+  aspect-ratio: 1/1;
+  background: var(--jm-terra);
+  border: 2px solid var(--jm-cream);
+  margin: -2px -2px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+.jm-form a {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: var(--jm-cream);
+  text-decoration: none;
+  font-family: var(--font-mono-family, monospace);
+  font-size: 0.85rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.jm-form svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Bloque kanji poster */
+.jm-kanji {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.jm-kanji__left {
+  background: var(--jm-sumi);
+  color: var(--jm-cream);
+  padding: clamp(5rem, 8vw, 9rem) clamp(2rem, 4vw, 5rem);
+  position: relative;
+  overflow: hidden;
+}
+.jm-kanji__left .kanji {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(10rem, 22vw, 28rem);
+  line-height: 0.9;
+  color: var(--jm-terra);
+  font-weight: 700;
+  margin: 0;
+}
+.jm-kanji__left .romaji {
+  font-family: var(--font-mono-family, monospace);
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: var(--jm-ocre);
+  margin-top: 1rem;
+}
+.jm-kanji__right {
+  background: var(--jm-ocre);
+  color: var(--jm-sumi);
+  padding: clamp(4rem, 7vw, 7rem) clamp(2rem, 4vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.jm-kanji__right h3 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  margin: 0 0 2rem;
+  font-weight: 600;
+}
+.jm-kanji__right p { font-size: 1.15rem; line-height: 1.55; margin: 0 0 1.5rem; max-width: 38ch; }
+
+/* Archivo horizontal */
+.jm-archivo {
+  background: var(--jm-cream-hi);
+  padding: clamp(5rem, 8vw, 9rem) 0;
+}
+.jm-archivo__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0 clamp(2rem, 4vw, 5rem);
+  margin-bottom: 3rem;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.jm-archivo__head h2 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+.jm-archivo__scroll {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem;
+}
+.jm-archivo__track {
+  display: flex;
+  gap: 2rem;
+  padding: 0 clamp(2rem, 4vw, 5rem);
+}
+.jm-card {
+  flex: 0 0 300px;
+  scroll-snap-align: start;
+}
+.jm-card__frame {
+  aspect-ratio: 3/4;
+  background: var(--jm-rose);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jm-card__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.jm-card__meta {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--jm-sumi);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.jm-card__meta strong { font-family: var(--font-heading-family), serif; font-size: 1.4rem; font-weight: 500; }
+.jm-card__meta span { font-family: var(--font-mono-family, monospace); font-size: 0.85rem; color: var(--jm-terra); }
+.jm-card__author { font-family: var(--font-mono-family, monospace); font-size: 0.8rem; letter-spacing: 0.14rem; text-transform: uppercase; opacity: 0.6; margin-top: 0.6rem; }
+
+/* Diseñadores — lockup Kusama-style */
+.jm-lockup {
+  background: var(--jm-cream);
+  padding: clamp(5rem, 8vw, 9rem) clamp(2rem, 4vw, 5rem);
+}
+.jm-lockup h2 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 3rem;
+  max-width: 18ch;
+  font-weight: 600;
+}
+.jm-lockup h2 em { font-style: italic; color: var(--jm-terra); }
+.jm-lockup__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.jm-lockup__item {
+  background: var(--jm-sumi);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--jm-cream);
+  text-decoration: none;
+}
+.jm-lockup__item:nth-child(3n+2) { background: var(--jm-terra); color: var(--jm-cream); }
+.jm-lockup__item:nth-child(3n+3) { background: var(--jm-maroon); color: var(--jm-cream); }
+.jm-lockup__dot {
+  width: 42px;
+  height: 42px;
+  background: var(--jm-cream);
+  border-radius: 50%;
+  flex: 0 0 42px;
+  position: relative;
+  overflow: hidden;
+}
+.jm-lockup__dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--jm-sumi);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+.jm-lockup__item:nth-child(3n+2) .jm-lockup__dot::before { background: var(--jm-cream); }
+.jm-lockup__item:nth-child(3n+2) .jm-lockup__dot { background: var(--jm-sumi); }
+.jm-lockup__text strong { font-family: var(--font-heading-family), serif; font-size: 1.6rem; display: block; line-height: 1; font-weight: 700; }
+.jm-lockup__text span { font-family: var(--font-mono-family, monospace); font-size: 0.8rem; letter-spacing: 0.16rem; text-transform: uppercase; opacity: 0.75; }
+
+/* Banda ocre editorial */
+.jm-band {
+  background: var(--jm-ocre);
+  padding: clamp(4rem, 6vw, 6rem) clamp(2rem, 4vw, 5rem);
+  text-align: center;
+}
+.jm-band p {
   font-family: var(--font-heading-family), serif;
   font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.2;
+  margin: 0 auto;
+  max-width: 24ch;
+  color: var(--jm-sumi);
+  font-weight: 500;
 }
-.zn-marquee__track span { padding: 0 2rem; }
-.zn-marquee__track em { color: var(--zn-lime); font-style: normal; }
-@keyframes zn-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Coda — newsletter Japandi */
+.jm-coda {
+  background: var(--jm-maroon);
+  color: var(--jm-cream);
+  padding: clamp(5rem, 8vw, 9rem) clamp(2rem, 4vw, 5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.jm-coda h2 {
+  font-family: var(--font-heading-family), serif;
+  font-size: clamp(3.4rem, 7vw, 7rem);
+  line-height: 0.92;
+  margin: 0 auto 1.5rem;
+  max-width: 18ch;
+  color: var(--jm-cream);
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+.jm-coda h2 em { font-style: italic; color: var(--jm-ocre); }
+.jm-coda p { font-size: 1.15rem; line-height: 1.55; margin: 0 auto 2rem; max-width: 48ch; color: var(--jm-rose); }
+.jm-coda__form {
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+}
+.jm-coda__form input {
+  flex: 1;
+  padding: 1.1rem 1.5rem;
+  background: var(--jm-cream);
+  border: 0;
+  color: var(--jm-sumi);
+  font-family: var(--font-body-family), sans-serif;
+  font-size: 1rem;
+  border-radius: 999px;
+}
+.jm-coda__form button {
+  padding: 1.1rem 2rem;
+  background: var(--jm-sumi);
+  color: var(--jm-cream);
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--font-mono-family, monospace);
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
 
 @media (max-width: 900px) {
-  .zn-toc, .zn-feature, .zn-dialogo { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  .zn-notes { grid-template-columns: 1fr !important; }
-  .zn-note { grid-column: span 1 !important; }
-  .zn-colofon { column-count: 1; }
+  .jm-poster, .jm-kanji { grid-template-columns: 1fr !important; }
+  .jm-forms { grid-template-columns: repeat(3, 1fr) !important; }
+  .jm-lockup__grid { grid-template-columns: 1fr !important; }
+  .jm-hero__shapes { display: none; }
+  .jm-hero h1 { max-width: 100%; }
 }
-
-/* Fin capa editorial ================================================== */
