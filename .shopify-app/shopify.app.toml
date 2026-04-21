@@ -1,0 +1,21 @@
+name = "Physalis Setup Bot"
+client_id = "0c1c83b78ff04f698c43f4d5e78a776e"
+application_url = "http://localhost:53682"
+embedded = false
+
+[access_scopes]
+scopes = "write_products,read_products,write_content,read_content,write_themes,write_files,write_metaobjects,read_metaobjects,write_metaobject_definitions,read_metaobject_definitions,write_online_store_navigation,write_publications,read_publications"
+use_legacy_install_flow = true
+
+[auth]
+redirect_urls = [
+  "http://localhost:53682/callback"
+]
+
+[webhooks]
+api_version = "2025-01"
+
+[pos]
+embedded = false
+
+[build]

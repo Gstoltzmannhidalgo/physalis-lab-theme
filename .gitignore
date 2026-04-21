@@ -40,3 +40,5 @@ temp/
 # --- Archivos locales de trabajo (notas, borradores) ---
 /scratch/
 /_local/
+
+.env

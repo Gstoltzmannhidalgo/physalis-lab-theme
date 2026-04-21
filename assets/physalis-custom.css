@@ -65,7 +65,21 @@
   color: var(--physalis-cream-light);
 }
 
-/* Announcement bar — refinado tipográfico */
+/* Announcement bar — refinado tipográfico + fondo terracota */
+.shopify-section-announcement-bar,
+.shopify-section-group-header-group .shopify-section-announcement-bar,
+.announcement-bar,
+.announcement-bar__announcement,
+.announcement-bar .utility-bar,
+.shopify-section-group-header-group .announcement-bar {
+  background: var(--physalis-terracota, #C2533A) !important;
+  background-color: var(--physalis-terracota, #C2533A) !important;
+}
+.announcement-bar *,
+.announcement-bar__message,
+.announcement-bar__link {
+  color: var(--physalis-cream-light, #FAF0CF) !important;
+}
 .announcement-bar__message {
   font-family: var(--font-mono-family, ui-monospace, 'SFMono-Regular', Menlo, monospace);
   font-size: 1.2rem;
@@ -73,6 +87,7 @@
   text-transform: uppercase;
   font-weight: 500;
   padding: 1.4rem 0;
+  color: var(--physalis-cream-light, #FAF0CF) !important;
 }
 
 /* ---------- Mega menu / dropdowns ---------- */
@@ -673,29 +688,58 @@ hr,
 .disenadores-grid-section .grid--3-col-desktop { --columns: 3; }
 .disenadores-grid-section .grid--2-col-desktop { --columns: 2; }
 .disenadores-grid-section .grid--4-col-desktop { --columns: 4; }
+.disenadores-grid-section .grid--5-col-desktop { --columns: 5; }
 
-.disenador-card { list-style: none; }
+@media screen and (min-width: 990px) {
+  .disenadores-grid.grid--5-col-desktop {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 2rem;
+  }
+  .disenadores-grid.grid--5-col-desktop > .grid__item {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+}
+
+.disenador-card { list-style: none; width: 100%; min-width: 0; }
 .disenador-card__link {
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
+  gap: 1rem;
+  width: 100%;
   text-decoration: none;
   color: inherit;
   transition: opacity 0.2s ease;
 }
+.disenador-card__image,
+.disenador-card__body { width: 100%; }
 .disenador-card__link:hover { opacity: 0.85; }
 
 .disenador-card__image {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--physalis-cream-light, #FAF0CF);
   border: 1px solid var(--physalis-hairline, #C9B58A);
 }
-.disenador-card__image img {
+.disenador-card__image img,
+.disenador-card__image svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.6s ease;
+}
+.disenador-card__image--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.disenador-card__image--placeholder svg {
+  width: 60%;
+  height: 60%;
+  opacity: 0.4;
 }
 .disenador-card__link:hover .disenador-card__image img {
   transform: scale(1.03);
@@ -713,15 +757,23 @@ hr,
 }
 .disenador-card__name {
   font-family: var(--font-heading-family);
-  font-size: clamp(2rem, 2.4vw, 2.4rem);
+  font-size: clamp(1.5rem, 1.6vw, 1.9rem);
+  line-height: 1.15;
   margin: 0;
-  letter-spacing: -0.005rem;
+  letter-spacing: -0.01rem;
+  hyphens: none;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .disenador-card__bio {
-  font-size: 1.4rem;
-  line-height: 1.55;
-  opacity: 0.85;
+  font-size: 1.25rem;
+  line-height: 1.45;
+  opacity: 0.8;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .disenador-card__cta {
   font-family: var(--font-mono-family, ui-monospace, monospace);
@@ -921,6 +973,8 @@ button:focus-visible,
   min-height: 4.4rem;
 }
 
+/* Newsletter override eliminado — se define más abajo */
+
 /* ---------- High contrast mode (Windows) ---------- */
 @media (forced-colors: active) {
   .button,
@@ -943,4 +997,513 @@ button:focus-visible,
     background: white !important;
     color: black !important;
   }
+}
+
+/* ============================================================
+   Acentos ornamentales — paleta visible en accents y captions
+   ============================================================ */
+
+/* Captions con letter-spacing rotativos por sección de home */
+.shopify-section .title-wrapper-with-link p.caption-with-letter-spacing,
+.shopify-section .multicolumn-card__info p.caption-with-letter-spacing,
+.rich-text__caption {
+  color: var(--physalis-cacao-light);
+}
+
+/* Section captions: rotación ornamental por nth-of-type del shopify-section */
+.shopify-section:nth-of-type(4n+1) .rich-text__heading + * + .rich-text__text,
+.shopify-section:nth-of-type(4n+1) .multicolumn .multicolumn-card h3 {
+  /* placeholder: nada */
+}
+
+/* Hairline divider visible entre secciones del home */
+main#MainContent > .shopify-section + .shopify-section {
+  position: relative;
+}
+main#MainContent > .shopify-section + .shopify-section::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: var(--physalis-hairline);
+  opacity: 0.45;
+}
+
+/* Trust bar (multicolumn primer caso): números grandes en colores rotativos */
+.shopify-section .multicolumn-list__item:nth-child(1) .multicolumn-card__info h3 {
+  color: var(--physalis-terracota);
+}
+.shopify-section .multicolumn-list__item:nth-child(2) .multicolumn-card__info h3 {
+  color: var(--physalis-mostaza);
+}
+.shopify-section .multicolumn-list__item:nth-child(3) .multicolumn-card__info h3 {
+  color: var(--physalis-salvia);
+}
+.shopify-section .multicolumn-list__item:nth-child(4) .multicolumn-card__info h3 {
+  color: var(--physalis-celeste);
+}
+.shopify-section .multicolumn-list__item:nth-child(5) .multicolumn-card__info h3 {
+  color: var(--physalis-lila);
+}
+
+/* Designer cards: borde superior ornamental rotativo (selectores ajustados a Dawn) */
+.disenadores-grid > .disenador-card {
+  border-top: 4px solid transparent;
+  padding-top: 1.5rem;
+  transition: border-color 0.3s ease;
+}
+.disenadores-grid > .disenador-card:nth-child(4n+1) { border-top-color: var(--physalis-salvia); }
+.disenadores-grid > .disenador-card:nth-child(4n+2) { border-top-color: var(--physalis-celeste); }
+.disenadores-grid > .disenador-card:nth-child(4n+3) { border-top-color: var(--physalis-lila); }
+.disenadores-grid > .disenador-card:nth-child(4n+4) { border-top-color: var(--physalis-mostaza); }
+
+/* Category tiles (collection-list): hairline en hairline color + hover ornamental */
+.collection-list .card-wrapper .card {
+  border: 1px solid var(--physalis-hairline);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.collection-list .card-wrapper:nth-child(4n+1):hover .card { border-color: var(--physalis-salvia); }
+.collection-list .card-wrapper:nth-child(4n+2):hover .card { border-color: var(--physalis-celeste); }
+.collection-list .card-wrapper:nth-child(4n+3):hover .card { border-color: var(--physalis-lila); }
+.collection-list .card-wrapper:nth-child(4n+4):hover .card { border-color: var(--physalis-mostaza); }
+
+/* Badge "by Diseñador" en mostaza */
+.product__designer .product__designer-name a {
+  color: var(--physalis-mostaza);
+  text-decoration-color: var(--physalis-mostaza);
+}
+
+/* Badge "Impreso bajo pedido" en terracota — chip universal */
+.physalis-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-mono-family, "IBM Plex Mono", monospace);
+  font-size: 1.1rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  line-height: 1;
+}
+.physalis-chip--terracota { color: var(--physalis-terracota); }
+.physalis-chip--mostaza { color: var(--physalis-mostaza); }
+.physalis-chip--salvia { color: var(--physalis-salvia); }
+.physalis-chip--celeste { color: var(--physalis-celeste); }
+.physalis-chip--lila { color: var(--physalis-lila); }
+.physalis-chip--cacao { color: var(--physalis-cacao); }
+
+/* Quote sections (testimonios) tipografía itálica con accent */
+.shopify-section.color-scheme-5 .multicolumn-card__info h3 {
+  font-family: var(--font-heading-family, "Fraunces", serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--physalis-cream-light);
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+}
+.shopify-section.color-scheme-5 .multicolumn-card__info > p::before {
+  content: "" "";
+  font-family: var(--font-heading-family, "Fraunces", serif);
+  font-style: italic;
+  font-size: 4rem;
+  line-height: 0;
+  vertical-align: -0.5rem;
+  color: var(--physalis-celeste);
+  margin-right: 0.5rem;
+  opacity: 0.4;
+}
+
+/* Newsletter en cacao: input con borde mostaza */
+.shopify-section.color-scheme-3 .newsletter-form__field-wrapper input[type="email"] {
+  border-color: var(--physalis-mostaza);
+}
+.shopify-section.color-scheme-3 .newsletter-form__field-wrapper input[type="email"]:focus {
+  outline-color: var(--physalis-mostaza);
+}
+
+/* Footer hairline ornamental top */
+.footer {
+  border-top: 1px solid var(--physalis-hairline);
+}
+.footer__content-top {
+  border-bottom: 1px solid rgba(201, 181, 138, 0.3);
+}
+
+/* Rich-text section captions en lila para variedad */
+.shopify-section .rich-text:not(.color-scheme-3):not(.color-scheme-4):not(.color-scheme-5) .rich-text__heading.h2 {
+  color: var(--physalis-lila);
+  font-family: var(--font-mono-family, "IBM Plex Mono", monospace);
+  font-size: 1.2rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Botones secundarios en outline ornamental por sección */
+.shopify-section.color-scheme-1 .button--secondary {
+  border-color: var(--physalis-mostaza);
+  color: var(--physalis-mostaza);
+}
+.shopify-section.color-scheme-1 .button--secondary:hover {
+  background: var(--physalis-mostaza);
+  color: var(--physalis-cream-light);
+}
+
+/* Trust band pequeñas heading en uppercase mono */
+.multicolumn .multicolumn-card__info h3 {
+  font-family: var(--font-heading-family, "Fraunces", serif);
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: -0.005em;
+}
+
+/* ============================================================
+   LILA — fuerza presencia visible
+   ============================================================ */
+
+/* Sección "Diseñadores destacados": título principal en cacao para legibilidad */
+.disenadores-grid-section .title,
+.disenadores-grid-section .title-wrapper-with-link h2,
+.disenadores-grid-section .title-wrapper-with-link p {
+  color: var(--physalis-cacao);
+}
+/* Caption global: ya no forzamos lila aquí */
+.shopify-section .title-wrapper-with-link p.caption-with-letter-spacing {
+  color: var(--physalis-cacao-light);
+}
+
+/* Instagram CTA — todo el caption + heading */
+#shopify-section-template--instagram_cta .rich-text__heading.h2,
+.shopify-section[id*="instagram"] .rich-text__heading {
+  color: var(--physalis-lila) !important;
+}
+.shopify-section[id*="instagram"] .rich-text__heading.h2 {
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  font-size: 1.4rem !important;
+}
+
+/* Header nav: link activo en lila */
+.header__menu-item.list-menu__item--active,
+.header__menu-item:hover {
+  color: var(--physalis-lila);
+  text-decoration: underline;
+  text-decoration-color: var(--physalis-lila);
+  text-underline-offset: 0.4rem;
+}
+
+/* Underline de captions globales en lila */
+.caption-with-letter-spacing {
+  position: relative;
+  padding-bottom: 0.6rem;
+  display: inline-block;
+}
+.caption-with-letter-spacing::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.4rem;
+  height: 2px;
+  background: var(--physalis-lila);
+}
+
+/* Bullet list ornaments en cards: dot lila */
+.disenador-card__location::before {
+  content: "● ";
+  color: var(--physalis-lila);
+}
+
+/* Badge "Nuevo" / Tags ornamentales — utility class */
+.physalis-tag--lila {
+  background: var(--physalis-lila);
+  color: var(--physalis-cream-light);
+  padding: 0.4rem 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+/* Cita italic en testimonios — quotes en lila */
+.shopify-section.color-scheme-5 .multicolumn-card__info > p::before {
+  color: var(--physalis-lila) !important;
+}
+
+/* Logo Physalis hover */
+.header__heading-link:hover .header__heading-logo,
+.header__heading-link:hover {
+  color: var(--physalis-lila);
+}
+
+/* ============================================================
+   PROTAGONISMO ornamental — bloques grandes
+   ============================================================ */
+
+/* Categorías 4 tiles — cada una con color de fondo bold distinto */
+.collection-list .grid > li:nth-child(4n+1) .card,
+.collection-list .grid > li:nth-child(4n+1) .card-wrapper {
+  background: var(--physalis-salvia);
+  color: var(--physalis-cream-light);
+}
+.collection-list .grid > li:nth-child(4n+2) .card,
+.collection-list .grid > li:nth-child(4n+2) .card-wrapper {
+  background: var(--physalis-celeste);
+  color: var(--physalis-cream-light);
+}
+.collection-list .grid > li:nth-child(4n+3) .card,
+.collection-list .grid > li:nth-child(4n+3) .card-wrapper {
+  background: var(--physalis-lila);
+  color: var(--physalis-cream-light);
+}
+.collection-list .grid > li:nth-child(4n+4) .card,
+.collection-list .grid > li:nth-child(4n+4) .card-wrapper {
+  background: var(--physalis-mostaza);
+  color: var(--physalis-cacao);
+}
+.collection-list .card .card__inner,
+.collection-list .card .card__media {
+  background: transparent !important;
+}
+.collection-list .card .card__heading,
+.collection-list .card-information h3,
+.collection-list .card-information .h5 {
+  color: inherit !important;
+  font-family: var(--font-heading-family, "Fraunces", serif);
+  font-size: 2.4rem;
+  letter-spacing: -0.01em;
+  padding: 2rem 1.6rem;
+}
+.collection-list .card-information {
+  padding: 1.6rem 0;
+}
+
+/* Trust bar — cada columna con barra de color superior grande */
+.shopify-section .multicolumn-list__item:nth-child(1) .multicolumn-card {
+  border-top: 8px solid var(--physalis-terracota);
+  padding-top: 2.4rem;
+}
+.shopify-section .multicolumn-list__item:nth-child(2) .multicolumn-card {
+  border-top: 8px solid var(--physalis-mostaza);
+  padding-top: 2.4rem;
+}
+.shopify-section .multicolumn-list__item:nth-child(3) .multicolumn-card {
+  border-top: 8px solid var(--physalis-salvia);
+  padding-top: 2.4rem;
+}
+.shopify-section .multicolumn-list__item:nth-child(4) .multicolumn-card {
+  border-top: 8px solid var(--physalis-celeste);
+  padding-top: 2.4rem;
+}
+.shopify-section .multicolumn-list__item:nth-child(5) .multicolumn-card {
+  border-top: 8px solid var(--physalis-lila);
+  padding-top: 2.4rem;
+}
+
+/* Designer cards — etiqueta "AUTOR" en color sólido encima de la imagen */
+.disenadores-grid > .disenador-card {
+  position: relative;
+  border-top: none !important;
+}
+.disenadores-grid > .disenador-card::before {
+  content: "AUTOR / AUTORA";
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 0.7rem 0.8rem;
+  color: var(--physalis-cream-light);
+  margin: 0 0 0.6rem 0;
+  text-align: center;
+}
+.disenadores-grid > .disenador-card:nth-child(5n+1)::before { background: var(--physalis-terracota); }
+.disenadores-grid > .disenador-card:nth-child(5n+2)::before { background: var(--physalis-mostaza); color: var(--physalis-cacao); }
+.disenadores-grid > .disenador-card:nth-child(5n+3)::before { background: var(--physalis-salvia); }
+.disenadores-grid > .disenador-card:nth-child(5n+4)::before { background: var(--physalis-celeste); }
+.disenadores-grid > .disenador-card:nth-child(5n+5)::before { background: var(--physalis-lila); }
+
+/* Hero — añadir stripe lila/mostaza en el top */
+.shopify-section .banner__media,
+.shopify-section .banner__image {
+  position: relative;
+}
+.banner.banner--medium::before,
+.banner.banner--large::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--physalis-terracota) 0% 25%,
+    var(--physalis-mostaza) 25% 50%,
+    var(--physalis-salvia) 50% 75%,
+    var(--physalis-lila) 75% 100%);
+  z-index: 5;
+}
+
+/* Productos populares — vendor badge en mostaza grande */
+.card-information__wrapper .caption-with-letter-spacing {
+  color: var(--physalis-mostaza) !important;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Productos card — borde lila al hover */
+.card-wrapper:hover .card__inner {
+  outline: 2px solid var(--physalis-lila);
+  outline-offset: 4px;
+  transition: outline-color 0.2s ease;
+}
+
+/* Newsletter botón en mostaza sólido */
+.shopify-section.color-scheme-3 .newsletter-form button[type="submit"],
+.shopify-section.color-scheme-3 .newsletter-form__button {
+  background: var(--physalis-mostaza);
+  color: var(--physalis-cacao);
+  border: none;
+}
+
+/* Newsletter section sobre cacao — texto en cream */
+.shopify-section.color-scheme-3 .newsletter__title,
+.shopify-section.color-scheme-3 .newsletter__subheading,
+.shopify-section.color-scheme-3 .newsletter h2,
+.shopify-section.color-scheme-3 .newsletter p {
+  color: var(--physalis-cream-light) !important;
+}
+
+/* Footer headings en lila */
+.footer-block__heading,
+.footer__content-top .footer-block__heading {
+  color: var(--physalis-mostaza);
+  opacity: 1;
+}
+
+/* Section heading con barra de color izquierda — utility */
+.title-wrapper-with-link {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.title-wrapper-with-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 4px;
+  background: var(--physalis-lila);
+}
+.shopify-section.color-scheme-4 .title-wrapper-with-link::before { background: var(--physalis-mostaza); }
+.shopify-section.color-scheme-5 .title-wrapper-with-link::before { background: var(--physalis-mostaza); }
+.shopify-section.color-scheme-3 .title-wrapper-with-link::before { background: var(--physalis-mostaza); }
+
+/* Tagline band mostaza — sección dedicada */
+#shopify-section-template--*-tagline_band,
+[id*="tagline_band"] {
+  background: var(--physalis-mostaza) !important;
+}
+[id*="tagline_band"] .rich-text__heading {
+  color: var(--physalis-cacao) !important;
+  font-style: italic;
+  font-family: var(--font-heading-family, "Fraunces", serif);
+  max-width: 32ch;
+  text-align: center;
+}
+[id*="tagline_band"] .rich-text__wrapper {
+  text-align: center;
+}
+
+/* ---------- Utility bar / Announcement — todo terracota ---------- */
+.utility-bar,
+.utility-bar.color-scheme-1,
+.utility-bar.color-scheme-2,
+.utility-bar.color-scheme-3,
+.utility-bar.color-scheme-4,
+.utility-bar.color-scheme-5,
+.utility-bar[class*="color-scheme"],
+.utility-bar.gradient,
+.shopify-section-group-header-group .utility-bar,
+.shopify-section-group-header-group .announcement-bar,
+.shopify-section-group-header-group .announcement-bar [class*="color-scheme"] {
+  background: var(--physalis-terracota, #C2533A) !important;
+  background-color: var(--physalis-terracota, #C2533A) !important;
+  --gradient-background: var(--physalis-terracota, #C2533A) !important;
+}
+.utility-bar *,
+.utility-bar .announcement-bar__message,
+.utility-bar .announcement-bar__link,
+.utility-bar .localization-form__select,
+.utility-bar .disclosure__button {
+  color: var(--physalis-cream-light, #FAF0CF) !important;
+}
+
+/* ---------- Newsletter — fondo crema cálido, acentos lila ---------- */
+[id*="newsletter"],
+[id*="newsletter"] > *,
+[id*="newsletter"] .color-scheme-1,
+[id*="newsletter"] .color-scheme-2,
+[id*="newsletter"] .color-scheme-3,
+[id*="newsletter"] .color-scheme-4,
+[id*="newsletter"] .color-scheme-5,
+[id*="newsletter"] [class*="color-scheme"],
+[id*="newsletter"] .gradient,
+.shopify-section--newsletter,
+.shopify-section-newsletter,
+[class*="shopify-section"][class*="newsletter"],
+.newsletter,
+.newsletter__wrapper {
+  background: #FAF0CF !important;
+  background-color: #FAF0CF !important;
+  --color-background: 250, 240, 207 !important;
+}
+[id*="newsletter"] {
+  border-top: 3px solid var(--physalis-lila, #C4A8D8) !important;
+}
+.shopify-section--newsletter [class*="color-scheme"],
+.newsletter [class*="color-scheme"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+.newsletter h2,
+.newsletter .newsletter__title {
+  color: var(--physalis-cacao, #3E2418) !important;
+}
+.newsletter p,
+.newsletter .newsletter__subheading,
+.newsletter .field__label {
+  color: var(--physalis-cacao, #3E2418) !important;
+}
+.newsletter .field {
+  border-color: rgba(62,36,24,.25) !important;
+}
+.newsletter .field__input::placeholder {
+  color: rgba(62,36,24,.5) !important;
+}
+.newsletter button[type="submit"],
+.newsletter .newsletter-form__button {
+  color: var(--physalis-lila, #C4A8D8) !important;
+}
+
+/* ---------- Diseñadores destacados — igualar ancho con otras secciones ---------- */
+.shopify-section .disenadores-grid,
+.shopify-section [class*="disenadores"] .page-width {
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
+}
+[id*="disenadores"] .page-width,
+[id*="Disenadores"] .page-width {
+  max-width: 1400px !important;
+  padding-left: 32px !important;
+  padding-right: 32px !important;
 }
