@@ -1,69 +1,48 @@
 {
   "sections": {
-    "hero_poster": {
+    "hero": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"jm-hero\">\n  <div class=\"jm-hero__meta\"><span>Physalis Lab ● 2026</span><span>Santiago · Global</span><span>VOL. II</span></div>\n  <h1>Diseño <em>de autor</em> en tu hogar.</h1>\n  <div style=\"display:grid;grid-template-columns:1fr auto;align-items:end;gap:3rem;margin-top:3rem;\">\n    <p class=\"jm-hero__tag\">Piezas únicas de diseñadores independientes de todo el mundo, impresas una por una en nuestro taller en Chile.</p>\n    <a href=\"/collections/all\" class=\"button\" style=\"text-decoration:none;background:#1A1814!important;color:#F2ECE0!important;\">Ver catálogo →</a>\n  </div>\n  <div class=\"jm-hero__shapes\"><div class=\"arch\"></div><div class=\"half\"></div><div class=\"circle\"></div><div class=\"quarter\"></div></div>\n</section>"
+        "custom_liquid": "<section class=\"q-hero q-wrap\">\n  <div class=\"q-hero__meta q-mono\"><span>Physalis Lab · 2026</span><span>Santiago — Global</span><span>Vol. 02</span></div>\n  <div class=\"q-hero__grid\">\n    <h1>Diseño <em>de autor</em><br>en tu hogar.</h1>\n    <div class=\"q-hero__art\" aria-hidden=\"true\"></div>\n  </div>\n  <div class=\"q-hero__foot\">\n    <p class=\"q-hero__tag\">Piezas únicas de diseñadores independientes de todo el mundo, impresas una por una en nuestro taller en Chile.</p>\n    <a href=\"/collections/all\" class=\"button\" style=\"text-decoration:none;\">Ver catálogo</a>\n  </div>\n</section>"
       }
     },
-    "band_ocre_01": {
+    "poster": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"jm-band\"><p>No fabricamos stock. Fabricamos piezas con nombre propio.</p></section>"
+        "custom_liquid": "<section class=\"q-poster\">\n  <div class=\"q-poster__grid\">\n    <div class=\"q-poster__art\" aria-hidden=\"true\"></div>\n    <div class=\"q-poster__info\">\n      <p class=\"q-mono q-poster__num\">Objeto nº 001 · Edición abierta</p>\n      <h2>Onda <em>.</em></h2>\n      <p class=\"q-poster__desc\">Un cuenco nacido del movimiento del agua al salir del torno. La curva se quedó por decisión, no por accidente.</p>\n      <dl class=\"q-poster__ficha\">\n        <dt>Autor</dt><dd>Amaya Studio · Lima, PE</dd>\n        <dt>Material</dt><dd>PLA vegetal 100%</dd>\n        <dt>Dimensiones</dt><dd>18 × 18 × 7 cm</dd>\n        <dt>Precio</dt><dd><strong style=\"color:#D9491C;\">$32.900 CLP</strong></dd>\n      </dl>\n      <a href=\"/collections/all\" class=\"button button--primary\" style=\"text-decoration:none;align-self:flex-start;\">Añadir al carro</a>\n    </div>\n  </div>\n</section>"
       }
     },
-    "poster_producto": {
+    "categorias": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"jm-poster\">\n  <div class=\"jm-poster__art\"></div>\n  <div class=\"jm-poster__info\">\n    <p class=\"jm-mono\" style=\"margin:0 0 1.5rem;color:#1A1814;opacity:0.6;\">Objeto nº 001 — Edición abierta</p>\n    <h2>Onda <em>·</em></h2>\n    <p>Un cuenco nacido del movimiento del agua al salir del torno. La curva se quedó por decisión, no por accidente.</p>\n    <dl>\n      <dt>Autor</dt><dd>Amaya Studio · Lima, PE</dd>\n      <dt>Material</dt><dd>PLA vegetal 100%</dd>\n      <dt>Dimensiones</dt><dd>18 × 18 × 7 cm</dd>\n      <dt>Tiempo</dt><dd>4h 22min</dd>\n      <dt>Precio</dt><dd><strong style=\"color:#E85A2B;\">$32.900 CLP</strong></dd>\n    </dl>\n    <a href=\"/collections/all\" class=\"button\" style=\"text-decoration:none;align-self:flex-start;\">Añadir al carro →</a>\n  </div>\n</section>"
+        "custom_liquid": "<section class=\"q-cats q-wrap\">\n  <div class=\"q-cats__head\">\n    <p class=\"q-mono\" style=\"color:#D9491C;\">— El catálogo</p>\n    <h2>Objetos <em>primitivos</em> para usos cotidianos.</h2>\n  </div>\n  <div class=\"q-cats__grid\">\n    <a class=\"q-cat\" href=\"/collections/lamparas\">\n      <div class=\"q-cat__art\" style=\"background:#C48538;\">\n        <svg viewBox=\"0 0 100 125\" preserveAspectRatio=\"xMidYMid meet\" style=\"position:absolute;inset:0;width:100%;height:100%;\"><circle cx=\"50\" cy=\"48\" r=\"28\" fill=\"#F2ECE0\"/><rect x=\"46\" y=\"72\" width=\"8\" height=\"36\" fill=\"#1A1814\"/><rect x=\"30\" y=\"106\" width=\"40\" height=\"4\" fill=\"#1A1814\"/></svg>\n      </div>\n      <div class=\"q-cat__label\"><strong>Lámparas</strong><span>→</span></div>\n    </a>\n    <a class=\"q-cat\" href=\"/collections/floreros\">\n      <div class=\"q-cat__art\" style=\"background:#E8B49E;\">\n        <svg viewBox=\"0 0 100 125\" preserveAspectRatio=\"xMidYMid meet\" style=\"position:absolute;inset:0;width:100%;height:100%;\"><path d=\"M38 40 Q30 70 34 110 L66 110 Q70 70 62 40 Z\" fill=\"#1A1814\"/><rect x=\"40\" y=\"30\" width=\"20\" height=\"10\" fill=\"#1A1814\"/></svg>\n      </div>\n      <div class=\"q-cat__label\"><strong>Floreros</strong><span>→</span></div>\n    </a>\n    <a class=\"q-cat\" href=\"/collections/maceteros\">\n      <div class=\"q-cat__art\" style=\"background:#D9491C;\">\n        <svg viewBox=\"0 0 100 125\" preserveAspectRatio=\"xMidYMid meet\" style=\"position:absolute;inset:0;width:100%;height:100%;\"><path d=\"M30 50 L70 50 L65 110 L35 110 Z\" fill=\"#F2ECE0\"/><path d=\"M30 50 Q50 20 70 50\" fill=\"#1A1814\"/></svg>\n      </div>\n      <div class=\"q-cat__label\"><strong>Maceteros</strong><span>→</span></div>\n    </a>\n  </div>\n</section>"
       }
     },
-    "formas_grid": {
+    "kanji": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"jm-forms-grid\">\n  <h2>Piezas primitivas para <em>usos cotidianos.</em></h2>\n  <div class=\"jm-forms\">\n    <div class=\"jm-form\"><svg viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><path d=\"M10 90 L10 40 A40 40 0 0 1 90 40 L90 90 Z\" fill=\"#F2ECE0\"/></svg><a href=\"/collections/lamparas\">Lámparas →</a></div>\n    <div class=\"jm-form\" style=\"background:#1A1814;\"><svg viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><circle cx=\"50\" cy=\"50\" r=\"35\" fill=\"#E85A2B\"/></svg><a href=\"/collections/floreros\">Floreros →</a></div>\n    <div class=\"jm-form\"><svg viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><path d=\"M10 90 L10 50 A40 40 0 0 1 90 50 L90 90 Z\" fill=\"#1A1814\"/></svg><a href=\"/collections/maceteros\">Maceteros →</a></div>\n    <div class=\"jm-form\" style=\"background:#F2ECE0;\"><svg viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><rect x=\"35\" y=\"10\" width=\"30\" height=\"80\" fill=\"#E85A2B\"/><circle cx=\"50\" cy=\"20\" r=\"15\" fill=\"#E85A2B\"/></svg><a href=\"/collections/decoracion\" style=\"color:#1A1814;\">Decoración →</a></div>\n    <div class=\"jm-form\"><svg viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><path d=\"M10 90 L50 10 L90 90 Z\" fill=\"#D99736\"/></svg><a href=\"/collections/all\">Esculturas →</a></div>\n    <div class=\"jm-form\" style=\"background:#7A1F13;\"><svg viewBox=\"0 0 100 100\" preserveAspectRatio=\"none\"><rect x=\"20\" y=\"70\" width=\"60\" height=\"10\" fill=\"#F2ECE0\"/><circle cx=\"50\" cy=\"45\" r=\"25\" fill=\"#F2ECE0\"/></svg><a href=\"/collections/all\">Archivo completo →</a></div>\n  </div>\n</section>"
-      }
-    },
-    "kanji_poster": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<section class=\"jm-kanji\">\n  <div class=\"jm-kanji__left\">\n    <p class=\"jm-mono\" style=\"color:#D99736;margin:0;\">MATERIA · 材</p>\n    <p class=\"kanji\">揺らぎ</p>\n    <p class=\"romaji\">yuragi — la vibración de lo hecho a mano</p>\n  </div>\n  <div class=\"jm-kanji__right\">\n    <h3>Cada objeto vibra un poco distinto.</h3>\n    <p>Imprimir bajo pedido significa que no hay dos piezas idénticas. La luz, la temperatura del taller, el lote del filamento — todo deja huella en la materia.</p>\n    <p>En japonés hay una palabra para esa sutil variación: <em>yuragi</em>. Nosotros la llamamos firma.</p>\n    <a href=\"/pages/como-funciona\" class=\"button\" style=\"text-decoration:none;align-self:flex-start;background:#1A1814!important;color:#F2ECE0!important;\">Cómo se imprime →</a>\n  </div>\n</section>"
-      }
-    },
-    "band_ocre_02": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<section class=\"jm-band\" style=\"background:#E8B0A0;\"><p>Del taller de Amaya en Lima al living de tu casa en Providencia.</p></section>"
+        "custom_liquid": "<section class=\"q-kanji\">\n  <div class=\"q-wrap q-kanji__grid\">\n    <div>\n      <p class=\"q-mono\" style=\"color:#D9491C;margin:0;\">材 · Materia</p>\n      <p class=\"q-kanji__char\">揺らぎ</p>\n      <p class=\"q-mono\" style=\"opacity:0.55;\">Yuragi — la vibración de lo hecho a mano</p>\n    </div>\n    <div class=\"q-kanji__right\">\n      <p class=\"q-mono\" style=\"color:#D9491C;margin:0;\">— Proceso</p>\n      <h3>Cada pieza vibra <em>un poco distinto.</em></h3>\n      <p>Imprimir bajo pedido significa que no hay dos piezas idénticas. La luz, la temperatura del taller, el lote del filamento — todo deja huella en la materia.</p>\n      <p>En japonés existe una palabra para esa sutil variación. Nosotros la llamamos firma.</p>\n      <a href=\"/pages/como-funciona\" class=\"button\" style=\"text-decoration:none;display:inline-block;margin-top:0.5rem;\">Cómo se imprime</a>\n    </div>\n  </div>\n</section>"
       }
     },
     "archivo": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"jm-archivo\">\n  <div class=\"jm-archivo__head\">\n    <div>\n      <p class=\"jm-mono\" style=\"color:#E85A2B;margin:0 0 0.8rem;\">— El archivo</p>\n      <h2>Desliza <span class=\"jm-serif-it\">y elige.</span></h2>\n    </div>\n    <a href=\"/collections/all\" class=\"jm-mono\" style=\"text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;color:#1A1814;\">Ver todo →</a>\n  </div>\n  <div class=\"jm-archivo__scroll\">\n    <div class=\"jm-archivo__track\">\n      {%- assign items = 'Cuenco Onda|Amaya Studio|Lima|$32.900|product-demo-1.jpg|#E8B0A0,Florero Tallo|Bruno Vega|Buenos Aires|$28.500|product-demo-2.jpg|#D99736,Lámpara Lumi|Mei Chen|Taipei|$46.900|product-demo-3.jpg|#F3B6A3,Macetero Vértice|Kasia Nowak|Varsovia|$22.400|product-demo-4.jpg|#E85A2B,Vasija Ágora|Lorenzo Ricci|Milán|$41.200|product-demo-5.jpg|#7A1F13' | split: ',' -%}\n      {%- for i in items -%}\n        {%- assign p = i | split: '|' -%}\n        <a class=\"jm-card\" href=\"/collections/all\" style=\"text-decoration:none;color:inherit;\">\n          <div class=\"jm-card__frame\" style=\"background:{{ p[5] }};\"><img src=\"{{ p[4] | asset_url }}\" alt=\"{{ p[0] }}\" loading=\"lazy\"></div>\n          <div class=\"jm-card__meta\"><strong>{{ p[0] }}</strong><span>{{ p[3] }}</span></div>\n          <p class=\"jm-card__author\">{{ p[1] }} · {{ p[2] }}</p>\n        </a>\n      {%- endfor -%}\n    </div>\n  </div>\n</section>"
-      }
-    },
-    "lockup_disenadores": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<section class=\"jm-lockup\">\n  <p class=\"jm-mono\" style=\"color:#E85A2B;margin:0 0 0.8rem;\">— Los autores</p>\n  <h2>Los estudios que firman <em>cada pieza.</em></h2>\n  <div class=\"jm-lockup__grid\">\n    <a class=\"jm-lockup__item\" href=\"/pages/disenadores\"><div class=\"jm-lockup__dot\"></div><div class=\"jm-lockup__text\"><strong>AMAYA</strong><span>Lima, Perú</span></div></a>\n    <a class=\"jm-lockup__item\" href=\"/pages/disenadores\"><div class=\"jm-lockup__dot\"></div><div class=\"jm-lockup__text\"><strong>BRUNO</strong><span>Buenos Aires, AR</span></div></a>\n    <a class=\"jm-lockup__item\" href=\"/pages/disenadores\"><div class=\"jm-lockup__dot\"></div><div class=\"jm-lockup__text\"><strong>MEI CHEN</strong><span>Taipei, TW</span></div></a>\n    <a class=\"jm-lockup__item\" href=\"/pages/disenadores\"><div class=\"jm-lockup__dot\"></div><div class=\"jm-lockup__text\"><strong>KASIA</strong><span>Varsovia, PL</span></div></a>\n    <a class=\"jm-lockup__item\" href=\"/pages/disenadores\"><div class=\"jm-lockup__dot\"></div><div class=\"jm-lockup__text\"><strong>LORENZO</strong><span>Milán, IT</span></div></a>\n    <a class=\"jm-lockup__item\" href=\"/pages/disenadores\"><div class=\"jm-lockup__dot\"></div><div class=\"jm-lockup__text\"><strong>TODOS →</strong><span>15 estudios, 11 países</span></div></a>\n  </div>\n</section>"
+        "custom_liquid": "<section class=\"q-archivo q-wrap\">\n  <div class=\"q-archivo__head\">\n    <div>\n      <p class=\"q-mono\" style=\"color:#D9491C;\">— El archivo</p>\n      <h2>Desliza <span class=\"q-serif-it\">y elige.</span></h2>\n    </div>\n    <a href=\"/collections/all\" class=\"q-mono\" style=\"text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px;color:#1A1814;\">Ver todo →</a>\n  </div>\n  <div class=\"q-archivo__scroll\">\n    <div class=\"q-archivo__track\">\n      {%- assign items = 'Cuenco Onda|Amaya Studio|Lima|$32.900|product-demo-1.jpg|#E8B49E,Florero Tallo|Bruno Vega|Buenos Aires|$28.500|product-demo-2.jpg|#C48538,Lámpara Lumi|Mei Chen|Taipei|$46.900|product-demo-3.jpg|#F2ECE0,Macetero Vértice|Kasia Nowak|Varsovia|$22.400|product-demo-4.jpg|#D9491C,Vasija Ágora|Lorenzo Ricci|Milán|$41.200|product-demo-5.jpg|#6B1E10' | split: ',' -%}\n      {%- for i in items -%}\n        {%- assign p = i | split: '|' -%}\n        <a class=\"q-pc\" href=\"/collections/all\">\n          <div class=\"q-pc__frame\" style=\"background:{{ p[5] }};\"><img src=\"{{ p[4] | asset_url }}\" alt=\"{{ p[0] }}\" loading=\"lazy\"></div>\n          <div class=\"q-pc__meta\"><strong>{{ p[0] }}</strong><span>{{ p[3] }}</span></div>\n          <p class=\"q-pc__author\">{{ p[1] }} · {{ p[2] }}</p>\n        </a>\n      {%- endfor -%}\n    </div>\n  </div>\n</section>"
       }
     },
     "coda": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"jm-coda\">\n  <p class=\"jm-mono\" style=\"color:#D99736;margin:0 0 1rem;\">— Próximo número</p>\n  <h2>Invierno '26: <em>objetos que envejecen bien.</em></h2>\n  <p>Recibe el próximo lanzamiento, las nuevas colecciones y las notas del taller antes que nadie. Sin spam, una vez al mes.</p>\n  {%- form 'customer' -%}\n    <input type=\"hidden\" name=\"contact[tags]\" value=\"newsletter\">\n    <div class=\"jm-coda__form\">\n      <input type=\"email\" name=\"contact[email]\" required placeholder=\"tu@email.com\">\n      <button type=\"submit\">Suscribirme</button>\n    </div>\n  {%- endform -%}\n</section>"
+        "custom_liquid": "<section class=\"q-coda q-wrap\">\n  <p class=\"q-mono\" style=\"color:#D9491C;\">— Próximo número</p>\n  <h2>Invierno '26: <em>objetos que envejecen bien.</em></h2>\n  <p>Recibe los lanzamientos y las notas del taller antes que nadie. Sin spam, una vez al mes.</p>\n  {%- form 'customer' -%}\n    <input type=\"hidden\" name=\"contact[tags]\" value=\"newsletter\">\n    <div class=\"q-coda__form\">\n      <input type=\"email\" name=\"contact[email]\" required placeholder=\"tu@email.com\">\n      <button type=\"submit\">Suscribirme →</button>\n    </div>\n  {%- endform -%}\n</section>"
       }
     }
   },
   "order": [
-    "hero_poster",
-    "band_ocre_01",
-    "poster_producto",
-    "formas_grid",
-    "kanji_poster",
-    "band_ocre_02",
+    "hero",
+    "poster",
+    "categorias",
+    "kanji",
     "archivo",
-    "lockup_disenadores",
     "coda"
   ]
 }
