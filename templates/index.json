@@ -110,6 +110,15 @@
         "padding_bottom": 80
       }
     },
+    "puente_celeste": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-puente\" style=\"padding:48px 32px;background:#6FA3B0;color:#FAF0CF;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.2;margin:0;color:#FAF0CF;letter-spacing:-0.01em;font-weight:500;max-width:1100px;margin-left:auto;margin-right:auto;\">Cada pieza, impresa en Chile bajo pedido.</h2>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "productos_populares": {
       "type": "custom-liquid",
       "settings": {
@@ -287,6 +296,7 @@
     "disenadores_destacados",
     "puente",
     "categorias",
+    "puente_celeste",
     "productos_populares",
     "como_funciona",
     "testimonios",
