@@ -1156,16 +1156,26 @@ main#MainContent > .shopify-section + .shopify-section::before {
   color: var(--physalis-cacao-light);
 }
 
-/* Instagram CTA — todo el caption + heading */
+/* Instagram CTA — fondo cacao full-bleed + heading mostaza */
+.shopify-section[id*="instagram"] {
+  background: var(--physalis-cacao, #3E2418);
+}
+.shopify-section[id*="instagram"] .rich-text,
+.shopify-section[id*="instagram"] .color-scheme-1,
+.shopify-section[id*="instagram"] .color-scheme-2,
+.shopify-section[id*="instagram"] .color-scheme-3 {
+  background: transparent !important;
+}
 #shopify-section-template--instagram_cta .rich-text__heading.h2,
 .shopify-section[id*="instagram"] .rich-text__heading {
-  color: var(--physalis-lila) !important;
+  color: var(--physalis-mostaza) !important;
 }
 .shopify-section[id*="instagram"] .rich-text__heading.h2 {
   font-family: "IBM Plex Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 0.18rem;
   font-size: 1.4rem !important;
+  color: var(--physalis-cream-light, #FAF0CF) !important;
 }
 
 /* Header nav: link activo en lila */
