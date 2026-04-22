@@ -1312,11 +1312,11 @@ main#MainContent > .shopify-section + .shopify-section::before {
   padding-top: 2.4rem;
 }
 
-/* Categorías — cajón inferior rotativo por categoría */
+/* Categorías — cajón inferior rotativo por categoría (texto siempre cacao) */
+.categorias-grid > a > div:last-child h3,
+.categorias-grid > a > div:last-child span { color: var(--physalis-cacao) !important; }
 .categorias-grid > a:nth-child(5n+1) > div:last-child { background: var(--physalis-terracota) !important; }
 .categorias-grid > a:nth-child(5n+2) > div:last-child { background: var(--physalis-mostaza) !important; }
-.categorias-grid > a:nth-child(5n+2) > div:last-child h3 { color: var(--physalis-cacao) !important; }
-.categorias-grid > a:nth-child(5n+2) > div:last-child span { color: var(--physalis-cacao) !important; }
 .categorias-grid > a:nth-child(5n+3) > div:last-child { background: var(--physalis-salvia) !important; }
 .categorias-grid > a:nth-child(5n+4) > div:last-child { background: var(--physalis-celeste) !important; }
 .categorias-grid > a:nth-child(5n+5) > div:last-child { background: var(--physalis-lila) !important; }
