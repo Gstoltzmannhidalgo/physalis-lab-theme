@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -38,73 +29,39 @@
         "color_scheme": "scheme-3",
         "full_width": true,
         "padding_top": 96,
-        "padding_bottom": 64
+        "padding_bottom": 72
+      }
+    },
+    "puente_1": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#6FA3B0;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#FAF0CF;margin:0;\">Impreso en Chile, bajo pedido, sin stock.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "manifiesto": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Por qué existe Physalis Lab",
-            "heading_size": "h1"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Creemos que el diseño chileno tiene una voz que no necesita escala industrial para encontrar a su público. Cada pieza Physalis nace de la mano de una autora o autor independiente, se imprime en Chile sólo cuando alguien la pide, y llega firmada a su nuevo hogar. Es una forma distinta de habitar la mesa, la pared o el rincón íntimo: con intención, con autoría, sin desperdicio.</p>"
-          }
-        }
-      },
-      "block_order": ["heading", "text"],
+      "type": "custom-liquid",
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 80,
-        "padding_bottom": 64
+        "custom_liquid": "<section class=\"physalis-manifiesto\" style=\"padding:96px 32px;background:#F3E5BC;\">\n  <div style=\"max-width:760px;margin:0 auto;\">\n    <p style=\"font-family:var(--font-body-family);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:#C05A2A;margin:0 0 1.5rem 0;\">Manifiesto</p>\n    <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.2rem,4vw,3.2rem);color:#3E2418;margin:0 0 2rem 0;letter-spacing:-0.01em;line-height:1.15;\">Por qué existe Physalis Lab</h2>\n    <p style=\"font-family:var(--font-heading-family);font-style:italic;font-size:clamp(1.15rem,1.6vw,1.4rem);color:#3E2418;line-height:1.65;margin:0 0 1.5rem 0;opacity:.9;\">Creemos que el diseño chileno tiene una voz que no necesita escala industrial para encontrar a su público.</p>\n    <p style=\"font-family:var(--font-body-family);font-size:1.1rem;color:#3E2418;line-height:1.75;margin:0 0 1.25rem 0;\">Cada pieza Physalis nace de la mano de una autora o autor independiente, se imprime en Chile sólo cuando alguien la pide, y llega firmada a su nuevo hogar.</p>\n    <p style=\"font-family:var(--font-body-family);font-size:1.1rem;color:#3E2418;line-height:1.75;margin:0;\">Es una forma distinta de habitar la mesa, la pared o el rincón íntimo: con intención, con autoría, sin desperdicio.</p>\n  </div>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
-    "valores": {
-      "type": "multicolumn",
-      "blocks": {
-        "v-1": {
-          "type": "column",
-          "settings": {
-            "title": "Autoría firmada",
-            "text": "<p>Cada pieza viene con la firma de su diseñador y el sello Physalis.</p>"
-          }
-        },
-        "v-2": {
-          "type": "column",
-          "settings": {
-            "title": "Producción local",
-            "text": "<p>Imprimimos en Chile, bajo pedido, en filamentos seleccionados por su origen y durabilidad.</p>"
-          }
-        },
-        "v-3": {
-          "type": "column",
-          "settings": {
-            "title": "Cero stock",
-            "text": "<p>No producimos lo que no se pide. Menos desperdicio, más cuidado en cada paso.</p>"
-          }
-        }
-      },
-      "block_order": ["v-1", "v-2", "v-3"],
+    "principios": {
+      "type": "custom-liquid",
       "settings": {
-        "title": "Nuestros principios",
-        "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "left",
-        "background_style": "none",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "padding_top": 64,
-        "padding_bottom": 64
+        "custom_liquid": "<section class=\"physalis-principios\" style=\"padding:80px 32px;background:#FAF0CF;\">\n  <div style=\"max-width:1400px;margin:0 auto;\">\n    <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.2rem,4vw,3.2rem);color:#3E2418;margin:0 0 3rem 0;letter-spacing:-0.01em;\">Nuestros principios</h2>\n    <div class=\"principios-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;\">\n      {%- assign pr = 'Autoría firmada|Cada pieza viene con la firma de su diseñador y el sello Physalis.~~Producción local|Imprimimos en Chile, bajo pedido, en filamentos seleccionados por origen y durabilidad.~~Cero stock|No producimos lo que no se pide. Menos desperdicio, más cuidado en cada paso.' | split: '~~' -%}\n      {%- for x in pr -%}\n        {%- assign parts = x | split: '|' -%}\n        <div class=\"principio-card\" style=\"padding:3rem 2rem;border-radius:3px;\">\n          <h3 style=\"font-family:var(--font-heading-family);font-size:1.75rem;margin:0 0 1rem 0;color:#3E2418;font-weight:500;letter-spacing:-0.005em;\">{{ parts[0] }}</h3>\n          <p style=\"font-family:var(--font-body-family);font-size:1.05rem;line-height:1.65;margin:0;color:#3E2418;\">{{ parts[1] }}</p>\n        </div>\n      {%- endfor -%}\n    </div>\n  </div>\n  <style>\n    .principios-grid .principio-card:nth-child(3n+1){background:#D96E3B;color:#FAF0CF;}\n    .principios-grid .principio-card:nth-child(3n+1) h3,.principios-grid .principio-card:nth-child(3n+1) p{color:#FAF0CF;}\n    .principios-grid .principio-card:nth-child(3n+2){background:#E0A94A;}\n    .principios-grid .principio-card:nth-child(3n+3){background:#7BA88A;color:#FAF0CF;}\n    .principios-grid .principio-card:nth-child(3n+3) h3,.principios-grid .principio-card:nth-child(3n+3) p{color:#FAF0CF;}\n    @media (max-width:990px){.principios-grid{grid-template-columns:1fr!important;}}\n  </style>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "puente_2": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#B89BC4;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#3E2418;margin:0;\">Una firma por pieza, un lugar de origen.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "cierre": {
@@ -132,10 +89,10 @@
       "settings": {
         "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     }
   },
-  "order": ["hero", "manifiesto", "valores", "cierre"]
+  "order": ["hero", "puente_1", "manifiesto", "principios", "puente_2", "cierre"]
 }

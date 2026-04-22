@@ -1,15 +1,6 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "banner": {
+    "hero": {
       "type": "rich-text",
       "blocks": {
         "caption": {
@@ -37,8 +28,16 @@
       "settings": {
         "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 48
+        "padding_top": 96,
+        "padding_bottom": 64
+      }
+    },
+    "puente_autores": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#7BA88A;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#FAF0CF;margin:0;\">Un autor por pieza, un lugar de origen.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "grid": {
@@ -46,14 +45,32 @@
       "settings": {
         "title": "Diseñadores",
         "heading_size": "h1",
+        "subtitle": "<p>Cinco estudios. Cinco formas de mirar la materia. Explora su trabajo y llevalo a tu hogar.</p>",
         "metaobject_type": "designer",
         "columns_desktop": 3,
         "columns_mobile": "1",
         "color_scheme": "scheme-1",
-        "padding_top": 48,
+        "wide_container": true,
+        "padding_top": 72,
         "padding_bottom": 80
+      }
+    },
+    "puente_sumate": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#D96E3B;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#FAF0CF;margin:0;\">¿Diseñás en Chile? Queremos conocerte.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "sumate": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-sumate\" style=\"padding:80px 32px;background:#F3E5BC;text-align:center;\">\n  <div style=\"max-width:640px;margin:0 auto;\">\n    <p style=\"font-family:var(--font-body-family);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:#C05A2A;margin:0 0 1rem 0;\">Convocatoria abierta</p>\n    <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2rem,3.5vw,2.8rem);color:#3E2418;margin:0 0 1rem 0;letter-spacing:-0.01em;\">Sumate a la editorial</h2>\n    <p style=\"font-family:var(--font-heading-family);font-style:italic;font-size:1.25rem;color:#3E2418;opacity:.8;margin:0 0 2.5rem 0;\">Buscamos diseñadoras y diseñadores chilenos para nuestra próxima camada. Mándanos tu portfolio y conversemos.</p>\n    <a href=\"/pages/contacto\" style=\"display:inline-block;background:#3E2418;color:#FAF0CF;font-family:var(--font-body-family);font-weight:600;letter-spacing:0.04em;padding:20px 52px;border-radius:2px;text-decoration:none;font-size:1.1rem;transition:background .2s ease;\" onmouseover=\"this.style.background='#805A44'\" onmouseout=\"this.style.background='#3E2418'\">Escribinos</a>\n  </div>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
-  "order": ["banner", "grid"]
+  "order": ["hero", "puente_autores", "grid", "puente_sumate", "sumate"]
 }

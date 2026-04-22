@@ -1557,3 +1557,86 @@ main#MainContent > .shopify-section + .shopify-section::before {
   border-bottom-color: #805A44 !important;
   letter-spacing: 0.02em !important;
 }
+
+/* =========================================================
+   Páginas internas — Catálogo, Diseñadores, Cómo funciona,
+   Sobre nosotros, Contacto. Misma estética que el home.
+   ========================================================= */
+
+/* Textura de papel sutil sobre secciones crema de páginas internas */
+.physalis-contacto-info,
+.physalis-manifiesto,
+.physalis-principios,
+.physalis-pasos,
+.physalis-materiales,
+.physalis-sumate {
+  position: relative;
+}
+.physalis-contacto-info::before,
+.physalis-manifiesto::before,
+.physalis-principios::before,
+.physalis-pasos::before,
+.physalis-materiales::before,
+.physalis-sumate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+  z-index: 0;
+}
+.physalis-contacto-info > div,
+.physalis-manifiesto > div,
+.physalis-principios > div,
+.physalis-pasos > div,
+.physalis-materiales > div,
+.physalis-sumate > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Info cards de contacto con sombra */
+.physalis-contacto-info .physalis-info-card {
+  box-shadow: 0 14px 34px -20px rgba(62, 36, 24, 0.28);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.physalis-contacto-info .physalis-info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 44px -18px rgba(62, 36, 24, 0.38);
+}
+
+/* Cards de principios / pasos con sombra y lift */
+.principios-grid .principio-card,
+.pasos-grid .paso-card {
+  box-shadow: 0 16px 40px -22px rgba(62, 36, 24, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.principios-grid .principio-card:hover,
+.pasos-grid .paso-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 50px -20px rgba(62, 36, 24, 0.45);
+}
+
+/* Ornamento editorial (pincelada) antes de H2 en secciones internas */
+.physalis-manifiesto h2::before,
+.physalis-principios h2::before,
+.physalis-pasos h2::before,
+.physalis-materiales h2::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: #D96E3B;
+  margin-bottom: 1.5rem;
+}
+
+/* Material chips hover sutil */
+.physalis-materiales .mat-chip {
+  transition: transform 0.3s ease;
+}
+.physalis-materiales .mat-chip:hover {
+  transform: translateY(-3px);
+}

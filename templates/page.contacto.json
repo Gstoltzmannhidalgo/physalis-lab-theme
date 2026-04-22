@@ -1,15 +1,6 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "banner": {
+    "hero": {
       "type": "rich-text",
       "blocks": {
         "caption": {
@@ -22,14 +13,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Escribinos",
+            "heading": "Escríbenos",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Para encargos personalizados, colaboraciones con diseñadores, prensa o consultas sobre tu pedido, completá el formulario o escribinos a hola@physalis-lab.cl.</p>"
+            "text": "<p>Para encargos personalizados, colaboraciones con diseñadores, prensa o consultas sobre tu pedido.</p>"
           }
         }
       },
@@ -37,20 +28,44 @@
       "settings": {
         "color_scheme": "scheme-3",
         "full_width": true,
-        "padding_top": 80,
-        "padding_bottom": 48
+        "padding_top": 96,
+        "padding_bottom": 72
+      }
+    },
+    "puente_contacto": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#E0A94A;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#3E2418;margin:0;letter-spacing:0;\">Respondemos en máximo 48 horas hábiles.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "info_contacto": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-contacto-info\" style=\"padding:80px 32px;background:#F3E5BC;position:relative;\">\n  <div style=\"max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;\">\n    {%- assign items = 'Email|hola@physalis-lab.cl|Para cualquier consulta,WhatsApp|+56 9 4012 8833|Lun a Vie · 10 a 18hrs,Showroom|Av. Italia 1250 · Providencia|Con cita previa,Instagram|@physalis.lab|Detrás de cámaras' | split: ',' -%}\n    {%- for item in items -%}\n      {%- assign p = item | split: '|' -%}\n      <div class=\"physalis-info-card\" style=\"padding:2rem 1.5rem;background:#FAF0CF;border-radius:3px;\">\n        <p style=\"font-family:var(--font-body-family);font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;margin:0 0 .75rem 0;\">{{ p[0] }}</p>\n        <h3 style=\"font-family:var(--font-heading-family);font-size:1.35rem;margin:0 0 .5rem 0;color:#3E2418;font-weight:500;\">{{ p[1] }}</h3>\n        <p style=\"font-family:var(--font-heading-family);font-style:italic;font-size:1rem;color:#3E2418;opacity:.75;margin:0;\">{{ p[2] }}</p>\n      </div>\n    {%- endfor -%}\n  </div>\n  <style>\n    .physalis-contacto-info .physalis-info-card:nth-child(4n+1) p:first-child{color:#C05A2A;}\n    .physalis-contacto-info .physalis-info-card:nth-child(4n+2) p:first-child{color:#A87820;}\n    .physalis-contacto-info .physalis-info-card:nth-child(4n+3) p:first-child{color:#5A8068;}\n    .physalis-contacto-info .physalis-info-card:nth-child(4n+4) p:first-child{color:#4A7C88;}\n    @media (max-width:990px){.physalis-contacto-info>div{grid-template-columns:repeat(2,1fr)!important;}}\n    @media (max-width:560px){.physalis-contacto-info>div{grid-template-columns:1fr!important;}}\n  </style>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
-        "heading_size": "h2",
+        "heading": "Cuéntanos",
+        "heading_size": "h1",
         "color_scheme": "scheme-1",
-        "padding_top": 32,
-        "padding_bottom": 80
+        "padding_top": 64,
+        "padding_bottom": 96
+      }
+    },
+    "cierre_contacto": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#B89BC4;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#3E2418;margin:0;\">Cada mensaje lo lee una persona, no un bot.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
-  "order": ["banner", "form"]
+  "order": ["hero", "puente_contacto", "info_contacto", "form", "cierre_contacto"]
 }

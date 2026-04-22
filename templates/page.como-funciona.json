@@ -1,0 +1,143 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Proceso",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Cómo funciona Physalis Lab",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Del estudio del diseñador a tu hogar, en tres pasos. Sin stock, sin intermediarios, firmado por su autor.</p>"
+          }
+        }
+      },
+      "block_order": ["caption", "heading", "text"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 72
+      }
+    },
+    "puente_1": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#E0A94A;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#3E2418;margin:0;\">3 a 5 días de producción + despacho a todo Chile.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "pasos": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-pasos\" style=\"padding:96px 32px;background:#F3E5BC;\">\n  <div style=\"max-width:1400px;margin:0 auto;\">\n    <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.2rem,4vw,3.2rem);color:#3E2418;margin:0 0 3rem 0;letter-spacing:-0.01em;\">El proceso</h2>\n    <div class=\"pasos-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;\">\n      {%- assign pasos = '01|El diseñador crea|Diseñadoras y diseñadores latinoamericanos nos confían piezas originales pensadas para imprimirse en 3D.~~02|Nosotros imprimimos|Imprimimos cada pieza bajo pedido en nuestro taller en Santiago, con materiales seleccionados por su origen y durabilidad.~~03|Llega a tu hogar|Despachamos a todo Chile en 5 a 8 días hábiles. Cada pieza viaja con la firma de su autor.' | split: '~~' -%}\n      {%- for p in pasos -%}\n        {%- assign parts = p | split: '|' -%}\n        <div class=\"paso-card\" style=\"padding:3rem 2rem;border-radius:3px;position:relative;\">\n          <span class=\"paso-num\" style=\"font-family:var(--font-heading-family);font-style:italic;font-size:4.5rem;line-height:1;display:block;margin:0 0 1.5rem 0;opacity:.85;\">{{ parts[0] }}</span>\n          <h3 style=\"font-family:var(--font-heading-family);font-size:1.65rem;margin:0 0 1rem 0;font-weight:500;letter-spacing:-0.005em;\">{{ parts[1] }}</h3>\n          <p style=\"font-family:var(--font-body-family);font-size:1.05rem;line-height:1.65;margin:0;\">{{ parts[2] }}</p>\n        </div>\n      {%- endfor -%}\n    </div>\n  </div>\n  <style>\n    .pasos-grid .paso-card:nth-child(3n+1){background:#D96E3B;color:#FAF0CF;}\n    .pasos-grid .paso-card:nth-child(3n+2){background:#7BA88A;color:#FAF0CF;}\n    .pasos-grid .paso-card:nth-child(3n+3){background:#6FA3B0;color:#FAF0CF;}\n    @media (max-width:990px){.pasos-grid{grid-template-columns:1fr!important;}}\n  </style>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "puente_2": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-bridge\" style=\"background:#B89BC4;padding:42px 32px;text-align:center;\">\n  <p style=\"font-family:var(--font-heading-family,'Fraunces',serif);font-style:italic;font-size:clamp(1.3rem,2.2vw,1.75rem);color:#3E2418;margin:0;\">PLA biodegradable, de origen vegetal.</p>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "materiales": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-materiales\" style=\"padding:96px 32px;background:#FAF0CF;\">\n  <div style=\"max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:center;\">\n    <div>\n      <p style=\"font-family:var(--font-body-family);font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:#5A8068;margin:0 0 1rem 0;\">Materiales</p>\n      <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2rem,3.5vw,2.8rem);color:#3E2418;margin:0 0 1.5rem 0;letter-spacing:-0.01em;\">Filamento vegetal, impresión cuidada</h2>\n      <p style=\"font-family:var(--font-body-family);font-size:1.1rem;line-height:1.75;color:#3E2418;margin:0 0 1rem 0;\">Trabajamos con <strong>PLA biodegradable de origen vegetal</strong> — almidón de maíz o caña de azúcar — seleccionado por su durabilidad, terminación y baja huella.</p>\n      <p style=\"font-family:var(--font-body-family);font-size:1.1rem;line-height:1.75;color:#3E2418;margin:0;\">Cada pieza se calibra a mano antes de enviarse. Si algo no queda como esperamos, lo reimprimimos.</p>\n    </div>\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:1rem;\">\n      {%- assign tags = 'PLA vegetal|Biodegradable,Hecho a pedido|Sin stock,Firmado|Por su autor,Reimpresión|Si no queda bien' | split: ',' -%}\n      {%- for t in tags -%}\n        {%- assign p = t | split: '|' -%}\n        <div class=\"mat-chip\" style=\"padding:1.5rem 1.25rem;border-radius:3px;background:#F3E5BC;\">\n          <h4 style=\"font-family:var(--font-heading-family);font-size:1.15rem;margin:0 0 .35rem 0;color:#3E2418;font-weight:500;\">{{ p[0] }}</h4>\n          <p style=\"font-family:var(--font-heading-family);font-style:italic;font-size:0.95rem;margin:0;color:#3E2418;opacity:.75;\">{{ p[1] }}</p>\n        </div>\n      {%- endfor -%}\n    </div>\n  </div>\n  <style>\n    .physalis-materiales .mat-chip:nth-child(4n+1){background:#D96E3B;color:#FAF0CF;}\n    .physalis-materiales .mat-chip:nth-child(4n+1) h4,.physalis-materiales .mat-chip:nth-child(4n+1) p{color:#FAF0CF;}\n    .physalis-materiales .mat-chip:nth-child(4n+2){background:#E0A94A;}\n    .physalis-materiales .mat-chip:nth-child(4n+3){background:#7BA88A;color:#FAF0CF;}\n    .physalis-materiales .mat-chip:nth-child(4n+3) h4,.physalis-materiales .mat-chip:nth-child(4n+3) p{color:#FAF0CF;}\n    .physalis-materiales .mat-chip:nth-child(4n+4){background:#6FA3B0;color:#FAF0CF;}\n    .physalis-materiales .mat-chip:nth-child(4n+4) h4,.physalis-materiales .mat-chip:nth-child(4n+4) p{color:#FAF0CF;}\n    @media (max-width:780px){.physalis-materiales>div{grid-template-columns:1fr!important;gap:2rem!important;}}\n  </style>\n</section>",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "faq": {
+      "type": "collapsible-content",
+      "blocks": {
+        "f1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto demora mi pedido?",
+            "row_content": "<p>Producción: 3 a 5 días hábiles. Despacho: 5 a 8 días hábiles a regiones vía Starken o Chilexpress.</p>"
+          }
+        },
+        "f2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo retirar en persona?",
+            "row_content": "<p>Sí. Coordiná retiro en Providencia escribiéndonos después de tu compra.</p>"
+          }
+        },
+        "f3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Hacen piezas personalizadas?",
+            "row_content": "<p>Sí. Escribinos contándonos qué necesitas y te derivamos al diseñador correspondiente.</p>"
+          }
+        },
+        "f4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Aceptan devoluciones?",
+            "row_content": "<p>Por ser piezas hechas a pedido, sólo aceptamos devoluciones por defecto de fabricación o daño en transporte. Plazo: 7 días desde la recepción.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "caption": "Preguntas frecuentes",
+        "heading": "Dudas al vuelo",
+        "heading_size": "h1",
+        "layout": "row",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 72,
+        "padding_bottom": 80
+      }
+    },
+    "cierre": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "¿Listo para encargar tu pieza?",
+            "heading_size": "h1"
+          }
+        },
+        "buttons": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explorar catálogo",
+            "button_link": "shopify://collections/all",
+            "button_label_2": "Escribinos",
+            "button_link_2": "shopify://pages/contacto",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["heading", "buttons"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": ["hero", "puente_1", "pasos", "puente_2", "materiales", "faq", "cierre"]
+}
