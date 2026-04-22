@@ -86,7 +86,7 @@
                 </h3>
                 {%- if designer.bio != blank -%}
                   <p class="disenador-card__bio">
-                    {{- designer.bio | strip_html | truncate: 60 -}}
+                    {{- designer.bio | strip_html | truncate: 180 -}}
                   </p>
                 {%- endif -%}
                 <span class="disenador-card__cta caption-with-letter-spacing">

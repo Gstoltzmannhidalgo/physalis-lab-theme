@@ -756,7 +756,7 @@ hr,
   opacity: 0.8;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1203,10 +1203,16 @@ main#MainContent > .shopify-section + .shopify-section::before {
   background: var(--physalis-lila);
 }
 
-/* Bullet list ornaments en cards: dot rotativo por diseñador */
+/* Bullet list ornaments en cards: cuadrado de color rotativo por diseñador */
 .disenador-card__location::before {
-  content: "● ";
-  color: var(--physalis-salvia);
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.9rem;
+  vertical-align: middle;
+  background: var(--physalis-salvia);
+  transform: translateY(-0.05em);
 }
 .disenadores-grid > .disenador-card:nth-child(5n+1) .disenador-card__location::before,
 .disenadores-grid > .disenador-card:nth-child(5n+1) .caption-with-letter-spacing::after { background: var(--physalis-terracota); color: var(--physalis-terracota); }
