@@ -1,0 +1,155 @@
+{
+  "sections": {
+    "hero": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-hero\" style=\"position:relative;width:100%;min-height:560px;background-image:url('{{ 'hero-banner.jpg' | asset_url }}');background-size:cover;background-position:center;display:flex;align-items:center;\">\n  <div style=\"max-width:1200px;margin:0 auto;padding:80px 32px;color:#3E2418;width:100%;\">\n    <h1 style=\"font-family:var(--font-heading-family);font-size:clamp(3rem,6.2vw,5.6rem);line-height:1.02;margin:0 0 1.5rem 0;max-width:780px;color:#3E2418;letter-spacing:-0.015em;font-weight:600;\">Diseño de autor, en tu hogar.</h1>\n    <p style=\"font-family:var(--font-body-family);font-size:clamp(1.2rem,1.7vw,1.55rem);line-height:1.5;margin:0 0 2.5rem 0;max-width:620px;color:#3E2418;\">Piezas únicas de diseñadores de todo el mundo, fabricadas en Chile para ti.</p>\n    <div style=\"display:flex;gap:1rem;flex-wrap:wrap;\">\n      <a href=\"/collections/all\" style=\"display:inline-block;padding:20px 40px;background:#3E2418;color:#FAF0CF;text-decoration:none;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:1rem;\">Explorar tienda</a>\n      <a href=\"/pages/disenadores\" style=\"display:inline-block;padding:20px 40px;background:transparent;color:#3E2418;border:1.5px solid #3E2418;text-decoration:none;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:1rem;\">Conocer diseñadores</a>\n    </div>\n  </div>\n</section>",
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "trust_bar": {
+      "type": "multicolumn",
+      "blocks": {
+        "t1": { "type": "column", "settings": { "title": "No es un objeto, es un diseñador", "text": "<p>Cada pieza tiene nombre, rostro y país.</p>" } },
+        "t2": { "type": "column", "settings": { "title": "Licencias exclusivas y únicas", "text": "<p>Acuerdos directos con cada estudio.</p>" } },
+        "t3": { "type": "column", "settings": { "title": "Cero sobrestock", "text": "<p>Imprimimos solo lo que pides.</p>" } },
+        "t4": { "type": "column", "settings": { "title": "Materiales conscientes", "text": "<p>PLA vegetal, biodegradable y sustentable.</p>" } },
+        "t5": { "type": "column", "settings": { "title": "Crédito al diseñador", "text": "<p>Royalties en cada venta para el artista.</p>" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5"],
+      "settings": {
+        "title": "", "heading_size": "h2", "image_width": "full", "image_ratio": "adapt",
+        "columns_desktop": 5, "column_alignment": "left", "background_style": "none",
+        "button_label": "", "button_link": "", "swipe_on_mobile": true,
+        "color_scheme": "scheme-2", "columns_mobile": "1", "padding_top": 48, "padding_bottom": 48
+      }
+    },
+    "tagline_band": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section style=\"padding:80px 32px;background:#E0A94A;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.1;margin:0;color:#3E2418;letter-spacing:-0.015em;font-weight:500;\">Diseño global. Fabricación local.</h2>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "disenadores_destacados": {
+      "type": "disenadores-grid",
+      "settings": {
+        "title": "Diseñadores destacados",
+        "heading_size": "h1",
+        "subtitle": "<p>Detrás de cada objeto hay un estudio, una mirada, una firma.</p>",
+        "metaobject_type": "designer",
+        "columns_desktop": 5,
+        "columns_mobile": "1",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "button_label": "Todos los diseñadores",
+        "button_link": "/pages/disenadores"
+      }
+    },
+    "banda_salvia": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section style=\"padding:72px 32px;background:#7BA88A;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.2;margin:0;color:#FAF0CF;letter-spacing:-0.01em;font-weight:500;max-width:1000px;margin-left:auto;margin-right:auto;\">Nombre, rostro, país. Detrás de cada pieza, una historia real.</h2>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "categorias": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-categorias\" style=\"padding:80px 32px;background:#FAF0CF;\">\n  <div style=\"max-width:1400px;margin:0 auto;\">\n    <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.4rem,4vw,3.6rem);margin:0 0 3rem 0;color:#3E2418;letter-spacing:-0.01em;\">Explora por categoría</h2>\n    <div class=\"categorias-grid\" style=\"display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;\">\n      {%- assign cats = 'Lámparas|cat-lamparas.jpg|/collections/lamparas,Floreros|cat-floreros.jpg|/collections/floreros,Maceteros|cat-maceteros.jpg|/collections/maceteros,Decoración|cat-decoracion.jpg|/collections/decoracion,Otros|cat-otros.jpg|/collections/all' | split: ',' -%}\n      {%- for c in cats -%}\n        {%- assign p = c | split: '|' -%}\n        <a href=\"{{ p[2] }}\" style=\"text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden;\">\n          <div style=\"aspect-ratio:1/1;overflow:hidden;background:#EFE4C7;\">\n            <img src=\"{{ p[1] | asset_url }}\" alt=\"{{ p[0] }}\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;\">\n          </div>\n          <div style=\"background:#3E2418;padding:1.1rem 1.25rem 1.25rem;\">\n            <h3 style=\"font-family:var(--font-heading-family);font-size:1.4rem;margin:0 0 .25rem 0;color:#FAF0CF;font-weight:500;letter-spacing:-0.005em;\">{{ p[0] }}</h3>\n            <span style=\"font-family:var(--font-body-family);font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:#E4A56D;\">Ver colección →</span>\n          </div>\n        </a>\n      {%- endfor -%}\n    </div>\n  </div>\n  <style>\n    .categorias-grid a:hover img{transform:scale(1.04);}\n    @media (max-width:990px){.categorias-grid{grid-template-columns:repeat(2,1fr)!important;}}\n    @media (max-width:560px){.categorias-grid{grid-template-columns:1fr!important;}}\n  </style>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banda_celeste": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section style=\"padding:72px 32px;background:#6FA3B0;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.2;margin:0;color:#3E2418;letter-spacing:-0.01em;font-weight:500;max-width:1000px;margin-left:auto;margin-right:auto;\">PLA vegetal, biodegradable. Diseñado para volver a la tierra.</h2>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "productos_populares": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-populares color-scheme-2\" style=\"padding:80px 32px;background:var(--physalis-cream-light,#FAF0CF);\">\n  <div style=\"max-width:1400px;margin:0 auto;\">\n    <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.4rem,4vw,3.6rem);margin:0 0 1rem 0;color:#3E2418;letter-spacing:-0.01em;\">Destacados</h2>\n    <p style=\"font-family:var(--font-body-family);font-size:1.15rem;color:#3E2418;margin:0 0 3rem 0;max-width:60ch;opacity:.85;\">Las piezas favoritas del catálogo, listas para imprimirse a pedido.</p>\n    <div class=\"populares-grid\" style=\"display:grid;grid-template-columns:repeat(5,1fr);gap:2rem;\">\n      {%- assign products_demo = 'Cuenco Onda|Amaya Studio|product-demo-1.jpg,Florero Tallo|Bruno Vega|product-demo-2.jpg,Lámpara Lumi|Mei Chen|product-demo-3.jpg,Macetero Vértice|Kasia Nowak|product-demo-4.jpg,Vasija Ágora|Lorenzo Ricci|product-demo-5.jpg' | split: ',' -%}\n      {%- for item in products_demo -%}\n        {%- assign parts = item | split: '|' -%}\n        <a href=\"/collections/all\" style=\"text-decoration:none;color:inherit;display:block;\">\n          <div style=\"aspect-ratio:1/1;overflow:hidden;background:#EFE4C7;margin-bottom:1rem;\">\n            <img src=\"{{ parts[2] | asset_url }}\" alt=\"{{ parts[0] }}\" loading=\"lazy\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">\n          </div>\n          <p style=\"font-family:var(--font-body-family);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;margin:0 0 .35rem 0;color:#7A4A2E;\">{{ parts[1] }}</p>\n          <h3 style=\"font-family:var(--font-heading-family);font-size:1.25rem;margin:0 0 .35rem 0;color:#3E2418;font-weight:500;\">{{ parts[0] }}</h3>\n          <span style=\"font-family:var(--font-body-family);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:#3E2418;\">Ver pieza →</span>\n        </a>\n      {%- endfor -%}\n    </div>\n    <div style=\"text-align:center;margin-top:3.5rem;\">\n      <a href=\"/collections/all\" style=\"display:inline-block;padding:18px 40px;background:#3E2418;color:#FAF0CF;text-decoration:none;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:0.95rem;\">Ver todo el catálogo</a>\n    </div>\n  </div>\n  <style>@media (max-width:990px){.populares-grid{grid-template-columns:repeat(2,1fr)!important;gap:1.25rem!important;}}</style>\n</section>",
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "banda_lila": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section style=\"padding:72px 32px;background:#B89BC4;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.2;margin:0;color:#3E2418;letter-spacing:-0.01em;font-weight:500;max-width:1000px;margin-left:auto;margin-right:auto;\">Royalties en cada venta. El diseño también se paga.</h2>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "testimonios": {
+      "type": "multicolumn",
+      "blocks": {
+        "q1": { "type": "column", "settings": { "title": "Camila R.", "text": "<p>«Compré un cuenco de Amaya y no puedo dejar de mirarlo. Se siente que tiene historia, no parece producido en serie.»</p>" } },
+        "q2": { "type": "column", "settings": { "title": "Felipe M.", "text": "<p>«El florero llegó perfecto, mejor que en las fotos. Y saber que está hecho en Chile y que paga al diseñador hace toda la diferencia.»</p>" } },
+        "q3": { "type": "column", "settings": { "title": "Valentina P.", "text": "<p>«La lámpara de Mei Chen es una obra. Me preguntan por ella todo el tiempo cuando vienen a casa.»</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3"],
+      "settings": {
+        "title": "Lo que dicen quienes ya recibieron una pieza",
+        "heading_size": "h1", "image_width": "full", "image_ratio": "adapt",
+        "columns_desktop": 3, "column_alignment": "left", "background_style": "none",
+        "button_label": "", "button_link": "", "swipe_on_mobile": true,
+        "color_scheme": "scheme-1", "columns_mobile": "1", "padding_top": 80, "padding_bottom": 80
+      }
+    },
+    "instagram_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": { "type": "heading", "settings": { "heading": "@physalis.lab", "heading_size": "h2" } },
+        "heading": { "type": "heading", "settings": { "heading": "Síguenos para ver el taller en vivo", "heading_size": "h1" } },
+        "text": { "type": "text", "settings": { "text": "<p>Procesos de impresión, nuevos lanzamientos, tomas detrás de escena con cada diseñador. Todo en nuestro Instagram.</p>" } },
+        "button": { "type": "button", "settings": { "button_label": "Ver Instagram", "button_link": "https://instagram.com/physalis.lab", "button_style_secondary": false } }
+      },
+      "block_order": ["caption", "heading", "text", "button"],
+      "settings": {
+        "color_scheme": "scheme-3", "full_width": false, "padding_top": 80, "padding_bottom": 64
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": { "type": "heading", "settings": { "heading": "Únete al Lab" } },
+        "paragraph": { "type": "paragraph", "settings": {} },
+        "email_form": { "type": "email_form", "settings": {} }
+      },
+      "block_order": ["heading", "paragraph", "email_form"],
+      "settings": {
+        "color_scheme": "scheme-1", "padding_top": 80, "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "trust_bar",
+    "tagline_band",
+    "disenadores_destacados",
+    "banda_salvia",
+    "categorias",
+    "banda_celeste",
+    "productos_populares",
+    "banda_lila",
+    "testimonios",
+    "instagram_cta",
+    "newsletter"
+  ]
+}

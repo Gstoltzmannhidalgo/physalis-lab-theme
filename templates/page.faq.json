@@ -1,0 +1,154 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "rich-text",
+      "blocks": {
+        "caption": {
+          "type": "caption",
+          "settings": {
+            "caption": "Soporte",
+            "text_style": "caption-with-letter-spacing"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Preguntas frecuentes",
+            "heading_size": "h0"
+          }
+        }
+      },
+      "block_order": ["caption", "heading"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 80,
+        "padding_bottom": 48
+      }
+    },
+    "envios": {
+      "type": "collapsible-content",
+      "blocks": {
+        "f1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cuánto demora mi pedido?",
+            "row_content": "<p>Cada pieza se imprime bajo pedido. El tiempo de producción es de 3 a 5 días hábiles, más el despacho (5 a 8 días hábiles a regiones vía Starken o Chilexpress).</p>"
+          }
+        },
+        "f2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Hacen envío internacional?",
+            "row_content": "<p>Por ahora despachamos sólo dentro de Chile. Estamos evaluando opciones para Latinoamérica durante 2026.</p>"
+          }
+        },
+        "f3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo retirar en persona?",
+            "row_content": "<p>Sí. Coordiná retiro en Santiago escribiéndonos por la página de contacto luego de tu compra.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": {
+        "caption": "Envíos y despachos",
+        "heading": "Envíos",
+        "heading_size": "h2",
+        "layout": "row",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "producto": {
+      "type": "collapsible-content",
+      "blocks": {
+        "f1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿De qué material están hechas las piezas?",
+            "row_content": "<p>Filamento PLA biodegradable de origen vegetal. Es resistente, liviano, apto para uso decorativo y de mesa (no apto para microondas).</p>"
+          }
+        },
+        "f2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Cómo cuido una pieza Physalis?",
+            "row_content": "<p>Limpieza con paño húmedo y jabón neutro. Evitar fuentes de calor superiores a 60°C y exposición directa al sol prolongada.</p>"
+          }
+        },
+        "f3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Las piezas son únicas?",
+            "row_content": "<p>Cada diseño es de autoría firmada. Aunque pueden producirse varias unidades del mismo modelo, cada impresión lleva sutiles variaciones del proceso 3D.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": {
+        "caption": "Producto y cuidados",
+        "heading": "Producto",
+        "heading_size": "h2",
+        "layout": "row",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 16,
+        "padding_bottom": 32
+      }
+    },
+    "compras": {
+      "type": "collapsible-content",
+      "blocks": {
+        "f1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Qué medios de pago aceptan?",
+            "row_content": "<p>Mercado Pago (tarjetas de crédito y débito chilenas, transferencia, efectivo en puntos físicos).</p>"
+          }
+        },
+        "f2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Aceptan devoluciones?",
+            "row_content": "<p>Por ser piezas hechas a pedido, sólo aceptamos devoluciones en caso de defecto de fabricación o daño en el transporte. Plazo: 7 días desde la recepción.</p>"
+          }
+        },
+        "f3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "¿Puedo encargar una pieza personalizada?",
+            "row_content": "<p>Sí. Escribinos por la página de contacto contándonos qué necesitas y te derivamos al diseñador correspondiente.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3"],
+      "settings": {
+        "caption": "Compras y pagos",
+        "heading": "Compras",
+        "heading_size": "h2",
+        "layout": "row",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 16,
+        "padding_bottom": 64
+      }
+    }
+  },
+  "order": ["banner", "envios", "producto", "compras"]
+}
