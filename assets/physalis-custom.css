@@ -1193,11 +1193,21 @@ main#MainContent > .shopify-section + .shopify-section::before {
   background: var(--physalis-lila);
 }
 
-/* Bullet list ornaments en cards: dot lila */
+/* Bullet list ornaments en cards: dot rotativo por diseñador */
 .disenador-card__location::before {
   content: "● ";
-  color: var(--physalis-lila);
+  color: var(--physalis-salvia);
 }
+.disenadores-grid > .disenador-card:nth-child(5n+1) .disenador-card__location::before,
+.disenadores-grid > .disenador-card:nth-child(5n+1) .caption-with-letter-spacing::after { background: var(--physalis-salvia); color: var(--physalis-salvia); }
+.disenadores-grid > .disenador-card:nth-child(5n+2) .disenador-card__location::before,
+.disenadores-grid > .disenador-card:nth-child(5n+2) .caption-with-letter-spacing::after { background: var(--physalis-celeste); color: var(--physalis-celeste); }
+.disenadores-grid > .disenador-card:nth-child(5n+3) .disenador-card__location::before,
+.disenadores-grid > .disenador-card:nth-child(5n+3) .caption-with-letter-spacing::after { background: var(--physalis-lila); color: var(--physalis-lila); }
+.disenadores-grid > .disenador-card:nth-child(5n+4) .disenador-card__location::before,
+.disenadores-grid > .disenador-card:nth-child(5n+4) .caption-with-letter-spacing::after { background: var(--physalis-mostaza); color: var(--physalis-mostaza); }
+.disenadores-grid > .disenador-card:nth-child(5n+5) .disenador-card__location::before,
+.disenadores-grid > .disenador-card:nth-child(5n+5) .caption-with-letter-spacing::after { background: var(--physalis-terracota); color: var(--physalis-terracota); }
 
 /* Badge "Nuevo" / Tags ornamentales — utility class */
 .physalis-tag--lila {

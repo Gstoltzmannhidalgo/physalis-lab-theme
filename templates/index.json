@@ -78,7 +78,7 @@
     "puente": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section class=\"physalis-puente\" style=\"padding:48px 32px;background:#3E2418;color:#FAF0CF;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.2;margin:0;color:#FAF0CF;letter-spacing:-0.01em;font-weight:500;max-width:1100px;margin-left:auto;margin-right:auto;\">Conectamos diseñadores del mundo con tu hogar.</h2>\n</section>",
+        "custom_liquid": "<section class=\"physalis-puente\" style=\"padding:48px 32px;background:#7BA88A;color:#FAF0CF;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.2;margin:0;color:#FAF0CF;letter-spacing:-0.01em;font-weight:500;max-width:1100px;margin-left:auto;margin-right:auto;\">Conectamos diseñadores del mundo con tu hogar.</h2>\n</section>",
         "color_scheme": "scheme-3",
         "padding_top": 0,
         "padding_bottom": 0
@@ -286,8 +286,8 @@
     "tagline_band",
     "disenadores_destacados",
     "puente",
-    "productos_populares",
     "categorias",
+    "productos_populares",
     "como_funciona",
     "testimonios",
     "instagram_cta",
