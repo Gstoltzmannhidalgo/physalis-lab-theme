@@ -87,7 +87,7 @@
     "tagline_band": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<section style=\"padding:80px 32px;background:var(--physalis-terracota,#C2533A);text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.1;margin:0;color:#FAF0CF;letter-spacing:-0.015em;font-weight:500;\">Diseño global. Fabricación local.</h2>\n</section>",
+        "custom_liquid": "<section style=\"padding:80px 32px;background:#E0A94A;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(2.4rem,5vw,4.4rem);line-height:1.1;margin:0;color:#3E2418;letter-spacing:-0.015em;font-weight:500;\">Diseño global. Fabricación local.</h2>\n</section>",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 0
@@ -98,11 +98,14 @@
       "settings": {
         "title": "Diseñadores destacados",
         "heading_size": "h1",
-        "subtitle": "<p>Detrás de cada objeto hay un estudio, una mirada, una firma.</p>",
+        "subtitle": "<p>Detras de cada objeto hay un estudio, una persona, una firma.</p>",
         "metaobject_type": "designer",
         "columns_desktop": 5,
         "columns_mobile": "1",
         "color_scheme": "scheme-1",
+        "wide_container": true,
+        "button_label": "Todos los diseñadores",
+        "button_link": "/pages/disenadores",
         "padding_top": 80,
         "padding_bottom": 80
       }

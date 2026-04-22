@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Diseño de autor, impreso en Chile bajo pedido · Despacho a todo el país",
+            "text": "DISEÑO EXCLUSIVO, IMPRESO EN CHILE PARA TI · DESPACHO A TODO EL PAIS",
             "link": ""
           }
         }
@@ -25,7 +25,9 @@
       "block_order": [
         "announcement-bar-0"
       ],
-      "settings": {}
+      "settings": {
+        "color_scheme": "scheme-6"
+      }
     },
     "header": {
       "type": "header",
