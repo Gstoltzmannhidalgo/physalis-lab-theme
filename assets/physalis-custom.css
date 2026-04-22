@@ -1438,3 +1438,122 @@ main#MainContent > .shopify-section + .shopify-section::before {
 [id*="tagline_band"] .rich-text__wrapper {
   text-align: center;
 }
+
+/* =========================================================
+   Warmth pass — Categorías + Más pedidos
+   (textura de papel, sombras suaves, firmas editoriales)
+   ========================================================= */
+
+/* Textura de papel sutil sobre fondos crema */
+.physalis-categorias,
+.physalis-populares {
+  position: relative;
+}
+.physalis-categorias::before,
+.physalis-populares::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .45;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.14 0 0 0 0 0.09 0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+  z-index: 0;
+}
+.physalis-categorias > div,
+.physalis-populares > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ornamento editorial antes del título */
+.physalis-categorias h2::before,
+.physalis-populares h2::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 2px;
+  background: #D96E3B;
+  margin-bottom: 1.5rem;
+}
+
+/* Subtítulo editorial itálico en Más pedidos */
+.physalis-populares h2 + p {
+  font-family: var(--font-heading-family, "Fraunces", serif) !important;
+  font-style: italic !important;
+  font-size: 1.4rem !important;
+  font-weight: 400 !important;
+  opacity: .8 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* Cards de categorías con respiración cálida */
+.categorias-grid > a {
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px -20px rgba(62, 36, 24, 0.28);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.categorias-grid > a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px -18px rgba(62, 36, 24, 0.38);
+}
+
+/* Cards de productos (Más pedidos) con sombra y lift */
+.populares-grid > div > a:first-child > div {
+  border-radius: 3px;
+  box-shadow: 0 14px 34px -20px rgba(62, 36, 24, 0.28);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+.populares-grid > div:hover > a:first-child > div {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 44px -18px rgba(62, 36, 24, 0.38);
+}
+.populares-grid > div > a:first-child > div img {
+  transition: transform 0.7s ease;
+}
+.populares-grid > div:hover > a:first-child > div img {
+  transform: scale(1.04);
+}
+
+/* Firma del diseñador en itálica serif con rotación de color */
+.populares-grid > div > a:first-child p {
+  font-family: var(--font-heading-family, "Fraunces", serif) !important;
+  font-style: italic !important;
+  font-size: 1.05rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.populares-grid > div:nth-child(5n+1) > a:first-child p { color: #C05A2A !important; }
+.populares-grid > div:nth-child(5n+2) > a:first-child p { color: #A87820 !important; }
+.populares-grid > div:nth-child(5n+3) > a:first-child p { color: #5A8068 !important; }
+.populares-grid > div:nth-child(5n+4) > a:first-child p { color: #4A7C88 !important; }
+.populares-grid > div:nth-child(5n+5) > a:first-child p { color: #8A6A9E !important; }
+
+/* Botón "Ver pieza" editorial — texto con underline animado */
+.populares-grid > div > a:last-child {
+  background: transparent !important;
+  color: #3E2418 !important;
+  padding: 0 0 6px 0 !important;
+  text-transform: none !important;
+  font-family: var(--font-heading-family, "Fraunces", serif) !important;
+  font-style: italic !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  font-size: 1.15rem !important;
+  text-align: left !important;
+  border-bottom: 1px solid #3E2418 !important;
+  align-self: flex-start !important;
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+  transition: color 0.3s ease, border-color 0.3s ease, letter-spacing 0.3s ease;
+}
+.populares-grid > div > a:last-child:hover {
+  color: #805A44 !important;
+  border-bottom-color: #805A44 !important;
+  letter-spacing: 0.02em !important;
+}
