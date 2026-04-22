@@ -137,6 +137,15 @@
         "padding_bottom": 0
       }
     },
+    "puente_lila": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<section class=\"physalis-puente\" style=\"padding:48px 32px;background:#B89BC4;color:#FAF0CF;text-align:center;\">\n  <h2 style=\"font-family:var(--font-heading-family);font-size:clamp(1.6rem,3vw,2.6rem);line-height:1.2;margin:0;color:#FAF0CF;letter-spacing:-0.01em;font-weight:500;max-width:1100px;margin-left:auto;margin-right:auto;\">Una firma por pieza, un lugar de origen.</h2>\n</section>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "como_funciona": {
       "type": "multicolumn",
       "blocks": {
@@ -298,6 +307,7 @@
     "categorias",
     "puente_celeste",
     "productos_populares",
+    "puente_lila",
     "como_funciona",
     "testimonios",
     "instagram_cta",
