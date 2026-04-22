@@ -703,7 +703,7 @@ hr,
 .disenador-card__link:hover { opacity: 0.85; }
 
 .disenador-card__image {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 5 / 4;
   overflow: hidden;
   background: var(--physalis-cream-light, #FAF0CF);
   border: 1px solid var(--physalis-hairline, #C9B58A);
@@ -756,7 +756,7 @@ hr,
   opacity: 0.8;
   margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -1209,15 +1209,15 @@ main#MainContent > .shopify-section + .shopify-section::before {
   color: var(--physalis-salvia);
 }
 .disenadores-grid > .disenador-card:nth-child(5n+1) .disenador-card__location::before,
-.disenadores-grid > .disenador-card:nth-child(5n+1) .caption-with-letter-spacing::after { background: var(--physalis-salvia); color: var(--physalis-salvia); }
+.disenadores-grid > .disenador-card:nth-child(5n+1) .caption-with-letter-spacing::after { background: var(--physalis-terracota); color: var(--physalis-terracota); }
 .disenadores-grid > .disenador-card:nth-child(5n+2) .disenador-card__location::before,
-.disenadores-grid > .disenador-card:nth-child(5n+2) .caption-with-letter-spacing::after { background: var(--physalis-celeste); color: var(--physalis-celeste); }
+.disenadores-grid > .disenador-card:nth-child(5n+2) .caption-with-letter-spacing::after { background: var(--physalis-mostaza); color: var(--physalis-mostaza); }
 .disenadores-grid > .disenador-card:nth-child(5n+3) .disenador-card__location::before,
-.disenadores-grid > .disenador-card:nth-child(5n+3) .caption-with-letter-spacing::after { background: var(--physalis-lila); color: var(--physalis-lila); }
+.disenadores-grid > .disenador-card:nth-child(5n+3) .caption-with-letter-spacing::after { background: var(--physalis-salvia); color: var(--physalis-salvia); }
 .disenadores-grid > .disenador-card:nth-child(5n+4) .disenador-card__location::before,
-.disenadores-grid > .disenador-card:nth-child(5n+4) .caption-with-letter-spacing::after { background: var(--physalis-mostaza); color: var(--physalis-mostaza); }
+.disenadores-grid > .disenador-card:nth-child(5n+4) .caption-with-letter-spacing::after { background: var(--physalis-celeste); color: var(--physalis-celeste); }
 .disenadores-grid > .disenador-card:nth-child(5n+5) .disenador-card__location::before,
-.disenadores-grid > .disenador-card:nth-child(5n+5) .caption-with-letter-spacing::after { background: var(--physalis-terracota); color: var(--physalis-terracota); }
+.disenadores-grid > .disenador-card:nth-child(5n+5) .caption-with-letter-spacing::after { background: var(--physalis-lila); color: var(--physalis-lila); }
 
 /* Badge "Nuevo" / Tags ornamentales — utility class */
 .physalis-tag--lila {
